@@ -5,8 +5,8 @@ This project was designed and developed by students of [Metropolia](https://metr
 
 ## Table of Contents
  * [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installing](#installing)  
+   * [Prerequisites](#prerequisites)
+   * [Installing](#installing)  
  * [Deployment](#deployment)  
  * [Game Features](#game-features)
  * [Licensing](#licensing)  
