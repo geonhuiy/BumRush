@@ -13,7 +13,7 @@ This project was designed and developed by students of [Metropolia](https://metr
  
  ## Getting Started  
  ### Prerequisites  
- - Unity  
+ #### Unity  
  Download Unity Hub from  
  https://unity3d.com/get-unity/download  
  > Unity 2019.3.0f5 was used to create this project.  
