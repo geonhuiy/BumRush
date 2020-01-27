@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class HoboGeneration : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// OnMouseDown is called when the user has pressed the mouse button while
+    /// over the GUIElement or Collider.
+    /// </summary>
+    [SerializeField]
+    private GameObject hobo;
+    void OnMouseDown()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Mouse");
+        GameObject newHobo = Instantiate(hobo);
     }
 }

@@ -23,7 +23,7 @@ public class LayoutGeneration : MonoBehaviour
         for (int i = 0; i < layout.GetLength(0); i++) {
             for (int j = 0; j < layout.GetLength(2); j++) {
                 GameObject newTile = Instantiate(tile,new Vector3(i+(i*spacing), 0 ,j+(j*spacing)),Quaternion.identity);
-                //newTile.transform.localScale += new Vector3(4,0,4);
+                //newTile.transform.localScale += new Vector3(0,40,0);
                 //newTile.transform.position = new Vector3(i,0,j);
             }
         }
