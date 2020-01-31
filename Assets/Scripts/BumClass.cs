@@ -9,21 +9,24 @@ public class BumClass : MonoBehaviour
 {
 
     public int hp = 100;
-    public int fire_rate = 1;
+    public float fire_rate = 1;
     public int damage = 5;
-    public int aoe = 1;
+    public float aoe = 1;
    
     private Traits t1;
     private Traits t2;
     private Traits t3;
   
-    public GameObject BumInit(int level, GameObject hb)
+    public void BumInit(int level)
     {
 
         if (level == 1) //HOBO AT LEVEL 1 GETS 1 STAT MOD
         {
+
             t1  = new Traits(randBool());
             modify_stat(t1.moddedStat, t1.statMod);
+            Debug.Log(t1.moddedStat);
+            Debug.Log(t1.statMod);
         }
 
         else if (level == 2) //HOBO AT LEVEL 2 GETS 2 STAT MODS
@@ -57,10 +60,9 @@ public class BumClass : MonoBehaviour
                 t2 = new Traits(false);
                 modify_stat(t2.moddedStat, t2.statMod);
             }
-            t3 = new Traits(randBool());
+            t3 = new Traits(randBool(), true);
         }
 
-        return hb;
     }
 
     public bool randBool()
@@ -73,24 +75,22 @@ public class BumClass : MonoBehaviour
 
     public void modify_stat(int st, int modifier)
     {
-        if(st == 0)
+        if(st == 0)//MODIFIES HP STAT
         {
-            hp +=modifier;
+            hp +=modifier*10;
+            if(hp<=0){hp = 1;}
         }
 
-        else if(st == 1)
+        else if(st == 1)//MODIFIES FIRE RATE STAT
         {
-            fire_rate += modifier;
+            fire_rate += modifier*0.1f;
+            if(fire_rate<=0){fire_rate=0.3f;}
         }
 
-        else if(st == 2)
+        else if(st == 2)//MODIFIES DAMAGE STAT
         {
-            damage +=modifier;
-        }
-
-        else if(st == 3)
-        {
-            aoe +=modifier;
+            damage +=modifier*2; 
+            if(damage<=0){damage = 1;}
         }
     }
 

@@ -14,5 +14,6 @@ public class HoboGeneration : MonoBehaviour
     {
         Debug.Log("Mouse");
         GameObject newHobo = Instantiate(hobo, new Vector3(0,1,0),Quaternion.identity);
+        newHobo.GetComponent<BumClass>().BumInit(2);
     }
 }
