@@ -8,30 +8,33 @@ public class Traits : MonoBehaviour
     public int moddedStat;
     public int statMod;
     public bool good;
-  
+
 
 
     //CONSTRUCTOR/DESTRUCTOR
-    public Traits(bool tr)
+    public Traits(bool tr, bool wild = false)
     {
-        if(tr == true)
+        if (wild)
         {
-            statMod = Random.Range(1, 5);
-            Debug.Log(moddedStat);
+            WildCard();
         }
-        else if(tr == false)
+
+        if (tr == true)
         {
-            statMod = -Random.Range(1, 5);
-            Debug.Log(moddedStat);
+            statMod = Random.Range(1, 10);
         }
-        
-        moddedStat = Random.Range(0,3);
-        Debug.Log(statMod);
+        else if (tr == false)
+        {
+            statMod = -Random.Range(1, 10);
+        }
+
+        moddedStat = Random.Range(0, 3);
+
         good = tr;
-        Debug.Log(good);
+
     }
-    
-    void WildCard(){}
+
+    void WildCard() { }
 
 }
 

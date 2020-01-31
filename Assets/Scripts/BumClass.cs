@@ -9,9 +9,9 @@ public class BumClass : MonoBehaviour
 {
 
     public int hp = 100;
-    public int fire_rate = 1;
+    public float fire_rate = 1;
     public int damage = 5;
-    public int aoe = 1;
+    public float aoe = 1;
    
     private Traits t1;
     private Traits t2;
@@ -60,7 +60,7 @@ public class BumClass : MonoBehaviour
                 t2 = new Traits(false);
                 modify_stat(t2.moddedStat, t2.statMod);
             }
-            t3 = new Traits(randBool());
+            t3 = new Traits(randBool(), true);
         }
 
     }
@@ -77,22 +77,17 @@ public class BumClass : MonoBehaviour
     {
         if(st == 0)
         {
-            hp +=modifier;
+            hp +=modifier*10;
         }
 
         else if(st == 1)
         {
-            fire_rate += modifier;
+            fire_rate += modifier*0.1f;
         }
 
         else if(st == 2)
         {
-            damage +=modifier;
-        }
-
-        else if(st == 3)
-        {
-            aoe +=modifier;
+            damage +=modifier*2;
         }
     }
 
