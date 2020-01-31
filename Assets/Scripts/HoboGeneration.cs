@@ -13,6 +13,6 @@ public class HoboGeneration : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log("Mouse");
-        GameObject newHobo = Instantiate(hobo);
+        GameObject newHobo = Instantiate(hobo, new Vector3(0,1,0),Quaternion.identity);
     }
 }
