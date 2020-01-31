@@ -16,15 +16,19 @@ public class Traits : MonoBehaviour
     {
         if(tr == true)
         {
-            moddedStat = Random.Range(1, 5);
+            statMod = Random.Range(1, 5);
+            Debug.Log(moddedStat);
         }
         else if(tr == false)
         {
-            moddedStat = -Random.Range(1, 5);
+            statMod = -Random.Range(1, 5);
+            Debug.Log(moddedStat);
         }
         
-        statMod = Random.Range(0,3);
+        moddedStat = Random.Range(0,3);
+        Debug.Log(statMod);
         good = tr;
+        Debug.Log(good);
     }
     
     void WildCard(){}

@@ -17,13 +17,16 @@ public class BumClass : MonoBehaviour
     private Traits t2;
     private Traits t3;
   
-    public GameObject BumInit(int level, GameObject hb)
+    public void BumInit(int level)
     {
 
         if (level == 1) //HOBO AT LEVEL 1 GETS 1 STAT MOD
         {
+
             t1  = new Traits(randBool());
             modify_stat(t1.moddedStat, t1.statMod);
+            Debug.Log(t1.moddedStat);
+            Debug.Log(t1.statMod);
         }
 
         else if (level == 2) //HOBO AT LEVEL 2 GETS 2 STAT MODS
@@ -60,7 +63,6 @@ public class BumClass : MonoBehaviour
             t3 = new Traits(randBool());
         }
 
-        return hb;
     }
 
     public bool randBool()
