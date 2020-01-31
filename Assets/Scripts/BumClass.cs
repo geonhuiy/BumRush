@@ -75,19 +75,22 @@ public class BumClass : MonoBehaviour
 
     public void modify_stat(int st, int modifier)
     {
-        if(st == 0)
+        if(st == 0)//MODIFIES HP STAT
         {
             hp +=modifier*10;
+            if(hp<=0){hp = 1;}
         }
 
-        else if(st == 1)
+        else if(st == 1)//MODIFIES FIRE RATE STAT
         {
             fire_rate += modifier*0.1f;
+            if(fire_rate<=0){fire_rate=0.3f;}
         }
 
-        else if(st == 2)
+        else if(st == 2)//MODIFIES DAMAGE STAT
         {
-            damage +=modifier*2;
+            damage +=modifier*2; 
+            if(damage<=0){damage = 1;}
         }
     }
 

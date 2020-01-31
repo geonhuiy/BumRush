@@ -14,23 +14,23 @@ public class Traits : MonoBehaviour
     //CONSTRUCTOR/DESTRUCTOR
     public Traits(bool tr, bool wild = false)
     {
-        if (wild)
+        if (wild) //IF WILDCARD CONDITION IS TRUE, RUNS WILDCARD GENERATION FUNCTION
         {
             WildCard();
         }
 
-        if (tr == true)
+        if (tr == true)//GIVES POSITIVE STAT MOD
         {
-            statMod = Random.Range(1, 10);
+            statMod = Random.Range(1, 11);
         }
         else if (tr == false)
         {
-            statMod = -Random.Range(1, 10);
+            statMod = -Random.Range(1, 11);//GIVES NEGATIVE STAT MOD
         }
 
-        moddedStat = Random.Range(0, 3);
+        moddedStat = Random.Range(0, 3);//RANDOMLY DECIDES WHICH STAT TO MOD
 
-        good = tr;
+        good = tr;//SAVES WHETHER THE STAT IS POSITIVE OR NEGATIVE
 
     }
 
