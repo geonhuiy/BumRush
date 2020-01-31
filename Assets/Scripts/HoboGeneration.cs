@@ -9,10 +9,13 @@ public class HoboGeneration : MonoBehaviour
     /// over the GUIElement or Collider.
     /// </summary>
     [SerializeField]
-    private GameObject hobo;
+    private HoboClass hobo = new HoboClass();
     void OnMouseDown()
     {
         Debug.Log("Mouse");
-        GameObject newHobo = Instantiate(hobo);
+        //GameObject newHobo = Instantiate(hobo);
+    }
+    void CreateHobo() {
+        hobo.setStats(1,1);
     }
 }
