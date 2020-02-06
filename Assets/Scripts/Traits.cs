@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class Traits : MonoBehaviour
 {
-    //CLASS VARIABLES
+    //BASIC STAT VARIABLES
     public int moddedStat;
     public int statMod;
     public bool good;
+
+    //WILD CARD VARIABLES
+    public int AOE_wildcard;
+    public int HOSTILE_wildcard;
+    public int STARVING_wildcard;
+
 
 
 
@@ -16,14 +22,14 @@ public class Traits : MonoBehaviour
     {
         if (wild) //IF WILDCARD CONDITION IS TRUE, RUNS WILDCARD GENERATION FUNCTION
         {
-            WildCard();
+            WildCard(Random.Range(0,2));
         }
 
-        if (tr == true)//GIVES POSITIVE STAT MOD
+        else if (tr == true && wild == false)//GIVES POSITIVE STAT MOD
         {
             statMod = Random.Range(1, 11);
         }
-        else if (tr == false)
+        else if (tr == false && wild == false)
         {
             statMod = -Random.Range(1, 11);//GIVES NEGATIVE STAT MOD
         }
@@ -34,7 +40,21 @@ public class Traits : MonoBehaviour
 
     }
 
-    void WildCard() { }
+    void WildCard(int wc)
+    {
+        if(wc == 0)
+        {
+
+        }
+        else if(wc == 1)
+        {
+
+        }
+        else if(wc == 2)
+        {
+
+        }
+    }
 
 }
 
