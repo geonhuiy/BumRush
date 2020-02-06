@@ -14,6 +14,5 @@ public class CreateHoboClick : MonoBehaviour
         BumClass bum = new BumClass();
       //  bum.BumInit(1,hobo);
         Instantiate(hobo, new Vector3(0, 0,15), transform.rotation);
-
     }
 }
