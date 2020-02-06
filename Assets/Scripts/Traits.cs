@@ -44,7 +44,7 @@ public class Traits : MonoBehaviour
     {
         if(wc == 0)
         {
-
+            
         }
         else if(wc == 1)
         {
