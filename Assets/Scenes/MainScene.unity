@@ -7356,6 +7356,54 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1273568280}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1291010160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1291010162}
+  - component: {fileID: 1291010161}
+  m_Layer: 0
+  m_Name: TowerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1291010161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291010160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b545230274534a849a3bd8aa5f3d7943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnedTowerCount: 0
+  totalTowerCount: 0
+  selectedTower: 0
+  maxTowers: 1
+  spawnedTowers: []
+--- !u!4 &1291010162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291010160}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1299734531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8916,6 +8964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hobo: {fileID: 1361400028}
+  placeholder: {fileID: 1810765739}
 --- !u!222 &1530893895
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9688,6 +9737,36 @@ Transform:
   - {fileID: 461650671}
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1810765739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1810765740}
+  m_Layer: 0
+  m_Name: SpawnLocPlaceholder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1810765740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810765739}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 33.2, y: 0, z: 76.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1829719877
 PrefabInstance:
@@ -11136,6 +11215,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3753189632251094521, guid: 9aebbaf147fdece43a3849d47ba12bfb,
+        type: 3}
+      propertyPath: m_Name
+      value: Hobo
+      objectReference: {fileID: 0}
     - target: {fileID: 3753189632251094469, guid: 9aebbaf147fdece43a3849d47ba12bfb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11190,11 +11274,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3753189632251094521, guid: 9aebbaf147fdece43a3849d47ba12bfb,
-        type: 3}
-      propertyPath: m_Name
-      value: Hobo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aebbaf147fdece43a3849d47ba12bfb, type: 3}

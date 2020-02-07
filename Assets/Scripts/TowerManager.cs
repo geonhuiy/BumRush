@@ -6,6 +6,7 @@ public class TowerManager : MonoBehaviour
 {
     public static TowerManager tManagerInstance;
     public int spawnedTowerCount, totalTowerCount, selectedTower;
+    public int maxTowers = 1;
     public List<GameObject> spawnedTowers;
     private void Awake()
     {

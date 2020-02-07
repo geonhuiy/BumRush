@@ -6,13 +6,17 @@ public class HoboGeneration : MonoBehaviour
 {
     [SerializeField]
     private GameObject hobo;
+    [SerializeField]
+    private GameObject placeholder;
     void OnMouseDown()
     {
-        Debug.Log("Mouse");
-        GameObject newHobo = Instantiate(hobo, new Vector3(0,1,0),Quaternion.identity);
-        //Increases tower spawn count
-        TowerManager.tManagerInstance.spawnedTowerCount++;
-        //Adds spawned tower into a list gameobjects
-        TowerManager.tManagerInstance.spawnedTowers.Add(newHobo);
+        if (TowerManager.tManagerInstance.spawnedTowerCount < TowerManager.tManagerInstance.maxTowers)
+        {
+            GameObject newHobo = Instantiate(hobo, placeholder.transform.position, Quaternion.identity);
+            //Increases tower spawn count
+            TowerManager.tManagerInstance.spawnedTowerCount++;
+            //Adds spawned tower into a list gameobjects
+            TowerManager.tManagerInstance.spawnedTowers.Add(newHobo);
+        }
     }
 }
