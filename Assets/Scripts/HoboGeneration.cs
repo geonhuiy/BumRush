@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class HoboGeneration : MonoBehaviour
 {
-    /// <summary>
-    /// OnMouseDown is called when the user has pressed the mouse button while
-    /// over the GUIElement or Collider.
-    /// </summary>
     [SerializeField]
     private GameObject hobo;
+    [SerializeField]
+    private GameObject placeholder;
     void OnMouseDown()
     {
-        Debug.Log("Mouse");
-        GameObject newHobo = Instantiate(hobo, new Vector3(0,1,0),Quaternion.identity);
-        newHobo.GetComponent<BumClass>().BumInit(2);
+        if (TowerManager.tManagerInstance.spawnedTowerCount < TowerManager.tManagerInstance.maxTowers)
+        {
+            GameObject newHobo = Instantiate(hobo, placeholder.transform.position, Quaternion.identity);
+            //Increases tower spawn count
+            TowerManager.tManagerInstance.spawnedTowerCount++;
+            //Adds spawned tower into a list gameobjects
+            TowerManager.tManagerInstance.spawnedTowers.Add(newHobo);
+        }
     }
 }
