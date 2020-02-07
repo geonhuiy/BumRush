@@ -8,11 +8,15 @@ using UnityEngine;
 public class BumClass : MonoBehaviour
 {
 
+    //BASE STAT VARIABLES
     public int hp = 100;
     public float fire_rate = 1;
     public int damage = 5;
+
+    //WILDCARDS VARIABLES
     public float aoe = 1;
-   
+    public int hostile = 0;
+    public int starving = 0;
     private Traits t1;
     private Traits t2;
     private Traits t3;
