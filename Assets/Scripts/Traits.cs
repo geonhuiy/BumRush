@@ -10,19 +10,19 @@ public class Traits : MonoBehaviour
     public bool good;
 
     //WILD CARD VARIABLES
-    public int AOE_wildcard;
-    public int HOSTILE_wildcard;
-    public int STARVING_wildcard;
+    public int AOE_wildcard = 0;
+    public bool HOSTILE_wildcard = false;
+    public bool STARVING_wildcard = false;
 
 
 
 
     //CONSTRUCTOR/DESTRUCTOR
-    public Traits(bool tr, bool wild = false)
+    public Traits(bool tr = true, bool wild = false)
     {
         if (wild) //IF WILDCARD CONDITION IS TRUE, RUNS WILDCARD GENERATION FUNCTION
         {
-            WildCard(Random.Range(0,2));
+            WildCard(Random.Range(0, 2));
         }
 
         else if (tr == true && wild == false)//GIVES POSITIVE STAT MOD
@@ -42,17 +42,17 @@ public class Traits : MonoBehaviour
 
     void WildCard(int wc)
     {
-        if(wc == 0)
+        if (wc == 0)
         {
-            
+            AOE_wildcard = Random.Range(1, 3);
         }
-        else if(wc == 1)
+        else if (wc == 1)
         {
-
+            HOSTILE_wildcard = true;
         }
-        else if(wc == 2)
+        else if (wc == 2)
         {
-
+            STARVING_wildcard = true;
         }
     }
 
