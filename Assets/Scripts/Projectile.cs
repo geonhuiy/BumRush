@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed;
+    public float speed = 100;
 
     private Transform rat;
     private Vector3 target_rat;
