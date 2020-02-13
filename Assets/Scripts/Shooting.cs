@@ -9,6 +9,7 @@ public class Shooting : MonoBehaviour
     public float frate = 2;
     private float t_distance = 20f;
     public GameObject projectile;
+    public float target_dist = 20f;
     void Start()
     {
         rat = GameObject.FindGameObjectWithTag("Rat").transform;
