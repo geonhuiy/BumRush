@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour
     public float shot_time;
     public float frate = 2;
     public GameObject projectile;
+    public float target_dist = 20f;
     void Start()
     {
         rat = GameObject.FindGameObjectWithTag("Rat").transform;
