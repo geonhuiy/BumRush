@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class RatClass : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // Start is called before the first frame update¨
+    int HP  = 25;
+    private void OnCollisionEnter(Collision hit) 
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(hit.gameObject.name == "TestShot(Clone)")
+        {
+            Debug.Log("Rat took damage");
+        }
     }
 }
