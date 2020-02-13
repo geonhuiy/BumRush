@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-
+    public GameObject projectile;
     public Transform rat;
     public float shot_time;
     public float frate = 2;
-    private float t_distance = 20f;
-    public GameObject projectile;
-    public float target_dist = 20f;
+    public float range = 65f;
+    private float t_distance;
+
     void Start()
     {
         rat = GameObject.FindGameObjectWithTag("Rat").transform;
@@ -19,7 +19,13 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (t_distance <= Vector3.Distance(rat.transform.position, this.transform.position)) //CHECK THAT RAT IS IN RANGE
+        if(rat != null)
+        {
+            t_distance = Vector3.Distance(rat.transform.position, this.transform.position); //GETS DISTANCE BETWEEN FIREPOINT AND RAT
+        }
+        
+        //Debug.Log(t_distance);
+        if (rat != null && t_distance >= range) //CHECK THAT RAT EXISTS AND IS IN RANGE
         {
             if (shot_time <= 0)
             {
