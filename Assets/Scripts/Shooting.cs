@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    
+
     public Transform rat;
     public float shot_time;
     public float frate = 2;
+    private float t_distance = 20f;
     public GameObject projectile;
     public float target_dist = 20f;
     void Start()
@@ -18,14 +19,18 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(shot_time <= 0)
+        if (t_distance <= Vector3.Distance(rat.transform.position, this.transform.position)) //CHECK THAT RAT IS IN RANGE
         {
-            Instantiate(projectile, transform.position, Quaternion.identity);
-            shot_time = frate;
+            if (shot_time <= 0)
+            {
+                Instantiate(projectile, transform.position, Quaternion.identity); //INSTANTIATE PROJECTILE
+                shot_time = frate;
+            }
+            else
+            {
+                shot_time -= Time.deltaTime;
+            }
         }
-        else
-        {
-            shot_time -= Time.deltaTime;
-        }
+
     }
 }
