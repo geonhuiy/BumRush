@@ -8,6 +8,7 @@ public class TowerManager : MonoBehaviour
     public int spawnedTowerCount, totalTowerCount, selectedTower;
     public int maxTowers = 1;
     public List<GameObject> spawnedTowers;
+    public GameObject TempSpawnedHobo, hobo, spawnPlaceholder;
     private void Awake()
     {
         if (tManagerInstance == null)
@@ -28,6 +29,20 @@ public class TowerManager : MonoBehaviour
         }
         else {
             return false;
+        }
+    }
+
+    public void PlaceTower() {
+        if (hasTowerSpawned()) {
+
+        }
+    }
+
+    public void SpawnTower() {
+        if(spawnedTowerCount < maxTowers) {
+            GameObject newHobo = Instantiate(hobo, spawnPlaceholder.transform.position, Quaternion.identity);
+            spawnedTowerCount ++;
+            spawnedTowers.Add(newHobo);
         }
     }
 }

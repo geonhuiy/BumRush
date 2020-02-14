@@ -7390,6 +7390,9 @@ MonoBehaviour:
   selectedTower: 0
   maxTowers: 1
   spawnedTowers: []
+  TempSpawnedHobo: {fileID: 0}
+  hobo: {fileID: 2471967211031114868, guid: a1dc23a55ed30674f8fc2a12a1815260, type: 3}
+  spawnPlaceholder: {fileID: 1810765739}
 --- !u!4 &1291010162
 Transform:
   m_ObjectHideFlags: 0
