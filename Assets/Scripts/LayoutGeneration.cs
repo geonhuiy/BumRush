@@ -6,8 +6,7 @@ public class LayoutGeneration : MonoBehaviour
 {   
     [SerializeField]
     private GameObject[,,] layout;
-    [SerializeField]
-    private GameObject tile;
+    public List<GameObject> tile;
     [SerializeField]
     private float spacing = 4f;
     void Update() {
@@ -21,8 +20,10 @@ public class LayoutGeneration : MonoBehaviour
     private void GenerateNodes(int rowSize, int colSize) {
         layout = new GameObject[rowSize,0,colSize];
         for (int i = 0; i < layout.GetLength(0); i++) {
+            
             for (int j = 0; j < layout.GetLength(2); j++) {
-                GameObject newTile = Instantiate(tile,new Vector3(i+(i*spacing), 0 ,j+(j*spacing)),Quaternion.identity);
+                int randTile = Random.Range(0,tile.Count);
+                GameObject newTile = Instantiate(tile[randTile],new Vector3(i+(i*spacing), 0 ,j+(j*spacing)),Quaternion.identity);
                 //newTile.transform.localScale += new Vector3(0,40,0);
                 //newTile.transform.position = new Vector3(i,0,j);
             }
