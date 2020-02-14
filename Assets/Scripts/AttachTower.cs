@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class AttachTower : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool hasTowerAttached = false;
+    private void OnMouseDown() 
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (!hasTowerAttached) {
+        TowerManager.tManagerInstance.spawnedTowers[0].transform.position = this.transform.position;
+        hasTowerAttached = true;
+        TowerManager.tManagerInstance.spawnedTowerCount--;
+        TowerManager.tManagerInstance.spawnedTowers.RemoveAt(0);
+        }
     }
 }

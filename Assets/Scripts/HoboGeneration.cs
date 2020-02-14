@@ -10,13 +10,6 @@ public class HoboGeneration : MonoBehaviour
     private GameObject placeholder;
     void OnMouseDown()
     {
-        if (TowerManager.tManagerInstance.spawnedTowerCount < TowerManager.tManagerInstance.maxTowers)
-        {
-            GameObject newHobo = Instantiate(hobo, placeholder.transform.position, Quaternion.identity);
-            //Increases tower spawn count
-            TowerManager.tManagerInstance.spawnedTowerCount++;
-            //Adds spawned tower into a list gameobjects
-            TowerManager.tManagerInstance.spawnedTowers.Add(newHobo);
-        }
+        TowerManager.tManagerInstance.SpawnTower();
     }
 }
