@@ -10,25 +10,32 @@ public class Projectile : MonoBehaviour
     private Vector3 target_rat;
     void Start()
     {
-        rat = GameObject.FindGameObjectWithTag("Rat").transform;
-        target_rat = new Vector3(rat.position.x, rat.position.y, rat.position.z);
-        
- 
+        if (GameObject.FindGameObjectWithTag("Rat") != null)
+        {
+            rat = GameObject.FindGameObjectWithTag("Rat").transform;
+            target_rat = new Vector3(rat.position.x, rat.position.y, rat.position.z);
+        }
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, rat.position, speed*Time.deltaTime);
-        
+        if (GameObject.FindGameObjectWithTag("Rat") != null)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, rat.position, speed * Time.deltaTime);
+        }
+
+
     }
-    
+
     void OnCollisionEnter(Collision target)
     {
-        if(target.gameObject.name == "rat")
+        if (target.gameObject.name == "rat")
         {
             Debug.Log("rat hit");
             Destroy(this.gameObject);
-        }    
+        }
     }
 }

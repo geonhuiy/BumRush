@@ -12,11 +12,6 @@ public class Shooting : MonoBehaviour
 
     void Start()
     {
-        if(GameObject.FindGameObjectWithTag("Rat") != null)
-        {
-            rat = GameObject.FindGameObjectWithTag("Rat").transform;
-        }
-
         shot_time = frate;
     }
 
@@ -25,11 +20,12 @@ public class Shooting : MonoBehaviour
     {
         if(GameObject.FindGameObjectWithTag("Rat") != null)
         {
+            rat = GameObject.FindGameObjectWithTag("Rat").transform;
             t_distance = Vector3.Distance(rat.transform.position, this.transform.position); //GETS DISTANCE BETWEEN FIREPOINT AND RAT
         }
         
         //Debug.Log(t_distance);
-        if (rat != null && t_distance <= range) //CHECK THAT RAT EXISTS AND IS IN RANGE
+        if (GameObject.FindGameObjectWithTag("Rat") != null && t_distance <= range) //CHECK THAT RAT EXISTS AND IS IN RANGE
         {
             if (shot_time <= 0)
             {
