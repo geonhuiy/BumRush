@@ -20,6 +20,9 @@ public class BumClass : MonoBehaviour
     private Traits t1;
     private Traits t2;
     private Traits t3;
+    private void Awake() {
+        BumInit(1);
+    }
 
     public void BumInit(int level)
     {
@@ -116,7 +119,6 @@ public class BumClass : MonoBehaviour
 
         }
     }
-
 
 }
 

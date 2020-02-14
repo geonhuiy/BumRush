@@ -18,6 +18,7 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(this.GetComponent<BumClass>().damage);
         if(GameObject.FindGameObjectWithTag("Rat") != null)
         {
             rat = GameObject.FindGameObjectWithTag("Rat").transform;
@@ -30,6 +31,7 @@ public class Shooting : MonoBehaviour
             if (shot_time <= 0)
             {
                 Instantiate(projectile, transform.position, Quaternion.identity); //INSTANTIATE PROJECTILE
+                
                 shot_time = frate;
             }
             else

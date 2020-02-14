@@ -12,7 +12,7 @@ public class CreateHoboClick : MonoBehaviour
     {
         Debug.Log("Clicked");
         BumClass bum = new BumClass();
-      //  bum.BumInit(1,hobo);
+        //bum.BumInit(1);
         Instantiate(hobo, new Vector3(0, 0,15), transform.rotation);
     }
 }

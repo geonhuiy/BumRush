@@ -40,6 +40,8 @@ public class TowerManager : MonoBehaviour
 
     public void SpawnTower() {
         if(spawnedTowerCount < maxTowers) {
+            //hobo.GetComponent<BumClass>().BumInit(1); //LEVEL 1 HOBO
+            //GameObject newHobo = Instantiate(hobo, spawnPlaceholder.transform.position, Quaternion.identity);'
             GameObject newHobo = Instantiate(hobo, spawnPlaceholder.transform.position, Quaternion.identity);
             spawnedTowerCount ++;
             spawnedTowers.Add(newHobo);
