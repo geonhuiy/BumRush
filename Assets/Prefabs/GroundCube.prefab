@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7716511178616778533}
   - component: {fileID: 3627684045032144568}
   - component: {fileID: 8234712970832751419}
-  - component: {fileID: 4546461540782388235}
-  m_Layer: 0
+  - component: {fileID: -4678894774151308477}
+  m_Layer: 9
   m_Name: GroundCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4546461540782388235
+--- !u!65 &-4678894774151308477
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
