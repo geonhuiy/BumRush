@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed = 100;
-    public int damage;
+    public int carried_damage;
 
     private Transform rat;
     private Vector3 target_rat;
@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
         {
             rat = GameObject.FindGameObjectWithTag("Rat").transform;
             target_rat = new Vector3(rat.position.x, rat.position.y, rat.position.z);
-            Debug.Log("Projectile damage: " + damage);
+            Debug.Log("Projectile damage: " + carried_damage);
         }
 
 
@@ -34,13 +34,11 @@ public class Projectile : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
-
     }
 
     void OnCollisionEnter(Collision target)
     {
-        if (target.gameObject.tag== "Rat")
+        if (target.gameObject.tag == "Rat")
         {
             Debug.Log("rat hit");
             Destroy(this.gameObject);
