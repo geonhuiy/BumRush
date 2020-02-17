@@ -11,6 +11,10 @@ public class Shooting : MonoBehaviour
     private float t_distance;
     public int shot_damage;
 
+    //VARIABLES FOR AOE (WILDCARD)
+    public bool aoe = false;
+    public float aoe_radius = 1f;
+
     void Start()
     {
         shot_time = frate;

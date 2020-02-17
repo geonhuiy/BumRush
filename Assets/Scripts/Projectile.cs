@@ -6,9 +6,14 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 100;
     public int carried_damage;
-
     private Transform rat;
     private Vector3 target_rat;
+
+    //VARIABLES FOR AOE (WILDCARDS)
+    public bool aoe = false;
+    public float aoe_radius = 1f;
+
+
 
 
     void Start()
@@ -23,7 +28,6 @@ public class Projectile : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (GameObject.FindGameObjectWithTag("Rat") != null)
