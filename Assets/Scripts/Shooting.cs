@@ -9,16 +9,18 @@ public class Shooting : MonoBehaviour
     public float frate = 2;
     public float range = 65f;
     private float t_distance;
+    public int shot_damage;
 
     void Start()
     {
         shot_time = frate;
+        shot_damage = transform.parent.gameObject.GetComponent<BumClass>().damage;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(this.GetComponent<BumClass>().damage);
+        Debug.Log(transform.parent.gameObject.GetComponent<BumClass>().damage);
         if(GameObject.FindGameObjectWithTag("Rat") != null)
         {
             rat = GameObject.FindGameObjectWithTag("Rat").transform;

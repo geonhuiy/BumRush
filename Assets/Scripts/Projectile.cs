@@ -5,9 +5,15 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed = 100;
+    public int damage;
 
     private Transform rat;
     private Vector3 target_rat;
+
+    Projectile(int dmg)
+    {
+        damage = dmg;
+    }
     void Start()
     {
         if (GameObject.FindGameObjectWithTag("Rat") != null)
