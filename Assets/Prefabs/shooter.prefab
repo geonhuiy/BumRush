@@ -75,6 +75,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -155,9 +156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c9bc01cd014fd4da9c40fce6988cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 3206819121843905748, guid: 66138919c9bce0445955f6b559fa9099,
+  projectile: {fileID: 5701863021954699698, guid: 66138919c9bce0445955f6b559fa9099,
     type: 3}
   rat: {fileID: 2666068710488238775, guid: 8e7baebc3fa66fc42a51dcc49b88cd17, type: 3}
   shot_time: 0
   frate: 2
   range: 65
+  shot_damage: 0

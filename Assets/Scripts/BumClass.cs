@@ -29,11 +29,8 @@ public class BumClass : MonoBehaviour
 
         if (level == 1) //HOBO AT LEVEL 1 GETS 1 STAT MOD (RANDOMLY EITHER POSITIVE OR NEGATIVE)
         {
-
             t1 = new Traits(randBool());
             modify_stat(t1.moddedStat, t1.statMod);
-            Debug.Log(t1.moddedStat);
-            Debug.Log(t1.statMod);
         }
 
         else if (level == 2) //HOBO AT LEVEL 2 GETS 2 STAT MODS (1 POSITIVE, 1 NEGATIVE);
