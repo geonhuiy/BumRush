@@ -11,6 +11,10 @@ public class Shooting : MonoBehaviour
     private float t_distance;
     public int shot_damage;
 
+    //VARIABLES FOR AOE (WILDCARD)
+    public bool aoe = false;
+    public float aoe_radius = 1f;
+
     void Start()
     {
         shot_time = frate;
@@ -21,19 +25,19 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         Debug.Log("Shot damage: " + shot_damage);
-        if(GameObject.FindGameObjectWithTag("Rat") != null)
+        if (GameObject.FindGameObjectWithTag("Rat") != null)
         {
             rat = GameObject.FindGameObjectWithTag("Rat").transform;
             t_distance = Vector3.Distance(rat.transform.position, this.transform.position); //GETS DISTANCE BETWEEN FIREPOINT AND RAT
         }
-        
+
         //Debug.Log(t_distance);
         if (GameObject.FindGameObjectWithTag("Rat") != null && t_distance <= range) //CHECK THAT RAT EXISTS AND IS IN RANGE
         {
             if (shot_time <= 0)
             {
                 Projectile proj = Instantiate(projectile, transform.position, Quaternion.identity); //INSTANTIATE PROJECTILE
-                proj.damage = shot_damage;
+                proj.carried_damage = shot_damage;
                 shot_time = frate;
             }
             else
