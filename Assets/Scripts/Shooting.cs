@@ -20,7 +20,7 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Shot damage: " + shot_damage);
+       // Debug.Log("Shot damage: " + shot_damage);
         if(GameObject.FindGameObjectWithTag("Rat") != null)
         {
             rat = GameObject.FindGameObjectWithTag("Rat").transform;
