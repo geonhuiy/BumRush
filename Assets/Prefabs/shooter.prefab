@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -7907672300576353992}
   - component: {fileID: 2471967211031114870}
   - component: {fileID: 2471967211031114869}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: shooter
   m_TagString: Hobo
   m_Icon: {fileID: 0}
@@ -75,7 +75,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -163,3 +162,5 @@ MonoBehaviour:
   frate: 2
   range: 65
   shot_damage: 0
+  aoe: 0
+  aoe_radius: 1

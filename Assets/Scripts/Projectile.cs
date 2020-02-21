@@ -18,22 +18,17 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
-        /*if (GameObject.FindGameObjectWithTag("Rat") != null)
-        {
-
-        }*/
-
-
+        rat = GameObject.FindGameObjectWithTag("Rat").transform;
+        target_rat = new Vector3(rat.position.x, rat.position.y, rat.position.z);
     }
 
     void Update()
     {
         if (GameObject.FindGameObjectWithTag("Rat") != null)
         {
-            rat = GameObject.FindGameObjectWithTag("Rat").transform;
-            target_rat = new Vector3(rat.position.x, rat.position.y, rat.position.z);
+           
             Debug.Log("Projectile damage: " + carried_damage);
-            transform.position = Vector3.MoveTowards(transform.position, rat.position, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target_rat, speed * Time.deltaTime);
         }
         else
         {
