@@ -33,7 +33,6 @@ public class RatClass : MonoBehaviour
         {
             currentHealth -= damage;
 
-
             Healthbar.fillAmount -= (health - damage) / 100;
             //Healthbar.fillAmount -= currentHealth - damage / 100;
 
