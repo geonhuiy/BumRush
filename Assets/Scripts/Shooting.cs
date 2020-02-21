@@ -38,6 +38,7 @@ public class Shooting : MonoBehaviour
             {
                 Projectile proj = Instantiate(projectile, transform.position, Quaternion.identity); //INSTANTIATE PROJECTILE
                 proj.carried_damage = shot_damage;
+                proj.GetComponent<Rigidbody>().AddForce(rat.transform.position, ForceMode.Force);
                 shot_time = frate;
             }
             else
