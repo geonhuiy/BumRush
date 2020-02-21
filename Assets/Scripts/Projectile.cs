@@ -44,8 +44,19 @@ public class Projectile : MonoBehaviour
     {
         if (target.gameObject.tag == "Rat")
         {
+            target.gameObject.GetComponent<RatClass>().damage = carried_damage;
             Debug.Log("rat hit");
             Destroy(this.gameObject);
+        }
+    }
+
+    void AOEdamage(Vector3 center, float rad)
+    {
+        Collider[] rats_hit  = Physics.OverlapSphere(center, rad);
+        int i = 0;
+        while(i < rats_hit.Length)
+        {
+            
         }
     }
 }

@@ -93,7 +93,7 @@ public class BumClass : MonoBehaviour
 
         else if (st == 2)//MODIFIES DAMAGE STAT
         {
-            damage += modifier * 2;
+            damage += modifier;
             if (damage <= 0) { damage = 1; }
         }
     }

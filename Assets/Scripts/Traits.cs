@@ -18,7 +18,7 @@ public class Traits : MonoBehaviour
 
 
     //CONSTRUCTOR/DESTRUCTOR
-    public Traits(bool tr = true, bool wild = false)
+    public Traits(bool tr, bool wild = false)
     {
         if (wild) //IF WILDCARD CONDITION IS TRUE, RUNS WILDCARD GENERATION FUNCTION
         {
@@ -27,11 +27,11 @@ public class Traits : MonoBehaviour
 
         else if (tr == true && wild == false)//GIVES POSITIVE STAT MOD
         {
-            statMod = Random.Range(1, 11);
+            statMod = Random.Range(1, 5);
         }
         else if (tr == false && wild == false)
         {
-            statMod = -Random.Range(1, 11);//GIVES NEGATIVE STAT MOD
+            statMod = -(Random.Range(1, 5));//GIVES NEGATIVE STAT MOD
         }
 
         moddedStat = Random.Range(0, 3);//RANDOMLY DECIDES WHICH STAT TO MOD
