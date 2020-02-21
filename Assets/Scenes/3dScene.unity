@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -96,7 +96,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
-    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 453f42885352b50499867e8cb833bbc1,
     type: 2}
   m_UseShadowmask: 1
@@ -121,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 46a65bc58c22642deb6aa02af9927d7a, type: 2}
 --- !u!4 &6100777 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7716511178616778533, guid: 8517c18ebb7a9784f82441d217250a2d,
@@ -813,6 +812,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 857198504}
     m_Modifications:
+    - target: {fileID: -1696290422596121152, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 68453363530554716, guid: c1c19db84bbb63e4894077ba3cc5636d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -881,6 +885,11 @@ PrefabInstance:
     - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
         type: 3}
       propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1206,6 +1215,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 857198504}
     m_Modifications:
+    - target: {fileID: -1696290422596121152, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 68453363530554716, guid: c1c19db84bbb63e4894077ba3cc5636d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1276,6 +1290,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c19db84bbb63e4894077ba3cc5636d, type: 3}
 --- !u!4 &267063879 stripped
@@ -1315,9 +1334,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279383939}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 9
   m_Type: 1
-  m_Shape: 0
   m_Color: {r: 0.7732289, g: 0.8977255, b: 0.9056604, a: 1}
   m_Intensity: 1.4
   m_Range: 10
@@ -2378,7 +2396,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2560,7 +2577,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2837,7 +2853,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3326,7 +3341,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3480,7 +3494,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4533,9 +4546,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 987892121}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 9
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 0.0779192, g: 0.19890815, b: 0.9716981, a: 1}
   m_Intensity: 3.8
   m_Range: 7.9051933
@@ -5258,6 +5270,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 857198504}
     m_Modifications:
+    - target: {fileID: -1696290422596121152, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 68453363530554716, guid: c1c19db84bbb63e4894077ba3cc5636d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5326,6 +5343,11 @@ PrefabInstance:
     - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
         type: 3}
       propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5532,6 +5554,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 857198504}
     m_Modifications:
+    - target: {fileID: -1696290422596121152, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 68453363530554716, guid: c1c19db84bbb63e4894077ba3cc5636d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5600,6 +5627,11 @@ PrefabInstance:
     - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
         type: 3}
       propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6163,7 +6195,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6273,7 +6304,6 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -11075,6 +11105,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 857198504}
     m_Modifications:
+    - target: {fileID: -1696290422596121152, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 68453363530554716, guid: c1c19db84bbb63e4894077ba3cc5636d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11143,6 +11178,11 @@ PrefabInstance:
     - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
         type: 3}
       propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11265,6 +11305,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 857198504}
     m_Modifications:
+    - target: {fileID: -1696290422596121152, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 68453363530554716, guid: c1c19db84bbb63e4894077ba3cc5636d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11335,6 +11380,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c19db84bbb63e4894077ba3cc5636d, type: 3}
 --- !u!1001 &1672205305
@@ -11344,6 +11394,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 857198504}
     m_Modifications:
+    - target: {fileID: -1696290422596121152, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 68453363530554716, guid: c1c19db84bbb63e4894077ba3cc5636d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11412,6 +11467,11 @@ PrefabInstance:
     - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
         type: 3}
       propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -12116,7 +12176,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -12288,7 +12347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gos:
   - {fileID: 2666068710488238771, guid: 8e7baebc3fa66fc42a51dcc49b88cd17, type: 3}
-  numberstospawn: 1000
+  numberstospawn: 50
 --- !u!4 &1910011358
 Transform:
   m_ObjectHideFlags: 0
@@ -13190,6 +13249,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 857198504}
     m_Modifications:
+    - target: {fileID: -1696290422596121152, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 68453363530554716, guid: c1c19db84bbb63e4894077ba3cc5636d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13253,6 +13317,11 @@ PrefabInstance:
     - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
         type: 3}
       propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 68453363530554719, guid: c1c19db84bbb63e4894077ba3cc5636d,
