@@ -188,8 +188,8 @@ GameObject:
   - component: {fileID: 8977903293147272630}
   - component: {fileID: 8977903293147272631}
   - component: {fileID: 8977903293147272632}
-  m_Layer: 0
-  m_Name: Rat
+  m_Layer: 12
+  m_Name: rat
   m_TagString: Rat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -320,8 +320,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 25
-  damage: 5
   Healthbar: {fileID: 8977903291929609625}
+  damage: 5
 --- !u!114 &8977903293147272632
 MonoBehaviour:
   m_ObjectHideFlags: 0
