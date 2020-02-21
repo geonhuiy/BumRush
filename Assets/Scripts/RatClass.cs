@@ -10,19 +10,31 @@ public class RatClass : MonoBehaviour
     public Image Healthbar;
     public int damage;
     private float health;
-
-    void Start()
+    private Quaternion initialRotation;
+    private float health;
+    void Start ()
     {
         health = currentHealth;
+        Healthbar.fillAmount = health;
+        initialRotation = Healthbar.transform.rotation;
+
     }
 
-    private void OnCollisionEnter(Collision hit)
+    void LateUpdate()
+    {
+        Healthbar.transform.rotation = initialRotation;
+    }
+
+    private void OnCollisionEnter(Collision hit) 
     {
 
         if (hit.gameObject.name == "TestShot(Clone)")
         {
             currentHealth -= damage;
-            Healthbar.fillAmount -= damage / 100;
+
+
+            Healthbar.fillAmount -= (health - damage) / 100;
+            //Healthbar.fillAmount -= currentHealth - damage / 100;
 
             Debug.Log("Rat took damage for: " + damage);
             if (currentHealth <= 0)
