@@ -12,7 +12,6 @@ public class RatClass : MonoBehaviour
     public int damage;
     private float health;
     private Quaternion initialRotation;
-    private float health;
     void Start ()
     {
         health = currentHealth;
