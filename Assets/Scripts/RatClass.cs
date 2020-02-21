@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class RatClass : MonoBehaviour
 {
     // Start is called before the first frame update¨
+    //Rebase
     public int currentHealth = 25;
     public Image Healthbar;
     public int damage;
