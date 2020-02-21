@@ -21,10 +21,6 @@ public class RatClass : MonoBehaviour
 
         if (hit.gameObject.name == "TestShot(Clone)")
         {
-
-            Debug.Log("Rat took damage");
-            Debug.Log(currentHealth);
-
             damage = hit.collider.gameObject.GetComponent<Projectile>().carried_damage;
 
             currentHealth -= damage;
