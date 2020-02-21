@@ -7,9 +7,9 @@ public class RatClass : MonoBehaviour
 {
     // Start is called before the first frame update¨
     //Rebase
-    public int currentHealth = 25;
+    public float currentHealth = 25;
     public Image Healthbar;
-    public int damage;
+    public float damage;
     private float health;
     private Quaternion initialRotation;
     void Start ()

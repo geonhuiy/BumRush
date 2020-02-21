@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed = 100;
-    public int carried_damage;
+    public float carried_damage;
     private Transform rat;
     private Vector3 target_rat;
 
@@ -18,12 +18,10 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
-        if (GameObject.FindGameObjectWithTag("Rat") != null)
+        /*if (GameObject.FindGameObjectWithTag("Rat") != null)
         {
-            rat = GameObject.FindGameObjectWithTag("Rat").transform;
-            target_rat = new Vector3(rat.position.x, rat.position.y, rat.position.z);
-            Debug.Log("Projectile damage: " + carried_damage);
-        }
+
+        }*/
 
 
     }
@@ -32,6 +30,9 @@ public class Projectile : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("Rat") != null)
         {
+            rat = GameObject.FindGameObjectWithTag("Rat").transform;
+            target_rat = new Vector3(rat.position.x, rat.position.y, rat.position.z);
+            Debug.Log("Projectile damage: " + carried_damage);
             transform.position = Vector3.MoveTowards(transform.position, rat.position, speed * Time.deltaTime);
         }
         else

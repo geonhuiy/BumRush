@@ -9,7 +9,7 @@ public class Shooting : MonoBehaviour
     public float frate = 2;
     public float range = 65f;
     private float t_distance;
-    public int shot_damage;
+    public float shot_damage;
 
     //VARIABLES FOR AOE (WILDCARD)
     public bool aoe = false;
@@ -24,8 +24,8 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // Debug.Log("Shot damage: " + shot_damage);
-        if(GameObject.FindGameObjectWithTag("Rat") != null)
+        // Debug.Log("Shot damage: " + shot_damage);
+        if (GameObject.FindGameObjectWithTag("Rat") != null)
         {
             rat = GameObject.FindGameObjectWithTag("Rat").transform;
             t_distance = Vector3.Distance(rat.transform.position, this.transform.position); //GETS DISTANCE BETWEEN FIREPOINT AND RAT
