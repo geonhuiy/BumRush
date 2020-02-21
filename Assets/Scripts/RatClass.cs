@@ -20,7 +20,8 @@ public class RatClass : MonoBehaviour
     
     private void OnCollisionEnter(Collision hit) 
     {
-        if(hit.gameObject.name == "TestShot(Clone)")
+
+        if (hit.gameObject.name == "TestShot(Clone)")
         {
             Debug.Log("Rat took damage");
             currentHealth -= damage;
@@ -30,6 +31,9 @@ public class RatClass : MonoBehaviour
             Healthbar.fillAmount -= damage / 100;
 
             if(currentHealth <= 0)
+            /*HP -= hit.collider.gameObject.GetComponent<Projectile>().carried_damage;
+            Debug.Log("Rat took damage for: " + hit.collider.gameObject.GetComponent<Projectile>().carried_damage);*/
+            if (HP <= 0)
             {
                 Destroy(this.gameObject);
             }
