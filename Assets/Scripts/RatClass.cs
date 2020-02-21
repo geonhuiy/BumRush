@@ -9,16 +9,26 @@ public class RatClass : MonoBehaviour
     public int currentHealth  = 25;
     public int damage = 5;
     public Image Healthbar;
-
+    private Quaternion initialRotation;
     private float health;
+
+    void Awake()
+    {
+    }
 
     void Start ()
     {
         health = currentHealth;
-        //Healthbar.fillAmount = 1;
+        Healthbar.fillAmount = health;
+        initialRotation = Healthbar.transform.rotation;
 
     }
-    
+
+    void LateUpdate()
+    {
+        Healthbar.transform.rotation = initialRotation;
+    }
+
     private void OnCollisionEnter(Collision hit) 
     {
 
@@ -32,8 +42,9 @@ public class RatClass : MonoBehaviour
             currentHealth -= damage;
             Debug.Log(currentHealth);
 
-            //Healthbar.fillAmount -= currentHealth / 100;
-            Healthbar.fillAmount -= damage / 100;
+
+            Healthbar.fillAmount -= (health - damage) / 100;
+            //Healthbar.fillAmount -= currentHealth - damage / 100;
 
             if(currentHealth <= 0)
 
