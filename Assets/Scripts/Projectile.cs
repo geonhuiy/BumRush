@@ -44,6 +44,10 @@ public class Projectile : MonoBehaviour
             Debug.Log("rat hit");
             Destroy(this.gameObject);
         }
+        if(target.gameObject.tag == "Shot") //MAKE THE SHOTS NOT COLLIDE WITH EACH OTHER
+        {
+            Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(),target.collider,true);
+        }
     }
 
     void AOEdamage(Vector3 center, float rad)
