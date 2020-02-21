@@ -8,7 +8,7 @@ public class RatClass : MonoBehaviour
     // Start is called before the first frame update¨
     public int currentHealth = 25;
     public Image Healthbar;
-    private int damage;
+    public int damage;
     private float health;
 
     void Start()
@@ -21,12 +21,10 @@ public class RatClass : MonoBehaviour
 
         if (hit.gameObject.name == "TestShot(Clone)")
         {
-            damage = hit.collider.gameObject.GetComponent<Projectile>().carried_damage;
-
             currentHealth -= damage;
             Healthbar.fillAmount -= damage / 100;
 
-            Debug.Log("Rat took damage for: " + hit.collider.gameObject.GetComponent<Projectile>().carried_damage);
+            Debug.Log("Rat took damage for: " + damage);
             if (currentHealth <= 0)
             {
                 Destroy(this.gameObject);
