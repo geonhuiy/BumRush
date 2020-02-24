@@ -3135,7 +3135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 720281623}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.5441e-10, y: 1.534, z: -0.201}
+  m_LocalPosition: {x: -7.5441e-10, y: 1.01, z: -0.02}
   m_LocalScale: {x: 0.7545, y: -0.086503424, z: 0.7545}
   m_Children: []
   m_Father: {fileID: 761715527}
@@ -3409,7 +3409,7 @@ MonoBehaviour:
   maxTowers: 1
   spawnedTowers: []
   TempSpawnedHobo: {fileID: 0}
-  hobo: {fileID: 2471967211031114868, guid: a1dc23a55ed30674f8fc2a12a1815260, type: 3}
+  hobo: {fileID: 6353229954617612266, guid: 8becf6b028b91a044a2b87472432fac0, type: 3}
   spawnPlaceholder: {fileID: 1578616485}
 --- !u!4 &767900179
 Transform:
@@ -12095,7 +12095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gos:
   - {fileID: 8977903293147272624, guid: 8e7baebc3fa66fc42a51dcc49b88cd17, type: 3}
-  numberstospawn: 50
+  numberstospawn: 20
 --- !u!4 &1910011358
 Transform:
   m_ObjectHideFlags: 0
