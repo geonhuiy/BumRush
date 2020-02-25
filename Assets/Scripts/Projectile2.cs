@@ -10,7 +10,8 @@ public class Projectile2 : MonoBehaviour
     {
         parentObj = this.transform.parent.gameObject;
         targetRat = parentObj.GetComponent<TowerShooting>().targetRat;
-        shotDamage = parentObj.GetComponent<BumClass>().damage;
+        //shotDamage = parentObj.GetComponent<BumClass>().damage;
+        shotDamage = 5f;
         StartCoroutine("DestroyProj");
     }
     void Update()

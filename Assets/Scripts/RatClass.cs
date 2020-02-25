@@ -5,19 +5,15 @@ using UnityEngine.UI;
 
 public class RatClass : MonoBehaviour
 {
-    // Start is called before the first frame update¨
-    //Rebase
-    public float currentHealth = 25;
+    public float currentHealth;
+    private float maxHealth = 30;
     public Image Healthbar;
     public float damage;
-    private float health;
     private Quaternion initialRotation;
     void Start ()
     {
-        health = currentHealth;
-        Healthbar.fillAmount = health;
+        currentHealth = maxHealth;
         initialRotation = Healthbar.transform.rotation;
-
     }
 
     void LateUpdate()
@@ -31,11 +27,8 @@ public class RatClass : MonoBehaviour
         if (hit.gameObject.name == "TestShot(Clone)")
         {
             currentHealth -= damage;
-
-            Healthbar.fillAmount -= (health - damage) / 100;
-            //Healthbar.fillAmount -= currentHealth - damage / 100;
-
-            Debug.Log("Rat took damage for: " + damage);
+            Debug.Log("Current health : " + currentHealth + " Damage taken : " + damage);
+            Healthbar.fillAmount = (currentHealth/maxHealth);
             if (currentHealth <= 0)
             {
                 Destroy(this.gameObject);
