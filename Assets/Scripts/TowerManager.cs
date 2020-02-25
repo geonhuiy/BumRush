@@ -5,7 +5,7 @@ using UnityEngine;
 public class TowerManager : MonoBehaviour
 {
     public static TowerManager tManagerInstance;
-    public int spawnedTowerCount, totalTowerCount, selectedTower;
+    public int spawnedTowerCount;
     public int maxTowers = 1;
     public List<GameObject> spawnedTowers;
     public GameObject TempSpawnedHobo, hobo, spawnPlaceholder;
@@ -31,18 +31,12 @@ public class TowerManager : MonoBehaviour
             return false;
         }
     }
-
-    public void PlaceTower() {
-        if (hasTowerSpawned()) {
-
-        }
-    }
-
     public void SpawnTower() {
         if(spawnedTowerCount < maxTowers) {
             //hobo.GetComponent<BumClass>().BumInit(1); //LEVEL 1 HOBO
             //GameObject newHobo = Instantiate(hobo, spawnPlaceholder.transform.position, Quaternion.identity);'
             GameObject newHobo = Instantiate(hobo, spawnPlaceholder.transform.position, Quaternion.identity);
+            newHobo.gameObject.GetComponent<TowerShooting>().enabled = false;
             spawnedTowerCount ++;
             spawnedTowers.Add(newHobo);
         }
