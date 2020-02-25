@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class TowerShooting : MonoBehaviour
 {
-    private GameObject targetRat;
+    public GameObject targetRat;
     private GameObject[] targets;
     [SerializeField]
     private GameObject projectile;
     private float towerRange = 16f;
     private float towerRatDistance, attackCooldown;
+    public float shotSpeed = 50f;
+
     void Update()
     {
         targets = GameObject.FindGameObjectsWithTag("Rat");
@@ -47,7 +49,8 @@ public class TowerShooting : MonoBehaviour
         if (attackCooldown <= 0)
         {
             Debug.Log("Hobo ready");
-            Instantiate(projectile, transform.position + 2 * transform.forward, transform.rotation);
+            GameObject hoboShot = Instantiate(projectile, transform.position + 2 * transform.forward, transform.rotation, transform);
+            //hoboShot.GetComponent<Rigidbody>().AddForce(transform.forward * 500);
             attackCooldown = 2;
         }
     }
