@@ -9,9 +9,12 @@ public class TowerShooting : MonoBehaviour
     [SerializeField]
     private GameObject projectile;
     private float towerRange = 16f;
-    private float towerRatDistance, attackCooldown;
+    private float towerRatDistance, attackCooldown, fireRate;
     public float shotSpeed = 50f;
 
+    private void Start() {
+        fireRate = gameObject.GetComponent<BumClass>().fire_rate;
+    }
     void Update()
     {
         targets = GameObject.FindGameObjectsWithTag("Rat");
@@ -48,19 +51,11 @@ public class TowerShooting : MonoBehaviour
         attackCooldown -= Time.deltaTime;
         if (attackCooldown <= 0)
         {
-            Debug.Log("Hobo ready");
             GameObject hoboShot = Instantiate(projectile, transform.position + 2 * transform.forward, transform.rotation, transform);
             //hoboShot.GetComponent<Rigidbody>().AddForce(transform.forward * 500);
-            attackCooldown = 2;
+            attackCooldown = fireRate;
         }
     }
-
-    /*private void FindNewRat()
-    {
-        targetRat = null;
-        targetRat = GameObject.FindGameObjectWithTag("Rat");
-    }*/
-
     private GameObject FindClosestEnemy(GameObject[] enemies)
     {
         GameObject bestTarget = null;

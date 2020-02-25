@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4021782863858693342}
   - component: {fileID: 2120438353395864875}
   - component: {fileID: 5727586792932643818}
+  - component: {fileID: 6495781234042262782}
   m_Layer: 0
   m_Name: HoboShooter
   m_TagString: Hobo
@@ -119,5 +120,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6cfe22b10d350348aacdedd226d7927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetRat: {fileID: 0}
   projectile: {fileID: 3206819121843905748, guid: 66138919c9bce0445955f6b559fa9099,
     type: 3}
+  shotSpeed: 15
+--- !u!114 &6495781234042262782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353229954617612266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9586dfd738bd71848b2c6a27a0e816c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  fire_rate: 1
+  damage: 5
+  aoe: 1
+  hostile: 0
+  starving: 0

@@ -12095,7 +12095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gos:
   - {fileID: 8977903293147272624, guid: 8e7baebc3fa66fc42a51dcc49b88cd17, type: 3}
-  numberstospawn: 20
+  numberstospawn: 1
 --- !u!4 &1910011358
 Transform:
   m_ObjectHideFlags: 0
