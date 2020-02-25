@@ -6,6 +6,8 @@ public class Projectile2 : MonoBehaviour
 {
     private GameObject parentObj, targetRat;
     private float shotDamage;
+    [SerializeField]
+    private float speed = 50;
     private void Start()
     {
         parentObj = this.transform.parent.gameObject;
@@ -18,7 +20,10 @@ public class Projectile2 : MonoBehaviour
     {
         if (targetRat != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetRat.transform.position, 50 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetRat.transform.position, speed * Time.deltaTime);
+        }
+        else {
+            Destroy(this.gameObject);
         }
     }
     IEnumerator DestroyProj()
@@ -32,7 +37,7 @@ public class Projectile2 : MonoBehaviour
             other.gameObject.GetComponent<RatClass>().damage = shotDamage;
             Destroy(this.gameObject);
         }
-        if (other.gameObject.tag == "Shot" || other.gameObject.tag == "Hobo") {
+        if (other.gameObject.tag == "Shot" || other.gameObject.tag == "Hobo"|| other.gameObject.tag =="Node") {
             Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
         }
 
