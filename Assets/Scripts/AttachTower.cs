@@ -11,6 +11,7 @@ public class AttachTower : MonoBehaviour
         if (!hasTowerAttached) {
         TowerManager.tManagerInstance.spawnedTowers[0].transform.position = this.transform.position + yOffset;
         hasTowerAttached = true;
+        TowerManager.tManagerInstance.spawnedTowers[0].GetComponent<TowerShooting>().enabled = true; 
         TowerManager.tManagerInstance.spawnedTowerCount--;
         TowerManager.tManagerInstance.spawnedTowers.RemoveAt(0);
         }
