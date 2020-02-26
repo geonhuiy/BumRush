@@ -106,6 +106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
-  fire_rate: 1
+  fire_rate: 15
   damage: 5
   aoe: 1
+  hostile: 0
+  starving: 0
