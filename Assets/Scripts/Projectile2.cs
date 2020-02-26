@@ -12,8 +12,8 @@ public class Projectile2 : MonoBehaviour
     {
         parentObj = this.transform.parent.gameObject;
         targetRat = parentObj.GetComponent<TowerShooting>().targetRat;
-        //shotDamage = parentObj.GetComponent<BumClass>().damage;
-        shotDamage = 5f;
+        shotDamage = parentObj.GetComponent<BumClass>().damage;
+        //shotDamage = 5f;
         StartCoroutine("DestroyProj");
     }
     void Update()
@@ -33,7 +33,11 @@ public class Projectile2 : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {
-        if (other.gameObject.tag == "Rat") {
+        if(other.gameObject.tag == "Rat" && parentObj.GetComponent<BumClass>().bum_aoe_on == true)
+        {
+            AOEdamage(this.transform.position, 1000);
+        }
+        else if (other.gameObject.tag == "Rat") {
             other.gameObject.GetComponent<RatClass>().damage = shotDamage;
             Destroy(this.gameObject);
         }
@@ -41,5 +45,17 @@ public class Projectile2 : MonoBehaviour
             Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
         }
 
+    }
+
+    
+    void AOEdamage(Vector3 center, float rad) //AOE FUNCTION
+    {
+        Collider[] rats_hit  = Physics.OverlapSphere(center, rad);
+        int i = 0;
+        while(i < rats_hit.Length)
+        {
+            rats_hit[i].gameObject.GetComponent<RatClass>().currentHealth  -= shotDamage; //ASSIGN DAMAGE TO EACH RAT IN THE RADIUS
+            Debug.Log("AOE");
+        }
     }
 }
