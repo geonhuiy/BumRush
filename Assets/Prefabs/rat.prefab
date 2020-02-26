@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 8977903293147272630}
   - component: {fileID: 8977903293147272631}
   - component: {fileID: 8977903293147272632}
+  - component: {fileID: -7421790863228537429}
   m_Layer: 12
   m_Name: rat
   m_TagString: Rat
@@ -335,3 +336,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ratSpeed: 1
+--- !u!114 &-7421790863228537429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8977903293147272624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159cbbbbf5174d243b646e6c53c8249c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
