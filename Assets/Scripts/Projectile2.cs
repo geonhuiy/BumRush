@@ -22,7 +22,8 @@ public class Projectile2 : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, targetRat.transform.position, speed * Time.deltaTime);
         }
-        else {
+        else
+        {
             Destroy(this.gameObject);
         }
     }
@@ -32,29 +33,37 @@ public class Projectile2 : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision other) {
-        if(other.gameObject.tag == "Rat" && parentObj.GetComponent<BumClass>().bum_aoe_on == true)
+    private void OnCollisionEnter(Collision other)
+    {
+
+        if (other.gameObject.tag == "Rat")
         {
-            AOEdamage(this.transform.position, 1000);
+
+            if (parentObj.GetComponentInParent<BumClass>().bum_aoe_on == true)
+            {
+                Debug.Log("Goes to AOE");
+                AOEdamage(this.transform.position, 10);
+            }
+
+            //other.gameObject.GetComponent<RatClass>().damage = shotDamage;
+            //Destroy(this.gameObject);
         }
-        else if (other.gameObject.tag == "Rat") {
-            other.gameObject.GetComponent<RatClass>().damage = shotDamage;
-            Destroy(this.gameObject);
-        }
-        if (other.gameObject.tag == "Shot" || other.gameObject.tag == "Hobo"|| other.gameObject.tag =="Node") {
+        if (other.gameObject.tag == "Shot" || other.gameObject.tag == "Hobo" || other.gameObject.tag == "Node")
+        {
             Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
         }
 
     }
 
-    
+
     void AOEdamage(Vector3 center, float rad) //AOE FUNCTION
     {
-        Collider[] rats_hit  = Physics.OverlapSphere(center, rad);
+        Collider[] rats_hit = Physics.OverlapSphere(center, rad);
         int i = 0;
-        while(i < rats_hit.Length)
+        while (i < rats_hit.Length)
         {
-            rats_hit[i].gameObject.GetComponent<RatClass>().currentHealth  -= shotDamage; //ASSIGN DAMAGE TO EACH RAT IN THE RADIUS
+            Debug.Log("AOE hit: " + i);
+            rats_hit[i].gameObject.GetComponent<RatClass>().currentHealth -= shotDamage; //ASSIGN DAMAGE TO EACH RAT IN THE RADIUS
             Debug.Log("AOE");
         }
     }
