@@ -8,11 +8,18 @@ public class Projectile2 : MonoBehaviour
     private float shotDamage;
     [SerializeField]
     private float speed = 50;
+    private float aoe_rad;
+    private bool aoe_on = false;
     private void Start()
     {
         parentObj = this.transform.parent.gameObject;
         targetRat = parentObj.GetComponent<TowerShooting>().targetRat;
         shotDamage = parentObj.GetComponent<BumClass>().damage;
+        aoe_on = parentObj.GetComponent<BumClass>().bum_aoe_on;
+        if(aoe_on == true)
+        {
+            aoe_rad = parentObj.GetComponent<BumClass>().bum_aoe_radius;
+        }
         //shotDamage = 5f;
         StartCoroutine("DestroyProj");
     }
@@ -39,10 +46,10 @@ public class Projectile2 : MonoBehaviour
         if (other.gameObject.tag == "Rat")
         {
 
-            if (parentObj.GetComponent<BumClass>().bum_aoe_on == true)
+            if (aoe_on == true)
             {
                 Debug.Log("Goes to AOE");
-                AOEdamage(this.transform.position, 5);
+                AOEdamage(this.transform.position, aoe_rad);
             }
             else
             {
