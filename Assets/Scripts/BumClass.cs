@@ -15,7 +15,7 @@ public class BumClass : MonoBehaviour
 
     //WILDCARDS VARIABLES
     public float bum_aoe_radius = 1;
-    public bool bum_aoe_on = false;
+    public bool bum_aoe_on = true;
     public int hostile = 0;
     public bool starving = false;
     private Traits t1;
@@ -115,9 +115,7 @@ public class BumClass : MonoBehaviour
             hp = 100;
             fire_rate = 0;
             damage = 0;
-
         }
     }
-
 }
 

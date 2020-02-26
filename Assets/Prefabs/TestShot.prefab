@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3206819121843905751}
   - component: {fileID: -206854217721015199}
   - component: {fileID: 6628547532006564920}
+  - component: {fileID: 1226941249078509169}
   m_Layer: 12
   m_Name: TestShot
   m_TagString: Shot
@@ -120,5 +121,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a64937080e61eb743a38c373187abef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 50
+--- !u!114 &1226941249078509169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3206819121843905748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85d9960e3c95d1a429df0e8726239478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
