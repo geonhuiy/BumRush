@@ -1,28 +1,17 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class Path_Finding : MonoBehaviour
 {
-
-    //[SerializeField]
-    //Transform _destination;
-
     NavMeshAgent _navMeshAgent;
-
     GameObject endObject;
-
     public float ratSpeed = 1f;
     
-
     // Start is called before the first frame update
     void Start()
     {
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
         endObject = GameObject.Find("EndPoint");
-
 
         if (_navMeshAgent == null)
         {
@@ -44,8 +33,6 @@ public class Path_Finding : MonoBehaviour
         {
             SetDestination();
         }
-
-
     }
 
     private void SetDestination()
@@ -54,5 +41,4 @@ public class Path_Finding : MonoBehaviour
         //Vector3 targetVector = _destination.transform.position;
         _navMeshAgent.SetDestination(endVector);
     }
-
 }
