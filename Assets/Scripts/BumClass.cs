@@ -117,5 +117,10 @@ public class BumClass : MonoBehaviour
             damage = 0;
         }
     }
+
+    void applyDMG(float d)
+    {
+        hp -= d;
+    }
 }
 
