@@ -10,15 +10,11 @@ public class Shooting : MonoBehaviour
     public float range = 65f;
     private float t_distance;
     public float shot_damage;
-
-    //VARIABLES FOR AOE (WILDCARD)
-    public bool aoe = false;
-    public float aoe_radius = 1f;
-
+    
     void Start()
     {
         shot_time = frate;
-        shot_damage = transform.parent.gameObject.GetComponent<BumClass>().damage;
+        shot_damage = transform.parent.gameObject.GetComponent<BumClass>().damage; //GET STATS FROM BUMCLASS
     }
 
     // Update is called once per frame
@@ -38,7 +34,7 @@ public class Shooting : MonoBehaviour
             {
                 Projectile proj = Instantiate(projectile, transform.position, Quaternion.identity); //INSTANTIATE PROJECTILE
                 proj.carried_damage = shot_damage;
-                proj.GetComponent<Rigidbody>().AddForce(rat.transform.position, ForceMode.Force);
+             //   proj.GetComponent<Rigidbody>().AddForce(rat.transform.position, ForceMode.Force);
                 shot_time = frate;
             }
             else

@@ -10,7 +10,6 @@ public class Projectile : MonoBehaviour
     private Vector3 target_rat;
 
     //VARIABLES FOR AOE (WILDCARDS)
-    public bool aoe = false;
     public float aoe_radius = 1f;
 
 
@@ -20,6 +19,10 @@ public class Projectile : MonoBehaviour
     {
         rat = GameObject.FindGameObjectWithTag("Rat").transform;
         target_rat = new Vector3(rat.position.x, rat.position.y, rat.position.z);
+        if(transform.parent.GetComponent<BumClass>().bum_aoe_on == true)
+        {
+            aoe_radius = transform.parent.GetComponent<BumClass>().bum_aoe_radius; 
+        }
     }
 
     void Update()
@@ -40,7 +43,16 @@ public class Projectile : MonoBehaviour
     {
         if (target.gameObject.tag == "Rat")
         {
-            target.gameObject.GetComponent<RatClass>().damage = carried_damage;
+            if(transform.parent.GetComponent<BumClass>().bum_aoe_on == false)
+            {
+                target.gameObject.GetComponent<RatClass>().damage = carried_damage;
+            }
+            else
+            {
+
+                AOEdamage(this.transform.position, aoe_radius);
+            }
+            
             Debug.Log("rat hit");
             Destroy(this.gameObject);
         }
@@ -50,13 +62,13 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    void AOEdamage(Vector3 center, float rad)
+    void AOEdamage(Vector3 center, float rad) //AOE FUNCTION
     {
         Collider[] rats_hit  = Physics.OverlapSphere(center, rad);
         int i = 0;
         while(i < rats_hit.Length)
         {
-            
+               rats_hit[i].gameObject.GetComponent<RatClass>().damage = carried_damage; //ASSIGN DAMAGE TO EACH RAT IN THE RADIUS
         }
     }
 }
