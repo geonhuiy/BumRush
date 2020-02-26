@@ -10,7 +10,7 @@ public class RatClass : MonoBehaviour
     public Image Healthbar;
     public float damage;
     private Quaternion initialRotation;
-    void Start ()
+    void Start()
     {
         currentHealth = maxHealth;
         initialRotation = Healthbar.transform.rotation;
@@ -21,18 +21,15 @@ public class RatClass : MonoBehaviour
         Healthbar.transform.rotation = initialRotation;
     }
 
-    private void OnCollisionEnter(Collision hit) 
+    public void applyDMG(float d)
     {
+        currentHealth -= d;
+        Debug.Log("Current health : " + currentHealth + " Damage taken : " + damage);
+        Healthbar.fillAmount = (currentHealth / maxHealth);
 
-        if (hit.gameObject.name == "TestShot(Clone)")
+        if (currentHealth <= 0)
         {
-            currentHealth -= damage;
-            Debug.Log("Current health : " + currentHealth + " Damage taken : " + damage);
-            Healthbar.fillAmount = (currentHealth/maxHealth);
-            if (currentHealth <= 0)
-            {
-                Destroy(this.gameObject);
-            }
+            Destroy(this.gameObject);
         }
     }
 }

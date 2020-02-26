@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2471967211031114864}
   - component: {fileID: 2471967211031114871}
-  - component: {fileID: -7907672300576353992}
+  - component: {fileID: 6504705020972153575}
   - component: {fileID: 2471967211031114870}
   - component: {fileID: 8351179362678713184}
   - component: {fileID: 5619341727282845496}
@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2471967211031114868}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &-7907672300576353992
+--- !u!114 &6504705020972153575
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,7 +59,8 @@ MonoBehaviour:
   hp: 100
   fire_rate: 1
   damage: 5
-  aoe: 1
+  bum_aoe_radius: 1
+  bum_aoe_on: 1
   hostile: 0
   starving: 0
 --- !u!23 &2471967211031114870
@@ -112,6 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6cfe22b10d350348aacdedd226d7927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetRat: {fileID: 0}
+  projectile: {fileID: 0}
+  shotSpeed: 50
 --- !u!65 &5619341727282845496
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -175,5 +179,3 @@ MonoBehaviour:
   frate: 2
   range: 65
   shot_damage: 0
-  aoe: 0
-  aoe_radius: 1

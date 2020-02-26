@@ -39,14 +39,17 @@ public class Projectile2 : MonoBehaviour
         if (other.gameObject.tag == "Rat")
         {
 
-            if (parentObj.GetComponentInParent<BumClass>().bum_aoe_on == true)
+            if (parentObj.GetComponent<BumClass>().bum_aoe_on == true)
             {
                 Debug.Log("Goes to AOE");
-                AOEdamage(this.transform.position, 10);
+                AOEdamage(this.transform.position, 5);
             }
-
-            //other.gameObject.GetComponent<RatClass>().damage = shotDamage;
-            //Destroy(this.gameObject);
+            else
+            {
+                Debug.Log("Doesn't go to AOE");
+                other.gameObject.SendMessage("applyDMG", shotDamage);
+            }
+            Destroy(this.gameObject);
         }
         if (other.gameObject.tag == "Shot" || other.gameObject.tag == "Hobo" || other.gameObject.tag == "Node")
         {
@@ -55,16 +58,16 @@ public class Projectile2 : MonoBehaviour
 
     }
 
-
-    void AOEdamage(Vector3 center, float rad) //AOE FUNCTION
+    //AOE FUNCTION
+    void AOEdamage(Vector3 center, float rad)
     {
         Collider[] rats_hit = Physics.OverlapSphere(center, rad);
         int i = 0;
         while (i < rats_hit.Length)
         {
-            Debug.Log("AOE hit: " + i);
-            rats_hit[i].gameObject.GetComponent<RatClass>().currentHealth -= shotDamage; //ASSIGN DAMAGE TO EACH RAT IN THE RADIUS
-            Debug.Log("AOE");
+            rats_hit[i].SendMessage("applyDMG", shotDamage); //ASSIGN DAMAGE TO EACH RAT IN THE RADIUS
+            ++i;
         }
+        Debug.Log("AOE hit: " + i);
     }
 }
