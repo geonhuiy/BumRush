@@ -5,30 +5,38 @@ public class Shooting : MonoBehaviour
 {
     public Projectile projectile;
     public Transform rat;
+    public Transform other_hobo;
+    private GameObject parentObj;
+
     public float shot_time;
     public float frate = 2;
     public float range = 65f;
-    private float t_distance;
+    private float rat_distance; //DISTANCE FROM NEAREST RAT
+    private float bum_distance; //DISTANCE FROM OTHER NEAREST HOBO (FOR HOSTILITY WILD CARD)
     public float shot_damage;
+    
 
     void Start()
     {
+        parentObj = transform.parent.gameObject;
         shot_time = frate;
-        shot_damage = transform.parent.gameObject.GetComponent<BumClass>().damage; //GET STATS FROM BUMCLASS
+        shot_damage = parentObj.GetComponent<BumClass>().damage; //GET STATS FROM BUMCLASS
+        
     }
 
     // Update is called once per frame
     void Update()
     {
        
+        if()
         if (GameObject.FindGameObjectWithTag("Rat") != null)
         {
             rat = GameObject.FindGameObjectWithTag("Rat").transform;
-            t_distance = Vector3.Distance(rat.transform.position, this.transform.position); //GETS DISTANCE BETWEEN FIREPOINT AND RAT
+            rat_distance = Vector3.Distance(rat.transform.position, this.transform.position); //GETS DISTANCE BETWEEN FIREPOINT AND RAT
         }
 
         //Debug.Log(t_distance);
-        if (GameObject.FindGameObjectWithTag("Rat") != null && t_distance <= range) //CHECK THAT RAT EXISTS AND IS IN RANGE
+        if (GameObject.FindGameObjectWithTag("Rat") != null && rat_distance <= range) //CHECK THAT RAT EXISTS AND IS IN RANGE
         {
             if (shot_time <= 0)
             {
@@ -46,6 +54,6 @@ public class Shooting : MonoBehaviour
 
     void hostility()
     {
-        
+
     }
 }
