@@ -1,42 +1,60 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PoolObject : MonoBehaviour, ISpawnEvent
 {
     ObjectPool pool;
+    RatClass ratClassScript;
+    public float currentHealth;
+    private float maxHealth = 30;
+    public Image Healthbar;
+    public float damage;
+    private Quaternion initialRotation;
+    PoolObject po;
 
-
-
-
-
-
-    // Update is called once per frame
-    void Update()
+    public void OnTriggerEnter(Collider other)
     {
-
-
-        if (this.transform.position.y < -20)
-        {
-            pool.Despawn(this.gameObject);
-        }
-
-
+        DespawnPoolObject();
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void DespawnPoolObject()
     {
         pool.Despawn(this.gameObject);
-        Debug.Log("Rat entered the cave");
-    }
-    public void OnCollisionEnter(Collision collision)
-    {
-
     }
 
     public void OnSpawned(GameObject targetGameObject, ObjectPool sender)
     {
         pool = sender;
+    }
 
+    void Start()
+    {
+        currentHealth = maxHealth;
+        initialRotation = Healthbar.transform.rotation;
+
+    }
+
+    void LateUpdate()
+    {
+        Healthbar.transform.rotation = initialRotation;
+    }
+
+    private void OnCollisionEnter(Collision hit)
+    {
+
+        if (hit.gameObject.name == "TestShot(Clone)")
+        //if (hit.gameObject.CompareTag("Rat"))
+        {
+            currentHealth -= damage;
+            //Debug.Log("Current health : " + currentHealth + " Damage taken : " + damage);
+            Healthbar.fillAmount = (currentHealth / maxHealth);
+            if (currentHealth <= 0)
+            {
+                Debug.Log("Health is 0, should destroy");
+                //Destroy(this.gameObject);
+                DespawnPoolObject();
+            }
+        }
     }
 }

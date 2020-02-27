@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectHandler : MonoBehaviour
 {
@@ -9,25 +10,51 @@ public class ObjectHandler : MonoBehaviour
     DictionaryObjectPool _objectpool;
     [SerializeField]
     GameObject[] gos;
-    [SerializeField]
-    public float numberstospawn = 1.0f;
-    // Use this for initialization
+    public int numbertospawn = 2;
+    public float objectPoolSize = 100f;
+    public int waveSize = 2;
+    public float waveTimer = 5f;
+    public Text waveCountdown;
     void Start()
     {
+        // CREATE THE RAT POOL
         _objectpool = new DictionaryObjectPool();
-        _objectpool.AddObjectPool("rats", gos[0], this.transform, 100);
+        _objectpool.AddObjectPool("rats", gos[0], this.transform, (int)objectPoolSize);
 
 
+        // START BY GIVING THE PLAYER X AMOUNT OF TIME BEFORE THE FIRST WAVE
+        // WHEN THE TIMER REACHES 0 WAVE STARTED WILL BE FALSE 
+        waveTimer -= Time.deltaTime;
+        if (waveTimer <= 0)
+        {
+            waveTimer = 5f;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    // WILL SPAWN NEW WAVE OR RATS. IF i IS LESS THEN THE NUMBER I WANT TO SPAWN, SPAWN ONE RAT.
+    // WHEN THAT IS DONE INCREASE NEXT WAVE BY X
+    public void SpawnNewWaveOfRats()
     {
-        numberstospawn += objectNumber * Time.smoothDeltaTime;
-        if (_objectpool["rats"].Count < numberstospawn)
+        for (int i = 0; i < numbertospawn; i++)
         {
             _objectpool["rats"].Spawn(pos);
         }
+        //waveStarted = true;
+        numbertospawn += 2;
+    }
 
+   
+    void Update()
+    {
+
+        // WHEN THE TIMER REACHES 0 RUN THE SPAWN METHOD AND RESET THE WAVE TIMER
+        if (waveTimer <= 0)
+        {
+            SpawnNewWaveOfRats();
+            waveTimer = 5f;
+        }
+        waveTimer -= Time.deltaTime;
+        waveCountdown.text = "Time Until Next wave  : " + (int)waveTimer;
     }
 }

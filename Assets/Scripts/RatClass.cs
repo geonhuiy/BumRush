@@ -10,10 +10,14 @@ public class RatClass : MonoBehaviour
     public Image Healthbar;
     public float damage;
     private Quaternion initialRotation;
+    PoolObject po;
+    
+    
     void Start ()
     {
         currentHealth = maxHealth;
         initialRotation = Healthbar.transform.rotation;
+        
     }
 
     void LateUpdate()
@@ -25,13 +29,15 @@ public class RatClass : MonoBehaviour
     {
 
         if (hit.gameObject.name == "TestShot(Clone)")
+        //if (hit.gameObject.CompareTag("Rat"))
         {
             currentHealth -= damage;
-            Debug.Log("Current health : " + currentHealth + " Damage taken : " + damage);
+            //Debug.Log("Current health : " + currentHealth + " Damage taken : " + damage);
             Healthbar.fillAmount = (currentHealth/maxHealth);
             if (currentHealth <= 0)
             {
-                Destroy(this.gameObject);
+                Debug.Log("Health is 0, should destroy");
+                //Destroy(this.gameObject);
             }
         }
     }

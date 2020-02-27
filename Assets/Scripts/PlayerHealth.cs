@@ -1,35 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-
-    public int health;
+    public int tentHealth = 100;
     public Text healthText;
 
-
-
-
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        health = 60;
+        Debug.Log("Ontriggerenter from Player health");
+        tentHealth -= 1;
     }
-
-
 
     // Update is called once per frame
     void Update()
-    {
+    {    
+        //Debug.Log(tentHealth);
+        healthText.text = "Tent Health  : " + (tentHealth);
 
 
-        healthText.text = "Tent Health  : " + health;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*
+        // If the health is 0 or lower, stop the game and popup some menu screen
+        if (tentHealth <= 0)
         {
-            health--;
+            Time.timeScale = 0;
         }
+        */
     }
 }
