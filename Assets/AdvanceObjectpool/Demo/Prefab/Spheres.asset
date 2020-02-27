@@ -12,5 +12,3 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Spheres
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPoolTarget
-  prefab: {fileID: 1850949995003670, guid: 5b3b4e66eb43deb44afdc69eb9a9ba2d, type: 3}
-  preallocateAmount: 0

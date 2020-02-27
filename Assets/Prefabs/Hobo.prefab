@@ -108,6 +108,7 @@ MonoBehaviour:
   hp: 100
   fire_rate: 15
   damage: 5
-  aoe: 1
-  hostile: 0
-  starving: 0
+  bum_aoe_radius: 100
+  bum_aoe_on: 1
+  hostile_on: 0
+  starving_on: 0

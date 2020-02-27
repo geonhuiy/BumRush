@@ -61,8 +61,8 @@ MonoBehaviour:
   damage: 5
   bum_aoe_radius: 1
   bum_aoe_on: 1
-  hostile: 0
-  starving: 0
+  hostile_on: 0
+  starving_on: 0
 --- !u!23 &2471967211031114870
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -175,7 +175,10 @@ MonoBehaviour:
   projectile: {fileID: 5701863021954699698, guid: 66138919c9bce0445955f6b559fa9099,
     type: 3}
   rat: {fileID: 2666068710488238775, guid: 8e7baebc3fa66fc42a51dcc49b88cd17, type: 3}
+  other_hobo: {fileID: 0}
   shot_time: 0
+  stab_time: 0
   frate: 2
   range: 65
   shot_damage: 0
+  hostile: 0
