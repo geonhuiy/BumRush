@@ -299,7 +299,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8977903293147272624}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7137d93a30502dd498c3ff2e39e85bfb, type: 3}
   m_Name: 
@@ -332,6 +332,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159cbbbbf5174d243b646e6c53c8249c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHealth: 5
+  Healthbar: {fileID: 8977903291929609625}
+  damage: 5
 --- !u!54 &-6513414589887111937
 Rigidbody:
   m_ObjectHideFlags: 0

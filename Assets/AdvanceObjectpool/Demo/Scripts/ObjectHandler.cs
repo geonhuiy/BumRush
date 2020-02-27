@@ -10,55 +10,51 @@ public class ObjectHandler : MonoBehaviour
     DictionaryObjectPool _objectpool;
     [SerializeField]
     GameObject[] gos;
-    public int waveSize = 10;
-    public int objectPoolSize = 10;
-    public int increaseWaveBy = 10;
-    public float waveTimer = 20f;
-    public bool waveStarted = false;
+    public int numbertospawn = 2;
+    public float objectPoolSize = 100f;
+    public int waveSize = 2;
+    public float waveTimer = 5f;
     public Text waveCountdown;
     void Start()
     {
+        // CREATE THE RAT POOL
         _objectpool = new DictionaryObjectPool();
-        _objectpool.AddObjectPool("rats", gos[0], this.transform, objectPoolSize);
+        _objectpool.AddObjectPool("rats", gos[0], this.transform, (int)objectPoolSize);
 
 
+        // START BY GIVING THE PLAYER X AMOUNT OF TIME BEFORE THE FIRST WAVE
+        // WHEN THE TIMER REACHES 0 WAVE STARTED WILL BE FALSE 
+        waveTimer -= Time.deltaTime;
+        if (waveTimer <= 0)
+        {
+            waveTimer = 5f;
+        }
     }
 
+
+    // WILL SPAWN NEW WAVE OR RATS. IF i IS LESS THEN THE NUMBER I WANT TO SPAWN, SPAWN ONE RAT.
+    // WHEN THAT IS DONE INCREASE NEXT WAVE BY X
     public void SpawnNewWaveOfRats()
     {
-        waveSize = waveSize + increaseWaveBy;
-        increaseWaveBy += increaseWaveBy;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(waveSize + " is the wave size");
-        Debug.Log(increaseWaveBy + " increase by");
-
-        //waveSize += objectNumber * Time.smoothDeltaTime;
-        if (_objectpool["rats"].Count < waveSize)
+        for (int i = 0; i < numbertospawn; i++)
         {
             _objectpool["rats"].Spawn(pos);
-            
-
-
-            waveStarted = true;
         }
-      
-        if (waveStarted)
+        //waveStarted = true;
+        numbertospawn += 2;
+    }
+
+   
+    void Update()
+    {
+
+        // WHEN THE TIMER REACHES 0 RUN THE SPAWN METHOD AND RESET THE WAVE TIMER
+        if (waveTimer <= 0)
         {
-            waveTimer -= Time.deltaTime;
-            if (waveTimer <= 0)
-            {
-                SpawnNewWaveOfRats();
-                waveStarted = false;
-                waveTimer = 20f;
-            }
+            SpawnNewWaveOfRats();
+            waveTimer = 5f;
         }
+        waveTimer -= Time.deltaTime;
         waveCountdown.text = "Time Until Next wave  : " + (int)waveTimer;
-        
-
-
     }
 }

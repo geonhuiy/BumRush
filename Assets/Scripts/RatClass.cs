@@ -32,12 +32,12 @@ public class RatClass : MonoBehaviour
         //if (hit.gameObject.CompareTag("Rat"))
         {
             currentHealth -= damage;
-            Debug.Log("Current health : " + currentHealth + " Damage taken : " + damage);
+            //Debug.Log("Current health : " + currentHealth + " Damage taken : " + damage);
             Healthbar.fillAmount = (currentHealth/maxHealth);
             if (currentHealth <= 0)
             {
-                
-                Destroy(this.gameObject);
+                Debug.Log("Health is 0, should destroy");
+                //Destroy(this.gameObject);
             }
         }
     }

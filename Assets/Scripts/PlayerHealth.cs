@@ -17,11 +17,15 @@ public class PlayerHealth : MonoBehaviour
     {    
         //Debug.Log(tentHealth);
         healthText.text = "Tent Health  : " + (tentHealth);
-       
+
+
+
+        /*
         // If the health is 0 or lower, stop the game and popup some menu screen
         if (tentHealth <= 0)
         {
             Time.timeScale = 0;
         }
+        */
     }
 }
