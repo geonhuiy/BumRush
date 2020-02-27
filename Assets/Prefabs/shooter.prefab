@@ -112,6 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6cfe22b10d350348aacdedd226d7927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetRat: {fileID: 0}
+  projectile: {fileID: 0}
+  shotSpeed: 50
 --- !u!65 &5619341727282845496
 BoxCollider:
   m_ObjectHideFlags: 0

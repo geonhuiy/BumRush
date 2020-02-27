@@ -46,4 +46,9 @@ MonoBehaviour:
   gos:
   - {fileID: 1882792257682006, guid: 5fe54a4b51e53ad4ab0ee713e9bd154f, type: 3}
   - {fileID: 1850949995003670, guid: 5b3b4e66eb43deb44afdc69eb9a9ba2d, type: 3}
-  numberstospawn: 5000
+  waveSize: 10
+  objectPoolSize: 10
+  increaseWaveBy: 10
+  waveTimer: 20
+  waveStarted: 0
+  waveCountdown: {fileID: 0}
