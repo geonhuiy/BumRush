@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 13d08f6b4715343948400d86217df7ba
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Grenadier NF
+  fontNames:
+  - Grenadier NF
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 82f5de706f5b3466fa74c70e880926d9, type: 3}
+  - {fileID: 12800000, guid: 07d2acb511d4749529cded7850e0b7e5, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
