@@ -61,8 +61,8 @@ MonoBehaviour:
   damage: 5
   bum_aoe_radius: 1
   bum_aoe_on: 1
-  hostile_on: 0
-  starving_on: 0
+  hostile: 0
+  starving: 0
 --- !u!23 &2471967211031114870
 MeshRenderer:
   m_ObjectHideFlags: 0

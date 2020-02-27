@@ -8,6 +8,7 @@ TagManager:
   - Hobo
   - Shot
   - Node
+  - this hobo
   layers:
   - Default
   - TransparentFX

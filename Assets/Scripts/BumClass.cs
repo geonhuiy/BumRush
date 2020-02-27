@@ -15,8 +15,8 @@ public class BumClass : MonoBehaviour
 
     //WILDCARDS VARIABLES
     public float bum_aoe_radius = 100;
-    public bool bum_aoe_on = true;
-    public bool hostile_on = false;
+    public bool bum_aoe_on = false;
+    public bool hostile_on = true;
     public bool starving_on = false;
     private Traits t1;
     private Traits t2;
@@ -106,11 +106,11 @@ public class BumClass : MonoBehaviour
         {
             bum_aoe_radius += wc_tr.AOE_wildcard;
         }
-        else if (wc_tr.HOSTILE_wildcard == true)
+        else if (wc_tr.HOSTILE_wildcard)
         {
             hostile_on = wc_tr.HOSTILE_wildcard;
         }
-        else if (wc_tr.STARVING_wildcard == true)
+        else if (wc_tr.STARVING_wildcard)
         {
             hp = 100;
             fire_rate = 0;
