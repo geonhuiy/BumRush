@@ -10,6 +10,12 @@ public class HoboGeneration : MonoBehaviour
     private GameObject placeholder;
     void OnMouseDown()
     {
+        SpawnTower();
+        
+    }
+
+    public void SpawnTower()
+    {
         TowerManager.tManagerInstance.SpawnTower();
     }
 }

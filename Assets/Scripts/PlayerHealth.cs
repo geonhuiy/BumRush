@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {    
         //Debug.Log(tentHealth);
-        healthText.text = "Tent Health  : " + (tentHealth);
+        healthText.text = tentHealth.ToString();
 
 
 
