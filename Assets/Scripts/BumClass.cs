@@ -121,6 +121,8 @@ public class BumClass : MonoBehaviour
     void applyDMG(float d)
     {
         hp -= d;
+        Debug.Log("Hobo has " + hp +" HP");
+        Debug.Log("Hobo took" + d + "damage");
     }
 }
 
