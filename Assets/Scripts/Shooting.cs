@@ -14,6 +14,7 @@ public class Shooting : MonoBehaviour
     private float rat_distance; //DISTANCE FROM NEAREST RAT
     private float bum_distance; //DISTANCE FROM OTHER NEAREST HOBO (FOR HOSTILITY WILD CARD)
     public float shot_damage;
+    public bool hostile_dmg;
     
 
     void Start()
@@ -21,6 +22,10 @@ public class Shooting : MonoBehaviour
         parentObj = transform.parent.gameObject;
         shot_time = frate;
         shot_damage = parentObj.GetComponent<BumClass>().damage; //GET STATS FROM BUMCLASS
+        if(parentObj.GetComponent<BumClass>().hostile == true)
+        {
+
+        }
         
     }
 
@@ -28,7 +33,10 @@ public class Shooting : MonoBehaviour
     void Update()
     {
        
-        if()
+        if(parentObj.GetComponent<BumClass>().hostile == true && ) //CHECK FOR OTHER HOBO IN RANGE
+        {
+            
+        }
         if (GameObject.FindGameObjectWithTag("Rat") != null)
         {
             rat = GameObject.FindGameObjectWithTag("Rat").transform;
