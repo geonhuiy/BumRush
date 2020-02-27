@@ -13,14 +13,15 @@ public class PoolObject : MonoBehaviour, ISpawnEvent
     private Quaternion initialRotation;
     PoolObject po;
 
-    public void OnTriggerEnter(Collider other)
+    /*public void OnTriggerEnter(Collider other)
     {
         DespawnPoolObject();
-    }
+    }*/
 
-    public void DespawnPoolObject()
+    public void DespawnPoolObject(GameObject rat)
     {
-        pool.Despawn(this.gameObject);
+        pool.Despawn(rat);
+        rat.GetComponent<RatClass>().currentHealth = rat.GetComponent<RatClass>().maxHealth;
     }
 
     public void OnSpawned(GameObject targetGameObject, ObjectPool sender)
@@ -30,17 +31,17 @@ public class PoolObject : MonoBehaviour, ISpawnEvent
 
     void Start()
     {
-        currentHealth = maxHealth;
-        initialRotation = Healthbar.transform.rotation;
+        //currentHealth = maxHealth;
+        //initialRotation = Healthbar.transform.rotation;
 
     }
 
     void LateUpdate()
     {
-        Healthbar.transform.rotation = initialRotation;
+        //Healthbar.transform.rotation = initialRotation;
     }
 
-    private void OnCollisionEnter(Collision hit)
+    /*private void OnCollisionEnter(Collision hit)
     {
 
         if (hit.gameObject.name == "TestShot(Clone)")
@@ -56,5 +57,5 @@ public class PoolObject : MonoBehaviour, ISpawnEvent
                 DespawnPoolObject();
             }
         }
-    }
+    }*/
 }

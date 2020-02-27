@@ -14,7 +14,7 @@ public class BumClass : MonoBehaviour
     public float damage = 5;
 
     //WILDCARDS VARIABLES
-    public float bum_aoe_radius = 100;
+    public float bum_aoe_radius = 5;
     public bool bum_aoe_on = false;
     public bool hostile_on = true;
     public bool starving_on = false;

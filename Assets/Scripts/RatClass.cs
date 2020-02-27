@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class RatClass : MonoBehaviour
 {
     public float currentHealth;
-    private float maxHealth = 30;
+    public float maxHealth = 30;
     public Image Healthbar;
     public float damage;
     private Quaternion initialRotation;
+    [SerializeField]
     void Start()
     {
         currentHealth = maxHealth;
@@ -30,7 +31,9 @@ public class RatClass : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Destroy(this.gameObject);
+            PoolObject po = this.gameObject.GetComponent<PoolObject>();
+            po.DespawnPoolObject(this.gameObject);
+            //Destroy(this.gameObject);
         }
     }
 }
