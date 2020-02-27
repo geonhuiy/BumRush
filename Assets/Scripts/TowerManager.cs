@@ -19,7 +19,7 @@ public class TowerManager : MonoBehaviour
         {
             Destroy(this);
         }
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
     }
 
     private bool hasTowerSpawned()
