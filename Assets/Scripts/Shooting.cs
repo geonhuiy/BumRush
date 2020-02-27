@@ -10,7 +10,7 @@ public class Shooting : MonoBehaviour
     public float range = 65f;
     private float t_distance;
     public float shot_damage;
-    
+
     void Start()
     {
         shot_time = frate;
@@ -20,7 +20,7 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Debug.Log("Shot damage: " + shot_damage);
+       
         if (GameObject.FindGameObjectWithTag("Rat") != null)
         {
             rat = GameObject.FindGameObjectWithTag("Rat").transform;
@@ -34,7 +34,6 @@ public class Shooting : MonoBehaviour
             {
                 Projectile proj = Instantiate(projectile, transform.position, Quaternion.identity); //INSTANTIATE PROJECTILE
                 proj.carried_damage = shot_damage;
-             //   proj.GetComponent<Rigidbody>().AddForce(rat.transform.position, ForceMode.Force);
                 shot_time = frate;
             }
             else
@@ -43,5 +42,10 @@ public class Shooting : MonoBehaviour
             }
         }
 
+    }
+
+    void hostility()
+    {
+        
     }
 }
