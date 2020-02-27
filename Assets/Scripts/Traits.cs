@@ -10,7 +10,7 @@ public class Traits : MonoBehaviour
     public bool good;
 
     //WILD CARD VARIABLES
-    public int AOE_wildcard = 0;
+    public bool AOE_wildcard = false;
     public bool HOSTILE_wildcard = false;
     public bool STARVING_wildcard = false;
 
@@ -44,7 +44,7 @@ public class Traits : MonoBehaviour
     {
         if (wc == 0)
         {
-            AOE_wildcard = Random.Range(1, 3);
+            AOE_wildcard = true;;
         }
         else if (wc == 1)
         {

@@ -60,9 +60,9 @@ MonoBehaviour:
   fire_rate: 1
   damage: 5
   bum_aoe_radius: 1
-  bum_aoe_on: 1
-  hostile: 0
-  starving: 0
+  bum_aoe_on: 0
+  hostile_on: 0
+  starving_on: 0
 --- !u!23 &2471967211031114870
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -114,8 +114,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRat: {fileID: 0}
+  targetHobo: {fileID: 0}
   projectile: {fileID: 0}
   shotSpeed: 50
+  hostile: 0
+  hostility_range: 5.7
 --- !u!65 &5619341727282845496
 BoxCollider:
   m_ObjectHideFlags: 0
