@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class TowerShooting : MonoBehaviour
 {
-    public GameObject targetRat;
+    public GameObject targetRat, targetHobo;
     private GameObject[] targets;
     [SerializeField]
     private GameObject projectile;
     private float towerRange = 16f;
-    private float towerRatDistance, attackCooldown, fireRate;
+    private float hoboRange;
+    private float towerRatDistance, towerHoboDistance, attackCooldown, fireRate;
     public float shotSpeed = 50f;
 
-    private void Start() {
+    private void Start()
+    {
         fireRate = gameObject.GetComponent<BumClass>().fire_rate;
     }
     void Update()
@@ -52,6 +54,17 @@ public class TowerShooting : MonoBehaviour
         if (attackCooldown <= 0)
         {
             GameObject hoboShot = Instantiate(projectile, transform.position + 2 * transform.forward, transform.rotation, transform);
+            //hoboShot.GetComponent<Rigidbody>().AddForce(transform.forward * 500);
+            attackCooldown = fireRate;
+        }
+    }
+    private void AttackHobo()
+    {
+        transform.LookAt(targetHobo.transform);
+        attackCooldown -= Time.deltaTime;
+        if (attackCooldown <= 0)
+        {
+            targetHobo.SendMessage("applyDmg")
             //hoboShot.GetComponent<Rigidbody>().AddForce(transform.forward * 500);
             attackCooldown = fireRate;
         }
