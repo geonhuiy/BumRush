@@ -121,9 +121,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRat: {fileID: 0}
+  targetHobo: {fileID: 0}
   projectile: {fileID: 3206819121843905748, guid: 66138919c9bce0445955f6b559fa9099,
     type: 3}
   shotSpeed: 15
+  hostile: 0
+  hostility_range: 5.7
 --- !u!114 &6495781234042262782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +142,7 @@ MonoBehaviour:
   hp: 100
   fire_rate: 1
   damage: 5
-  bum_aoe_radius: 100
+  bum_aoe_radius: 10
   bum_aoe_on: 1
   hostile_on: 0
   starving_on: 0

@@ -8,6 +8,7 @@ public class Projectile2 : MonoBehaviour
     private float shotDamage;
     [SerializeField]
     private float speed = 50;
+    [SerializeField]
     private float aoe_rad;
     private bool aoe_on = false;
     private void Start()
@@ -16,7 +17,7 @@ public class Projectile2 : MonoBehaviour
         targetRat = parentObj.GetComponent<TowerShooting>().targetRat;
         shotDamage = parentObj.GetComponent<BumClass>().damage;
         aoe_on = parentObj.GetComponent<BumClass>().bum_aoe_on;
-        if(aoe_on == true)
+        if (aoe_on == true)
         {
             aoe_rad = parentObj.GetComponent<BumClass>().bum_aoe_radius;
         }
@@ -46,7 +47,7 @@ public class Projectile2 : MonoBehaviour
         if (other.gameObject.tag == "Rat")
         {
 
-            if (aoe_on == true)
+            if (aoe_on)
             {
                 Debug.Log("Goes to AOE");
                 AOEdamage(this.transform.position, aoe_rad);
@@ -70,10 +71,14 @@ public class Projectile2 : MonoBehaviour
     {
         Collider[] targets_hit = Physics.OverlapSphere(center, rad);
         int i = 0;
-        while (i < targets_hit.Length)
+        foreach (Collider col in targets_hit)
         {
-            targets_hit[i].SendMessage("applyDMG", shotDamage); //ASSIGN DAMAGE TO EACH RAT IN THE RADIUS
-            ++i;
+            if (col.gameObject.tag == "Rat" || col.gameObject.tag == "Hobo")
+            {
+                targets_hit[i].SendMessage("applyDMG", shotDamage); //ASSIGN DAMAGE TO EACH RAT IN THE RADIUS
+                ++i;
+            }
+
         }
         Debug.Log("AOE hit: " + i);
     }
