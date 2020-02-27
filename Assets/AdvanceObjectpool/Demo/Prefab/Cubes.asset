@@ -12,5 +12,3 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Cubes
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPoolTarget
-  prefab: {fileID: 1882792257682006, guid: 5fe54a4b51e53ad4ab0ee713e9bd154f, type: 3}
-  preallocateAmount: 0

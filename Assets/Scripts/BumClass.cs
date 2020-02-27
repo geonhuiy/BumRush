@@ -9,18 +9,20 @@ public class BumClass : MonoBehaviour
 {
 
     //BASE STAT VARIABLES
-    public int hp = 100;
+    public float hp = 100;
     public float fire_rate = 1;
-    public int damage = 5;
+    public float damage = 5;
 
     //WILDCARDS VARIABLES
-    public float aoe = 1;
-    public int hostile = 0;
-    public bool starving = false;
+    public float bum_aoe_radius = 100;
+    public bool bum_aoe_on = false;
+    public bool hostile_on = true;
+    public bool starving_on = false;
     private Traits t1;
     private Traits t2;
     private Traits t3;
-    private void Awake() {
+    private void Awake()
+    {
         BumInit(1);
     }
 
@@ -102,20 +104,25 @@ public class BumClass : MonoBehaviour
     {
         if (wc_tr.AOE_wildcard != 0)
         {
-            aoe += wc_tr.AOE_wildcard;
+            bum_aoe_radius += wc_tr.AOE_wildcard;
         }
-        else if (wc_tr.HOSTILE_wildcard == true)
+        else if (wc_tr.HOSTILE_wildcard)
         {
-            hostile = 5;
+            hostile_on = wc_tr.HOSTILE_wildcard;
         }
-        else if (wc_tr.STARVING_wildcard == true)
+        else if (wc_tr.STARVING_wildcard)
         {
             hp = 100;
             fire_rate = 0;
             damage = 0;
-
         }
     }
 
+    void applyDMG(float d)
+    {
+        hp -= d;
+        Debug.Log("Hobo has " + hp +" HP");
+        Debug.Log("Hobo took" + d + "damage");
+    }
 }
 

@@ -12,5 +12,3 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Rats
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPoolTarget
-  prefab: {fileID: 2666068710488238771, guid: 8e7baebc3fa66fc42a51dcc49b88cd17, type: 3}
-  preallocateAmount: 0

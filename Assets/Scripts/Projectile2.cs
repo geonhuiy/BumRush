@@ -8,12 +8,19 @@ public class Projectile2 : MonoBehaviour
     private float shotDamage;
     [SerializeField]
     private float speed = 50;
+    private float aoe_rad;
+    private bool aoe_on = false;
     private void Start()
     {
         parentObj = this.transform.parent.gameObject;
         targetRat = parentObj.GetComponent<TowerShooting>().targetRat;
-        //shotDamage = parentObj.GetComponent<BumClass>().damage;
-        shotDamage = 5f;
+        shotDamage = parentObj.GetComponent<BumClass>().damage;
+        aoe_on = parentObj.GetComponent<BumClass>().bum_aoe_on;
+        if(aoe_on == true)
+        {
+            aoe_rad = parentObj.GetComponent<BumClass>().bum_aoe_radius;
+        }
+        //shotDamage = 5f;
         StartCoroutine("DestroyProj");
     }
     void Update()
@@ -22,7 +29,8 @@ public class Projectile2 : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, targetRat.transform.position, speed * Time.deltaTime);
         }
-        else {
+        else
+        {
             Destroy(this.gameObject);
         }
     }
@@ -32,14 +40,41 @@ public class Projectile2 : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision other) {
-        if (other.gameObject.tag == "Rat") {
-            other.gameObject.GetComponent<RatClass>().damage = shotDamage;
+    private void OnCollisionEnter(Collision other)
+    {
+
+        if (other.gameObject.tag == "Rat")
+        {
+
+            if (aoe_on == true)
+            {
+                Debug.Log("Goes to AOE");
+                AOEdamage(this.transform.position, aoe_rad);
+            }
+            else
+            {
+                Debug.Log("Doesn't go to AOE");
+                other.gameObject.SendMessage("applyDMG", shotDamage);
+            }
             Destroy(this.gameObject);
         }
-        if (other.gameObject.tag == "Shot" || other.gameObject.tag == "Hobo"|| other.gameObject.tag =="Node") {
+        if (other.gameObject.tag == "Shot" || other.gameObject.tag == "Hobo" || other.gameObject.tag == "Node")
+        {
             Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
         }
 
+    }
+
+    //AOE FUNCTION
+    void AOEdamage(Vector3 center, float rad)
+    {
+        Collider[] targets_hit = Physics.OverlapSphere(center, rad);
+        int i = 0;
+        while (i < targets_hit.Length)
+        {
+            targets_hit[i].SendMessage("applyDMG", shotDamage); //ASSIGN DAMAGE TO EACH RAT IN THE RADIUS
+            ++i;
+        }
+        Debug.Log("AOE hit: " + i);
     }
 }
