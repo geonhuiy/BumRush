@@ -10,10 +10,11 @@ public class ObjectHandler : MonoBehaviour
     DictionaryObjectPool _objectpool;
     [SerializeField]
     GameObject[] gos;
+
     public int numbertospawn = 2;
     public float objectPoolSize = 100f;
     public int waveSize = 2;
-    public float waveTimer = 5f;
+    public float waveTimer = 6f;
     public Text waveCountdown;
     void Start()
     {
@@ -27,7 +28,7 @@ public class ObjectHandler : MonoBehaviour
         waveTimer -= Time.deltaTime;
         if (waveTimer <= 0)
         {
-            waveTimer = 5f;
+            waveTimer = 6f;
         }
     }
 
@@ -52,9 +53,10 @@ public class ObjectHandler : MonoBehaviour
         if (waveTimer <= 0)
         {
             SpawnNewWaveOfRats();
-            waveTimer = 5f;
+            waveTimer = 6f;
         }
         waveTimer -= Time.deltaTime;
-        waveCountdown.text = "Time Until Next wave  : " + (int)waveTimer;
+        
+        waveCountdown.text = "" + (int)waveTimer;
     }
 }
