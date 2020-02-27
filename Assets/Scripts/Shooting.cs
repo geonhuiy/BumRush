@@ -34,11 +34,11 @@ public class Shooting : MonoBehaviour
     void Update()
     {
 
-        if (hostile == true) //CHECK IF THIS HOBO IS HOSTILE AND TAKE ACTION
+        if (hostile) //CHECK IF THIS HOBO IS HOSTILE AND TAKE ACTION
         {
             hostility();
         }
-       // hostility(); //testing
+       
         if (GameObject.FindGameObjectWithTag("Rat") != null)
         {
             rat = GameObject.FindGameObjectWithTag("Rat").transform;

@@ -33,7 +33,6 @@ public class RatClass : MonoBehaviour
         {
             PoolObject po = this.gameObject.GetComponent<PoolObject>();
             po.DespawnPoolObject(this.gameObject);
-            //Destroy(this.gameObject);
         }
     }
 }

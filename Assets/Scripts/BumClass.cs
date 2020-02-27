@@ -14,7 +14,7 @@ public class BumClass : MonoBehaviour
     public float damage = 5;
 
     //WILDCARDS VARIABLES
-    public float bum_aoe_radius = 100;
+    public float bum_aoe_radius = 5;
     public bool bum_aoe_on = false;
     public bool hostile_on = false;
     public bool starving_on = false;
@@ -23,7 +23,7 @@ public class BumClass : MonoBehaviour
     private Traits t3;
     private void Awake()
     {
-        BumInit(1);
+        BumInit(3);
     }
 
     public void BumInit(int level)
@@ -67,6 +67,7 @@ public class BumClass : MonoBehaviour
                 modify_stat(t2.moddedStat, t2.statMod);
             }
             t3 = new Traits(false, true);
+            assign_wildcard(t3);
         }
 
     }
@@ -102,9 +103,9 @@ public class BumClass : MonoBehaviour
 
     public void assign_wildcard(Traits wc_tr) //APPLIES WILDCARD TRAIT TO HOBO
     {
-        if (wc_tr.AOE_wildcard != 0)
+        if (wc_tr.AOE_wildcard)
         {
-            bum_aoe_radius += wc_tr.AOE_wildcard;
+            bum_aoe_on = true;
         }
         else if (wc_tr.HOSTILE_wildcard)
         {
@@ -112,9 +113,7 @@ public class BumClass : MonoBehaviour
         }
         else if (wc_tr.STARVING_wildcard)
         {
-            hp = 100;
-            fire_rate = 0;
-            damage = 0;
+            starving_on = true;
         }
     }
 
@@ -123,6 +122,11 @@ public class BumClass : MonoBehaviour
         hp -= d;
         Debug.Log("Hobo has " + hp +" HP");
         Debug.Log("Hobo took" + d + "damage");
+        if(hp <= 0)
+        {
+            this.gameObject.transform.parent.GetComponent<AttachTower>().hasTowerAttached = false;
+            Destroy(this.gameObject);
+        }
     }
 }
 

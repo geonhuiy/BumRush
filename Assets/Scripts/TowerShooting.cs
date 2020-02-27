@@ -92,8 +92,9 @@ public class TowerShooting : MonoBehaviour
             other_hobo = GameObject.FindGameObjectWithTag("Hobo").transform;
             towerHoboDistance = Vector3.Distance(other_hobo.position, this.transform.position); //GET DISTANCE TO CLOSEST HOBO
             Debug.Log("Distance to hobo: " + towerHoboDistance);
-            if (towerHoboDistance <= hostility_range && towerHoboDistance > 0) //CHECK WHETHER HOBO IS ADAJACENT
+            if (towerHoboDistance <= hostility_range) //CHECK WHETHER HOBO IS ADAJACENT
             {
+                Debug.Log("Found hobo");
                 targetHobo = GameObject.FindGameObjectWithTag("Hobo"); //ASSIGN HOBO TO BE TARGET
             }
         }
