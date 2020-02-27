@@ -75,8 +75,8 @@ public class Projectile2 : MonoBehaviour
         {
             if (col.gameObject.tag == "Rat" || col.gameObject.tag == "Hobo")
             {
-                targets_hit[i].SendMessage("applyDMG", shotDamage); //ASSIGN DAMAGE TO EACH RAT IN THE RADIUS
-                ++i;
+                col.SendMessage("applyDMG", shotDamage); //ASSIGN DAMAGE TO EACH RAT IN THE RADIUS
+                //++i;
             }
 
         }
