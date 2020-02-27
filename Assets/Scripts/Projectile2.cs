@@ -16,7 +16,7 @@ public class Projectile2 : MonoBehaviour
         targetRat = parentObj.GetComponent<TowerShooting>().targetRat;
         shotDamage = parentObj.GetComponent<BumClass>().damage;
         aoe_on = parentObj.GetComponent<BumClass>().bum_aoe_on;
-        if(aoe_on == true)
+        if (aoe_on == true)
         {
             aoe_rad = parentObj.GetComponent<BumClass>().bum_aoe_radius;
         }
