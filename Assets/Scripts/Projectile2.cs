@@ -68,11 +68,11 @@ public class Projectile2 : MonoBehaviour
     //AOE FUNCTION
     void AOEdamage(Vector3 center, float rad)
     {
-        Collider[] rats_hit = Physics.OverlapSphere(center, rad);
+        Collider[] targets_hit = Physics.OverlapSphere(center, rad);
         int i = 0;
-        while (i < rats_hit.Length)
+        while (i < targets_hit.Length)
         {
-            rats_hit[i].SendMessage("applyDMG", shotDamage); //ASSIGN DAMAGE TO EACH RAT IN THE RADIUS
+            targets_hit[i].SendMessage("applyDMG", shotDamage); //ASSIGN DAMAGE TO EACH RAT IN THE RADIUS
             ++i;
         }
         Debug.Log("AOE hit: " + i);
