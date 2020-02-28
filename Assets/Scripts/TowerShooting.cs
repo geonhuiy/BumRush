@@ -15,6 +15,7 @@ public class TowerShooting : MonoBehaviour
     public float shotSpeed = 50f;
     public bool hostile;
     public float hostility_range = 5.7f;
+    private float flashTimer = 0.2f;
 
     private void Start()
     {

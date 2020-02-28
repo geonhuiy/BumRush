@@ -22,7 +22,7 @@ public class TowerManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    private bool hasTowerSpawned()
+    public bool hasTowerSpawned()
     {
         if (spawnedTowerCount > 0) {
             return true;

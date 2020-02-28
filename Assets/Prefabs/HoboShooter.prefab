@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 993282205631708019}
   - component: {fileID: 6754170839833562785}
   - component: {fileID: 4021782863858693342}
-  - component: {fileID: 2120438353395864875}
   - component: {fileID: 5727586792932643818}
   - component: {fileID: 6495781234042262782}
   m_Layer: 0
@@ -61,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2a603f1dec3f61a4ab00282b6376b1b5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,18 +95,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2120438353395864875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6353229954617612266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 045d0d143123a8a4da59b8a198d579e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5727586792932643818
 MonoBehaviour:
   m_ObjectHideFlags: 0
