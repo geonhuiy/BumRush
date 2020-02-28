@@ -11,7 +11,7 @@ public class TowerShooting : MonoBehaviour
     private GameObject projectile;
     private float towerRange = 16f;
     private float hoboRange;
-    private float towerRatDistance, towerHoboDistance, attackCooldown, fireRate;
+    private float towerRatDistance, towerHoboDistance, attackCooldown, stabCooldown, fireRate, stabRate = 1.5f;
     private Transform other_hobo;
     public float shotSpeed = 50f;
     public bool hostile;
@@ -26,23 +26,31 @@ public class TowerShooting : MonoBehaviour
     {
         rat_targets = GameObject.FindGameObjectsWithTag("Rat");
         targetRat = FindClosestEnemy(rat_targets);
-
-        if (hostile) //HOSTILITY TOWARDS OTHER HOBOS
-        {
+        
+        //ATTACKING OTHER HOBOS
+        if (hostile) 
+        {   
+            this.gameObject.tag = "this hobo";
+            hobo_targets = GameObject.FindGameObjectsWithTag("Hobo");
+            targetHobo = FindAdjacentHobo(hobo_targets);
             if (targetHobo != null)
             {
-                if (IsInRange(hostility_range))
+                towerHoboDistance = Vector3.Distance(targetHobo.transform.position, this.transform.position);
+                Debug.Log("Distance to nearest hobo: " + towerHoboDistance);
+                if (IsInRange(towerHoboDistance, hostility_range))
                 {
                     FindAdjacentHobo(hobo_targets);
                 }
             }
+            AttackHobo();
+            this.gameObject.tag = "Hobo";
         }
 
-        // targetRat = GameObject.FindGameObjectWithTag("Rat");
-        if (targetRat != null)
+        //ATTACKING RATS
+        if (targetRat != null) 
         {
             towerRatDistance = Vector3.Distance(targetRat.transform.position, this.transform.position);
-            if (IsInRange(towerRatDistance))
+            if (IsInRange(towerRatDistance, towerRange))
             {
                 Debug.DrawLine(transform.position, targetRat.transform.position, Color.red);
 
@@ -51,9 +59,10 @@ public class TowerShooting : MonoBehaviour
         }
     }
 
-    private bool IsInRange(float attackRange)
+    //CHECKS WHETHER TARGET IS IN RANGE
+    private bool IsInRange(float targetDistance, float range)
     {
-        if (attackRange <= towerRange)
+        if (targetDistance <= range)
         {
             return true;
         }
@@ -77,12 +86,11 @@ public class TowerShooting : MonoBehaviour
     {
         if (targetHobo != null)
         {
-            transform.LookAt(targetHobo.transform);
-            attackCooldown -= Time.deltaTime;
-            if (attackCooldown <= 0)
+            stabCooldown -= Time.deltaTime;
+            if (stabCooldown <= 0)
             {
                 targetHobo.SendMessage("applyDMG", 1);
-                attackCooldown = fireRate;
+                stabCooldown = stabRate;
             }
         }
 
