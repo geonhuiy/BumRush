@@ -83,6 +83,7 @@ public class TowerShooting : MonoBehaviour
             attackCooldown = fireRate;
         }
     }
+    
     private void AttackHobo()
     {
         if (targetHobo != null)
@@ -94,7 +95,6 @@ public class TowerShooting : MonoBehaviour
                 stabCooldown = stabRate;
             }
         }
-
     }
 
     private GameObject FindAdjacentHobo(GameObject[] hobos)

@@ -119,19 +119,19 @@ public class BumClass : MonoBehaviour
         }
     }
 
+    //APPLY DAMAGE
     void applyDMG(float d)
     {
         if (hp <= 0)
         {
-            gameObject.GetComponent<Renderer>().material.color = Color.red;
             this.gameObject.transform.parent.GetComponent<AttachTower>().hasTowerAttached = false;
             Destroy(this.gameObject);
         }
 
         hp -= d;
-        gameObject.GetComponent<Renderer>().material.color = Color.red;
-        WaitForSeconds(0.5);
-        gameObject.GetComponent<Renderer>().material.color = defaultColor;
+        //gameObject.GetComponent<Renderer>().material.color = Color.red;
+        //WaitForSeconds(0.5);
+        //gameObject.GetComponent<Renderer>().material.color = defaultColor;
         Debug.Log("Hobo has " + hp + " HP");
         Debug.Log("Hobo took" + d + "damage");
 
