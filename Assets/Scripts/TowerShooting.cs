@@ -5,8 +5,8 @@ using UnityEngine;
 public class TowerShooting : MonoBehaviour
 {
     public GameObject targetRat;
-    public GameObject targetHobo = null;
-    private GameObject[] targets;
+    public GameObject targetHobo = null, nearestHobo;
+    private GameObject[] rat_targets, hobo_targets;
     [SerializeField]
     private GameObject projectile;
     private float towerRange = 16f;
@@ -24,20 +24,25 @@ public class TowerShooting : MonoBehaviour
     }
     void Update()
     {
-        targets = GameObject.FindGameObjectsWithTag("Rat");
-        targetRat = FindClosestEnemy(targets);
+        rat_targets = GameObject.FindGameObjectsWithTag("Rat");
+        targetRat = FindClosestEnemy(rat_targets);
 
-        if (hostile)
+        if (hostile) //HOSTILITY TOWARDS OTHER HOBOS
         {
-            FindAdjacentHobo();
-            AttackHobo();
+            if (targetHobo != null)
+            {
+                if (IsInRange(hostility_range))
+                {
+                    FindAdjacentHobo(hobo_targets);
+                }
+            }
         }
 
         // targetRat = GameObject.FindGameObjectWithTag("Rat");
         if (targetRat != null)
         {
             towerRatDistance = Vector3.Distance(targetRat.transform.position, this.transform.position);
-            if (IsInRange())
+            if (IsInRange(towerRatDistance))
             {
                 Debug.DrawLine(transform.position, targetRat.transform.position, Color.red);
 
@@ -46,9 +51,9 @@ public class TowerShooting : MonoBehaviour
         }
     }
 
-    private bool IsInRange()
+    private bool IsInRange(float attackRange)
     {
-        if (towerRatDistance <= towerRange)
+        if (attackRange <= towerRange)
         {
             return true;
         }
@@ -65,7 +70,6 @@ public class TowerShooting : MonoBehaviour
         if (attackCooldown <= 0)
         {
             GameObject hoboShot = Instantiate(projectile, transform.position + 2 * transform.forward, transform.rotation, transform);
-            //hoboShot.GetComponent<Rigidbody>().AddForce(transform.forward * 500);
             attackCooldown = fireRate;
         }
     }
@@ -84,22 +88,23 @@ public class TowerShooting : MonoBehaviour
 
     }
 
-    private void FindAdjacentHobo()
+    private GameObject FindAdjacentHobo(GameObject[] hobos)
     {
-        
-        this.gameObject.tag = "this hobo";//GIVE THIS HOBO TEMPORARY TAG
-        if (GameObject.FindGameObjectsWithTag("Hobo") != null)
+
+        nearestHobo = null;
+        float closestDistSqr = Mathf.Infinity;
+        Vector3 currentPos = transform.position;
+        foreach (GameObject potentialTarget in hobos)
         {
-            other_hobo = GameObject.FindGameObjectWithTag("Hobo").transform;
-            towerHoboDistance = Vector3.Distance(other_hobo.position, this.transform.position); //GET DISTANCE TO CLOSEST HOBO
-            Debug.Log("Distance to hobo: " + towerHoboDistance);
-            if (towerHoboDistance <= hostility_range) //CHECK WHETHER HOBO IS ADAJACENT
+            Vector3 directionToTarget = potentialTarget.gameObject.transform.position - currentPos;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
+            if (dSqrToTarget < closestDistSqr)
             {
-                Debug.Log("Found hobo");
-                targetHobo = GameObject.FindGameObjectWithTag("Hobo"); //ASSIGN HOBO TO BE TARGET
+                closestDistSqr = dSqrToTarget;
+                nearestHobo = potentialTarget;
             }
         }
-        this.gameObject.tag = "Hobo";//RESET TAG TO "Hobo"
+        return nearestHobo;
     }
     private GameObject FindClosestEnemy(GameObject[] enemies)
     {
