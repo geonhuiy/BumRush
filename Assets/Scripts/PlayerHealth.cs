@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -20,12 +21,10 @@ public class PlayerHealth : MonoBehaviour
 
 
 
-        /*
-        // If the health is 0 or lower, stop the game and popup some menu screen
         if (tentHealth <= 0)
         {
-            Time.timeScale = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        */
+        
     }
 }
