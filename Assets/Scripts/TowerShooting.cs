@@ -40,9 +40,10 @@ public class TowerShooting : MonoBehaviour
                 if (IsInRange(towerHoboDistance, hostility_range))
                 {
                     FindAdjacentHobo(hobo_targets);
+                    AttackHobo();
                 }
             }
-            AttackHobo();
+            
             this.gameObject.tag = "Hobo";
         }
 
@@ -89,7 +90,7 @@ public class TowerShooting : MonoBehaviour
             stabCooldown -= Time.deltaTime;
             if (stabCooldown <= 0)
             {
-                targetHobo.SendMessage("applyDMG", 1);
+                targetHobo.SendMessage("applyDMG", 10);
                 stabCooldown = stabRate;
             }
         }
