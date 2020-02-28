@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TowerShooting : MonoBehaviour
 {
-    public GameObject targetRat, targetHobo;
+    public GameObject targetRat;
+    public GameObject targetHobo = null;
     private GameObject[] targets;
     [SerializeField]
     private GameObject projectile;
@@ -85,7 +86,7 @@ public class TowerShooting : MonoBehaviour
 
     private void FindAdjacentHobo()
     {
-
+        
         this.gameObject.tag = "this hobo";//GIVE THIS HOBO TEMPORARY TAG
         if (GameObject.FindGameObjectsWithTag("Hobo") != null)
         {
