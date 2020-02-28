@@ -12,7 +12,7 @@ public class BumClass : MonoBehaviour
     public float hp = 100;
     public float fire_rate = 1;
     public float damage = 5;
-
+    Color defaultColor;
     //WILDCARDS VARIABLES
     public float bum_aoe_radius = 5;
     public bool bum_aoe_on = false;
@@ -24,6 +24,8 @@ public class BumClass : MonoBehaviour
     private void Awake()
     {
         BumInit(3);
+        defaultColor = gameObject.GetComponent<Renderer>().material.color;
+
     }
 
     public void BumInit(int level)
@@ -105,7 +107,7 @@ public class BumClass : MonoBehaviour
     {
         if (wc_tr.AOE_wildcard)
         {
-           // bum_aoe_on = true;
+            // bum_aoe_on = true;
         }
         else if (wc_tr.HOSTILE_wildcard)
         {
@@ -119,14 +121,20 @@ public class BumClass : MonoBehaviour
 
     void applyDMG(float d)
     {
-        hp -= d;
-        Debug.Log("Hobo has " + hp +" HP");
-        Debug.Log("Hobo took" + d + "damage");
-        if(hp <= 0)
+        if (hp <= 0)
         {
+            gameObject.GetComponent<Renderer>().material.color = Color.red;
             this.gameObject.transform.parent.GetComponent<AttachTower>().hasTowerAttached = false;
             Destroy(this.gameObject);
         }
+
+        hp -= d;
+        gameObject.GetComponent<Renderer>().material.color = Color.red;
+        WaitForSeconds(0.5);
+        gameObject.GetComponent<Renderer>().material.color = defaultColor;
+        Debug.Log("Hobo has " + hp + " HP");
+        Debug.Log("Hobo took" + d + "damage");
+
     }
 }
 
