@@ -30,8 +30,7 @@ public class Projectile2 : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, targetRat.transform.position, speed * Time.deltaTime);
         }
-        else
-        {
+        if (!targetRat.activeInHierarchy) {
             Destroy(this.gameObject);
         }
     }

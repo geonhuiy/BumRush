@@ -22,7 +22,7 @@ public class TowerManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    private bool hasTowerSpawned()
+    public bool hasTowerSpawned()
     {
         if (spawnedTowerCount > 0) {
             return true;
@@ -33,6 +33,7 @@ public class TowerManager : MonoBehaviour
     }
     public void SpawnTower() {
         if(spawnedTowerCount < maxTowers) {
+            GManager.gManagerInstance.money -= 5;
             //hobo.GetComponent<BumClass>().BumInit(1); //LEVEL 1 HOBO
             //GameObject newHobo = Instantiate(hobo, spawnPlaceholder.transform.position, Quaternion.identity);'
             GameObject newHobo = Instantiate(hobo, spawnPlaceholder.transform.position, Quaternion.identity);

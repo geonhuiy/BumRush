@@ -13,15 +13,17 @@ public class PoolObject : MonoBehaviour, ISpawnEvent
     private Quaternion initialRotation;
     PoolObject po;
 
-    /*public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        DespawnPoolObject();
-    }*/
+        DespawnPoolObject(other.gameObject);
+    }
 
     public void DespawnPoolObject(GameObject rat)
     {
         pool.Despawn(rat);
+        GManager.gManagerInstance.money += 1;
         rat.GetComponent<RatClass>().currentHealth = rat.GetComponent<RatClass>().maxHealth;
+        rat.GetComponent<RatClass>().Healthbar.fillAmount = 1;
     }
 
     public void OnSpawned(GameObject targetGameObject, ObjectPool sender)
