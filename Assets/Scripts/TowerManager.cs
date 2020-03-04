@@ -9,12 +9,13 @@ public class TowerManager : MonoBehaviour
     public int spawnedTowerCount;
     public int maxTowers = 1;
     public List<GameObject> spawnedTowers;
-    public GameObject TempSpawnedHobo, hobo, spawnPlaceholder;
-    public enum towerPrice
+    public GameObject hobo, spawnPlaceholder;
+    private int currentTowerCost = 0;
+    public enum TowerPrices
     {
-        lvl1 = 10,
-        lvl2 = 20,
-        lvl3 = 30
+        lvl1 = 5,
+        lvl2 = 10,
+        lvl3 = 15
     }
     private void Awake()
     {
@@ -26,7 +27,6 @@ public class TowerManager : MonoBehaviour
         {
             Destroy(this);
         }
-        DontDestroyOnLoad(this);
     }
 
     public bool hasTowerSpawned()
@@ -52,5 +52,69 @@ public class TowerManager : MonoBehaviour
             spawnedTowerCount++;
             spawnedTowers.Add(newHobo);
         }
+    }
+    public void SpawnLevelTower(int level)
+    {
+        if (spawnedTowerCount < maxTowers)
+        {
+            if (PlayerHasMoney(level))
+            {
+                GManager.gManagerInstance.money -= currentTowerCost;
+                GameObject newHobo = Instantiate(hobo, spawnPlaceholder.transform.position, Quaternion.identity);
+                newHobo.GetComponent<TowerShooting>().enabled = false;
+                newHobo.GetComponent<BumClass>().BumInit(level);
+                spawnedTowerCount++;
+                spawnedTowers.Add(newHobo);
+            }
+
+        }
+    }
+
+    public bool PlayerHasMoney(int towerLevel)
+    {
+        bool hasMoney = false;
+        switch (towerLevel)
+        {
+            case 1:
+                if (GManager.gManagerInstance.money >= (int)(TowerPrices.lvl1))
+                {
+                    hasMoney = true;
+                    currentTowerCost = (int)(TowerPrices.lvl1);
+                    break;
+                }
+                else
+                {
+                    Debug.Log("Not enough money for level " + towerLevel);
+                    hasMoney = false;
+                    break;
+                }
+            case 2:
+                if (GManager.gManagerInstance.money >= (int)(TowerPrices.lvl2))
+                {
+                    hasMoney = true;
+                    currentTowerCost = (int)(TowerPrices.lvl2);
+                    break;
+                }
+                else
+                {
+                    Debug.Log("Not enough money for level " + towerLevel);
+                    hasMoney = false;
+                    break;
+                }
+            case 3:
+                if (GManager.gManagerInstance.money >= (int)(TowerPrices.lvl3))
+                {
+                    hasMoney = true;
+                    currentTowerCost = (int)(TowerPrices.lvl3);
+                    break;
+                }
+                else
+                {
+                    Debug.Log("Not enough money for level " + towerLevel);
+                    hasMoney = false;
+                    break;
+                }
+        }
+        return hasMoney;
     }
 }
