@@ -26,4 +26,5 @@ public class GManager : MonoBehaviour
     {
         moneyText.text = money.ToString();
     }
+
 }
