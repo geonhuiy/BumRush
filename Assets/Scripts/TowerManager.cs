@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
+
     public static TowerManager tManagerInstance;
     public int spawnedTowerCount;
     public int maxTowers = 1;
     public List<GameObject> spawnedTowers;
     public GameObject TempSpawnedHobo, hobo, spawnPlaceholder;
+    public enum towerPrice
+    {
+        lvl1 = 10,
+        lvl2 = 20,
+        lvl3 = 30
+    }
     private void Awake()
     {
         if (tManagerInstance == null)
@@ -24,21 +31,25 @@ public class TowerManager : MonoBehaviour
 
     public bool hasTowerSpawned()
     {
-        if (spawnedTowerCount > 0) {
+        if (spawnedTowerCount > 0)
+        {
             return true;
         }
-        else {
+        else
+        {
             return false;
         }
     }
-    public void SpawnTower() {
-        if(spawnedTowerCount < maxTowers) {
+    public void SpawnTower()
+    {
+        if (spawnedTowerCount < maxTowers)
+        {
             GManager.gManagerInstance.money -= 5;
             //hobo.GetComponent<BumClass>().BumInit(1); //LEVEL 1 HOBO
             //GameObject newHobo = Instantiate(hobo, spawnPlaceholder.transform.position, Quaternion.identity);'
             GameObject newHobo = Instantiate(hobo, spawnPlaceholder.transform.position, Quaternion.identity);
             newHobo.gameObject.GetComponent<TowerShooting>().enabled = false;
-            spawnedTowerCount ++;
+            spawnedTowerCount++;
             spawnedTowers.Add(newHobo);
         }
     }

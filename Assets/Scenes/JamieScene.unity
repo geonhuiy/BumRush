@@ -2411,7 +2411,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 439186645}
         m_MethodName: SpawnTower
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2468,8 +2468,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912a1387b0abeab449174647707fc45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hobo: {fileID: 0}
-  placeholder: {fileID: 0}
+  lvl1: {fileID: 0}
+  lvl2: {fileID: 0}
+  lvl3: {fileID: 0}
 --- !u!4 &465664683 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7716511178616778533, guid: 8517c18ebb7a9784f82441d217250a2d,
@@ -3519,8 +3520,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912a1387b0abeab449174647707fc45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hobo: {fileID: 0}
-  placeholder: {fileID: 0}
+  lvl1: {fileID: 0}
+  lvl2: {fileID: 0}
+  lvl3: {fileID: 0}
 --- !u!114 &694862699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6534,8 +6536,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912a1387b0abeab449174647707fc45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hobo: {fileID: 0}
-  placeholder: {fileID: 0}
+  lvl1: {fileID: 0}
+  lvl2: {fileID: 0}
+  lvl3: {fileID: 0}
 --- !u!114 &1390553309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13477,8 +13480,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912a1387b0abeab449174647707fc45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hobo: {fileID: 0}
-  placeholder: {fileID: 0}
+  lvl1: {fileID: 0}
+  lvl2: {fileID: 0}
+  lvl3: {fileID: 0}
 --- !u!4 &1874521500 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7716511178616778533, guid: 8517c18ebb7a9784f82441d217250a2d,
@@ -14722,8 +14726,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912a1387b0abeab449174647707fc45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hobo: {fileID: 0}
-  placeholder: {fileID: 0}
+  lvl1: {fileID: 0}
+  lvl2: {fileID: 0}
+  lvl3: {fileID: 0}
 --- !u!114 &2094718335
 MonoBehaviour:
   m_ObjectHideFlags: 0
