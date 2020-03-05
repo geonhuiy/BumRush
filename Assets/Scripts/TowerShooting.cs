@@ -11,26 +11,30 @@ public class TowerShooting : MonoBehaviour
     private GameObject projectile;
     private float towerRange = 16f;
     private float hoboRange;
-    private float towerRatDistance, towerHoboDistance, attackCooldown, stabCooldown, fireRate, stabRate = 1.5f;
+    private float towerRatDistance, towerHoboDistance, attackCooldown, stabCooldown, eatCooldown, fireRate, eatRate = 5f, stabRate = 1.5f;
     private Transform other_hobo;
     public float shotSpeed = 50f;
     public bool hostile;
+    public bool starving;
+    private bool gotRat = false;
     public float hostility_range = 5.7f;
+    public float eating_range = 7f;
     private float flashTimer = 0.2f;
 
     private void Start()
     {
         fireRate = gameObject.GetComponent<BumClass>().fire_rate;
         hostile = gameObject.GetComponent<BumClass>().hostile_on;
+        starving = gameObject.GetComponent<BumClass>().starving_on;
     }
     void Update()
     {
         rat_targets = GameObject.FindGameObjectsWithTag("Rat");
         targetRat = FindClosestEnemy(rat_targets);
-        
+
         //ATTACKING OTHER HOBOS
-        if (hostile) 
-        {   
+        if (hostile)
+        {
             this.gameObject.tag = "this hobo";
             hobo_targets = GameObject.FindGameObjectsWithTag("Hobo");
             targetHobo = FindAdjacentHobo(hobo_targets);
@@ -44,18 +48,27 @@ public class TowerShooting : MonoBehaviour
                     AttackHobo();
                 }
             }
-            
+
             this.gameObject.tag = "Hobo";
         }
 
+        if (starving)
+        {
+            Debug.Log("Starving = true");
+            towerRatDistance = Vector3.Distance(targetRat.transform.position, this.transform.position);
+            if (IsInRange(towerRatDistance, eating_range))
+            {
+                Debug.DrawLine(transform.position, targetRat.transform.position, Color.red);
+                eatRat();
+            }
+        }
         //ATTACKING RATS
-        if (targetRat != null) 
+        if (targetRat != null && !starving)
         {
             towerRatDistance = Vector3.Distance(targetRat.transform.position, this.transform.position);
             if (IsInRange(towerRatDistance, towerRange))
             {
                 Debug.DrawLine(transform.position, targetRat.transform.position, Color.red);
-
                 AttackRat();
             }
         }
@@ -84,7 +97,7 @@ public class TowerShooting : MonoBehaviour
             attackCooldown = fireRate;
         }
     }
-    
+
     private void AttackHobo()
     {
         if (targetHobo != null)
@@ -98,6 +111,26 @@ public class TowerShooting : MonoBehaviour
         }
     }
 
+    //FUNCTION FOR "GRABBING" RAT AND EATING IT
+    void eatRat()
+    {
+        targetRat.transform.parent = transform;
+     
+
+
+        /* while (targetRat.GetComponent<RatClass>().currentHealth > 0)
+         {
+             eatCooldown -= Time.deltaTime;
+             if (eatCooldown <= 0)
+             {
+                 targetRat.SendMessage("applyDMG", 5);
+                 eatCooldown = eatRate;
+             }
+         }*/
+
+    }
+
+    //FINDS CLOSEST (ADJACENT HOBO)
     private GameObject FindAdjacentHobo(GameObject[] hobos)
     {
 
@@ -116,6 +149,8 @@ public class TowerShooting : MonoBehaviour
         }
         return nearestHobo;
     }
+
+    //FIND CLOSEST ENEMY (RAT)
     private GameObject FindClosestEnemy(GameObject[] enemies)
     {
         GameObject bestTarget = null;

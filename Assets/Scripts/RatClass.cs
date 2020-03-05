@@ -15,7 +15,7 @@ public class RatClass : MonoBehaviour
     {
         currentHealth = maxHealth;
         initialRotation = Healthbar.transform.rotation;
-        
+
     }
 
     void LateUpdate()

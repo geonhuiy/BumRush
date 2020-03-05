@@ -11,6 +11,7 @@ public class Projectile2 : MonoBehaviour
     [SerializeField]
     private float aoe_rad;
     private bool aoe_on = false;
+
     private void Start()
     {
         parentObj = this.transform.parent.gameObject;
@@ -24,13 +25,15 @@ public class Projectile2 : MonoBehaviour
         //shotDamage = 5f;
         StartCoroutine("DestroyProj");
     }
+
     void Update()
     {
         if (targetRat != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetRat.transform.position, speed * Time.deltaTime);
         }
-        if (!targetRat.activeInHierarchy) {
+        if (!targetRat.activeInHierarchy)
+        {
             Destroy(this.gameObject);
         }
     }
@@ -42,10 +45,8 @@ public class Projectile2 : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-
         if (other.gameObject.tag == "Rat")
         {
-
             if (aoe_on)
             {
                 Debug.Log("Goes to AOE");
@@ -62,8 +63,8 @@ public class Projectile2 : MonoBehaviour
         {
             Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
         }
-
     }
+
 
     //AOE FUNCTION
     void AOEdamage(Vector3 center, float rad)
@@ -77,7 +78,6 @@ public class Projectile2 : MonoBehaviour
                 col.SendMessage("applyDMG", shotDamage); //ASSIGN DAMAGE TO EACH RAT IN THE RADIUS
                 ++i;
             }
-
         }
         Debug.Log("AOE hit: " + i);
     }

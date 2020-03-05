@@ -22,7 +22,7 @@ public class Traits : MonoBehaviour
     {
         if (wild) //IF WILDCARD CONDITION IS TRUE, RUNS WILDCARD GENERATION FUNCTION
         {
-            WildCard(Random.Range(0, 2));
+            WildCard(Random.Range(0, 3));
         }
 
         else if (tr == true && wild == false)//GIVES POSITIVE STAT MOD
@@ -40,11 +40,11 @@ public class Traits : MonoBehaviour
 
     }
 
-    void WildCard(int wc)
+    void WildCard(int wc) //DECIDE WHICH WILDCARD TO ASSIGN BASED OF VALUE PASSED
     {
         if (wc == 0)
         {
-            AOE_wildcard = true;;
+            AOE_wildcard = true;
         }
         else if (wc == 1)
         {
