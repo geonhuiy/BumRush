@@ -11,10 +11,11 @@ public class TowerShooting : MonoBehaviour
     private GameObject projectile;
     private float towerRange = 16f;
     private float hoboRange;
-    private float towerRatDistance, towerHoboDistance, attackCooldown, stabCooldown, fireRate, stabRate = 1.5f;
+    private float towerRatDistance, towerHoboDistance, attackCooldown, stabCooldown, eatCooldown, fireRate, stabRate = 1.5f;
     private Transform other_hobo;
     public float shotSpeed = 50f;
     public bool hostile;
+    public bool starving;
     public float hostility_range = 5.7f;
     private float flashTimer = 0.2f;
 
@@ -22,6 +23,7 @@ public class TowerShooting : MonoBehaviour
     {
         fireRate = gameObject.GetComponent<BumClass>().fire_rate;
         hostile = gameObject.GetComponent<BumClass>().hostile_on;
+        starving = gameObject.GetComponent<BumClass>().starving_on;
     }
     void Update()
     {
@@ -95,6 +97,15 @@ public class TowerShooting : MonoBehaviour
                 targetHobo.SendMessage("applyDMG", 10);
                 stabCooldown = stabRate;
             }
+        }
+    }
+
+    
+    void eat()
+    {
+        if(GameObject.FindGameObjectWithTag("Rat") != null)
+        {
+
         }
     }
 
