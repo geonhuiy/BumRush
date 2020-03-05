@@ -11,12 +11,13 @@ public class TowerShooting : MonoBehaviour
     private GameObject projectile;
     private float towerRange = 16f;
     private float hoboRange;
-    private float towerRatDistance, towerHoboDistance, attackCooldown, stabCooldown, eatCooldown, fireRate, stabRate = 1.5f;
+    private float towerRatDistance, towerHoboDistance, attackCooldown, stabCooldown, eatCooldown, fireRate, eatRate = 5f, stabRate = 1.5f;
     private Transform other_hobo;
     public float shotSpeed = 50f;
     public bool hostile;
     public bool starving;
     public float hostility_range = 5.7f;
+    public float eating_range = 5f;
     private float flashTimer = 0.2f;
 
     private void Start()
@@ -50,14 +51,21 @@ public class TowerShooting : MonoBehaviour
             this.gameObject.tag = "Hobo";
         }
 
+        if(starving)
+        {
+            towerRatDistance = Vector3.Distance(targetRat.transform.position, this.transform.position);
+            if(IsInRange(towerRatDistance, eating_range))
+            {
+                eatRat();
+            }
+        }
         //ATTACKING RATS
-        if (targetRat != null) 
+        if (targetRat != null && !starving) 
         {
             towerRatDistance = Vector3.Distance(targetRat.transform.position, this.transform.position);
             if (IsInRange(towerRatDistance, towerRange))
             {
                 Debug.DrawLine(transform.position, targetRat.transform.position, Color.red);
-
                 AttackRat();
             }
         }
@@ -101,12 +109,20 @@ public class TowerShooting : MonoBehaviour
     }
 
     
-    void eat()
+    void eatRat()
     {
-        if(GameObject.FindGameObjectWithTag("Rat") != null)
+        transform.LookAt(targetRat.transform);
+        targetRat.transform.position = this.transform.position;
+        while(targetRat.GetComponent<RatClass>().currentHealth > 0)
         {
-
+            eatCooldown -=Time.deltaTime;
+            if(eatCooldown <= 0)
+            {
+                targetRat.SendMessage("applyDMG", 5);
+                eatCooldown = eatRate;
+            }
         }
+
     }
 
     private GameObject FindAdjacentHobo(GameObject[] hobos)
