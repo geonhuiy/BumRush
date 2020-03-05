@@ -23,9 +23,8 @@ public class BumClass : MonoBehaviour
     private Traits t3;
     private void Awake()
     {
-        BumInit(3);
+        //BumInit(3);
         defaultColor = gameObject.GetComponent<Renderer>().material.color;
-
     }
 
     public void BumInit(int level)
