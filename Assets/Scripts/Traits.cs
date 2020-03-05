@@ -40,7 +40,7 @@ public class Traits : MonoBehaviour
 
     }
 
-    void WildCard(int wc)
+    void WildCard(int wc) //DECIDE WHICH WILDCARD TO ASSIGN BASED OF VALUE PASSED
     {
         if (wc == 0)
         {

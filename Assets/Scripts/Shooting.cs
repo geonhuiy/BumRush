@@ -12,7 +12,8 @@ public class Shooting : MonoBehaviour
     public float stab_time;
     public float frate = 2;
     public float range = 65f;
-    float hostility_range = 5f; //RANGE TO ADJACENT HOBO
+    public float hostility_range = 5f; //RANGE TO ADJACENT HOBO
+    public float eat_range = 5f;
     private float rat_distance; //DISTANCE FROM NEAREST RAT
     private float bum_distance; //DISTANCE FROM OTHER NEAREST HOBO (FOR HOSTILITY WILD CARD)
     public float shot_damage;
@@ -80,6 +81,14 @@ public class Shooting : MonoBehaviour
                     stab_time -= Time.deltaTime;
                 } 
             }
+        }
+    }
+
+    void eat()
+    {
+        if(GameObject.FindGameObjectWithTag("Rat") != null)
+        {
+
         }
     }
 
