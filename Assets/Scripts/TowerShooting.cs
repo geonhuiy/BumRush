@@ -16,8 +16,9 @@ public class TowerShooting : MonoBehaviour
     public float shotSpeed = 50f;
     public bool hostile;
     public bool starving;
+    private bool gotRat = false;
     public float hostility_range = 5.7f;
-    public float eating_range = 5f;
+    public float eating_range = 7f;
     private float flashTimer = 0.2f;
 
     private void Start()
@@ -53,9 +54,11 @@ public class TowerShooting : MonoBehaviour
 
         if (starving)
         {
+            Debug.Log("Starving = true");
             towerRatDistance = Vector3.Distance(targetRat.transform.position, this.transform.position);
             if (IsInRange(towerRatDistance, eating_range))
             {
+                Debug.DrawLine(transform.position, targetRat.transform.position, Color.red);
                 eatRat();
             }
         }
@@ -111,17 +114,19 @@ public class TowerShooting : MonoBehaviour
     //FUNCTION FOR "GRABBING" RAT AND EATING IT
     void eatRat()
     {
-        transform.LookAt(targetRat.transform);
-        targetRat.transform.position = this.transform.position;
-        while (targetRat.GetComponent<RatClass>().currentHealth > 0)
-        {
-            eatCooldown -= Time.deltaTime;
-            if (eatCooldown <= 0)
-            {
-                targetRat.SendMessage("applyDMG", 5);
-                eatCooldown = eatRate;
-            }
-        }
+        targetRat.transform.parent = transform;
+     
+
+
+        /* while (targetRat.GetComponent<RatClass>().currentHealth > 0)
+         {
+             eatCooldown -= Time.deltaTime;
+             if (eatCooldown <= 0)
+             {
+                 targetRat.SendMessage("applyDMG", 5);
+                 eatCooldown = eatRate;
+             }
+         }*/
 
     }
 
