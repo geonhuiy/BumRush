@@ -17,7 +17,7 @@ public class Shooting : MonoBehaviour
     private float rat_distance; //DISTANCE FROM NEAREST RAT
     private float bum_distance; //DISTANCE FROM OTHER NEAREST HOBO (FOR HOSTILITY WILD CARD)
     public float shot_damage;
-    
+
     public bool hostile;
 
 
@@ -39,7 +39,7 @@ public class Shooting : MonoBehaviour
         {
             hostility();
         }
-       
+
         if (GameObject.FindGameObjectWithTag("Rat") != null)
         {
             rat = GameObject.FindGameObjectWithTag("Rat").transform;
@@ -71,7 +71,7 @@ public class Shooting : MonoBehaviour
             bum_distance = Vector3.Distance(other_hobo.position, this.transform.position); //GET DISTANCE TO CLOSEST HOBO
             if (bum_distance <= hostility_range) //CHECK WHETHER HOBO IS ADAJACENT
             {
-                if(stab_time <= 0)
+                if (stab_time <= 0)
                 {
                     other_hobo.SendMessage("applyDMG", 1);
                     stab_time = frate;
@@ -79,18 +79,11 @@ public class Shooting : MonoBehaviour
                 else
                 {
                     stab_time -= Time.deltaTime;
-                } 
+                }
             }
         }
     }
 
-    void eat()
-    {
-        if(GameObject.FindGameObjectWithTag("Rat") != null)
-        {
-
-        }
-    }
 
 
 }

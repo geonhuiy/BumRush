@@ -30,10 +30,10 @@ public class TowerShooting : MonoBehaviour
     {
         rat_targets = GameObject.FindGameObjectsWithTag("Rat");
         targetRat = FindClosestEnemy(rat_targets);
-        
+
         //ATTACKING OTHER HOBOS
-        if (hostile) 
-        {   
+        if (hostile)
+        {
             this.gameObject.tag = "this hobo";
             hobo_targets = GameObject.FindGameObjectsWithTag("Hobo");
             targetHobo = FindAdjacentHobo(hobo_targets);
@@ -47,20 +47,20 @@ public class TowerShooting : MonoBehaviour
                     AttackHobo();
                 }
             }
-            
+
             this.gameObject.tag = "Hobo";
         }
 
-        if(starving)
+        if (starving)
         {
             towerRatDistance = Vector3.Distance(targetRat.transform.position, this.transform.position);
-            if(IsInRange(towerRatDistance, eating_range))
+            if (IsInRange(towerRatDistance, eating_range))
             {
                 eatRat();
             }
         }
         //ATTACKING RATS
-        if (targetRat != null && !starving) 
+        if (targetRat != null && !starving)
         {
             towerRatDistance = Vector3.Distance(targetRat.transform.position, this.transform.position);
             if (IsInRange(towerRatDistance, towerRange))
@@ -94,7 +94,7 @@ public class TowerShooting : MonoBehaviour
             attackCooldown = fireRate;
         }
     }
-    
+
     private void AttackHobo()
     {
         if (targetHobo != null)
@@ -108,15 +108,15 @@ public class TowerShooting : MonoBehaviour
         }
     }
 
-    
+    //FUNCTION FOR "GRABBING" RAT AND EATING IT
     void eatRat()
     {
         transform.LookAt(targetRat.transform);
         targetRat.transform.position = this.transform.position;
-        while(targetRat.GetComponent<RatClass>().currentHealth > 0)
+        while (targetRat.GetComponent<RatClass>().currentHealth > 0)
         {
-            eatCooldown -=Time.deltaTime;
-            if(eatCooldown <= 0)
+            eatCooldown -= Time.deltaTime;
+            if (eatCooldown <= 0)
             {
                 targetRat.SendMessage("applyDMG", 5);
                 eatCooldown = eatRate;
@@ -125,6 +125,7 @@ public class TowerShooting : MonoBehaviour
 
     }
 
+    //FINDS CLOSEST (ADJACENT HOBO)
     private GameObject FindAdjacentHobo(GameObject[] hobos)
     {
 
@@ -143,6 +144,8 @@ public class TowerShooting : MonoBehaviour
         }
         return nearestHobo;
     }
+
+    //FIND CLOSEST ENEMY (RAT)
     private GameObject FindClosestEnemy(GameObject[] enemies)
     {
         GameObject bestTarget = null;
