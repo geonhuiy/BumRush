@@ -6,9 +6,9 @@ TagManager:
   tags:
   - Rat
   - Hobo
-  - Shot
   - Node
   - this hobo
+  - ShowOnPause
   layers:
   - Default
   - TransparentFX

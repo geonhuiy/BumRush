@@ -3,35 +3,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 
 public class
 PauseMenu : MonoBehaviour
 
+
+
 {
 
-    public GameObject pauseMenu;
+    
 
     public void WhenIClickTheMenuButton()
     {
         Time.timeScale = 0;
-        pauseMenu.SetActive(true);
+        this.gameObject.SetActive(true);
+
+        Debug.Log("SCHEISSER");
     }
 
 
-
+ 
     public void ResumeButton()
     {
         Time.timeScale = 1;
-        pauseMenu.SetActive(false);
+        this.gameObject.SetActive(false);
     }
-
 
 
     public void RestartButton()
     {
-        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
     }
 
 
@@ -40,5 +44,4 @@ PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Main Menu");
     }
-
 }
