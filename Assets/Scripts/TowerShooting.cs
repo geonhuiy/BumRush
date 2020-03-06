@@ -11,7 +11,7 @@ public class TowerShooting : MonoBehaviour
     private GameObject projectile;
     private float towerRange = 16f;
     private float hoboRange;
-    private float towerRatDistance, towerHoboDistance, attackCooldown, stabCooldown, eatCooldown, fireRate, eatRate = 5f, stabRate = 1.5f;
+    private float towerRatDistance, towerHoboDistance, attackCooldown, stabCooldown, eatCooldown, fireRate, eatRate = 0.5f, stabRate = 1.5f;
     private Transform other_hobo;
     public float shotSpeed = 50f;
     public bool hostile;
@@ -59,11 +59,13 @@ public class TowerShooting : MonoBehaviour
             if (IsInRange(towerRatDistance, eating_range))
             {
                 Debug.DrawLine(transform.position, targetRat.transform.position, Color.red);
+
                 eatRat();
+
             }
         }
         //ATTACKING RATS
-        if (targetRat != null && !starving)
+        if (targetRat != null && !starving && !targetRat.GetComponent<RatClass>().grabbed)
         {
             towerRatDistance = Vector3.Distance(targetRat.transform.position, this.transform.position);
             if (IsInRange(towerRatDistance, towerRange))
@@ -114,19 +116,23 @@ public class TowerShooting : MonoBehaviour
     //FUNCTION FOR "GRABBING" RAT AND EATING IT
     void eatRat()
     {
+
+
         targetRat.transform.parent = transform;
-     
+        targetRat.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
+        targetRat.GetComponent<RatClass>().grabbed= true;
+        
+        eatCooldown -= Time.deltaTime;
+        if (eatCooldown <= 0)
+        {
+            targetRat.SendMessage("applyDMG", 5);
+            if(targetRat.GetComponent<RatClass>().currentHealth <= 0)
+            {
+                targetRat.GetComponent<RatClass>().grabbed = false;
+            }
+            eatCooldown = eatRate;
+        }
 
-
-        /* while (targetRat.GetComponent<RatClass>().currentHealth > 0)
-         {
-             eatCooldown -= Time.deltaTime;
-             if (eatCooldown <= 0)
-             {
-                 targetRat.SendMessage("applyDMG", 5);
-                 eatCooldown = eatRate;
-             }
-         }*/
 
     }
 

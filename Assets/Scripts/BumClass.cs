@@ -106,11 +106,11 @@ public class BumClass : MonoBehaviour
     {
         if (wc_tr.AOE_wildcard)
         {
-            //bum_aoe_on = true;
+            bum_aoe_on = true;
         }
         else if (wc_tr.HOSTILE_wildcard)
         {
-            //hostile_on = wc_tr.HOSTILE_wildcard;
+            hostile_on = wc_tr.HOSTILE_wildcard;
         }
         else if (wc_tr.STARVING_wildcard)
         {

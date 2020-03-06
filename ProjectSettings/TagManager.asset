@@ -9,6 +9,7 @@ TagManager:
   - Shot
   - Node
   - this hobo
+  - grabbed
   layers:
   - Default
   - TransparentFX
