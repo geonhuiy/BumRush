@@ -53,7 +53,7 @@ public class ObjectHandler : MonoBehaviour
         if (waveTimer <= 0)
         {
             SpawnNewWaveOfRats();
-            waveTimer = 6f;
+            waveTimer = 10f;
         }
         waveTimer -= Time.deltaTime;
         
