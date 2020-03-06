@@ -9,6 +9,7 @@ public class RatClass : MonoBehaviour
     public float maxHealth = 30;
     public Image Healthbar;
     public float damage;
+    public bool grabbed = false;
     private Quaternion initialRotation;
     [SerializeField]
     void Start()
