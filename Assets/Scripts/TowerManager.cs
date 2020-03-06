@@ -11,6 +11,7 @@ public class TowerManager : MonoBehaviour
     public List<GameObject> spawnedTowers;
     public GameObject hobo, spawnPlaceholder;
     private int currentTowerCost = 0;
+    public BumClass hoboStats;
     public enum TowerPrices
     {
         lvl1 = 5,
@@ -116,5 +117,14 @@ public class TowerManager : MonoBehaviour
                 }
         }
         return hasMoney;
+    }
+
+    public BumClass GetHoboStats(GameObject hobo)
+    {
+        if (hobo != null)
+        {
+            hoboStats = hobo.GetComponent<BumClass>();
+        }
+        return hoboStats;
     }
 }
