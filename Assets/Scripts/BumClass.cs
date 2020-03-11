@@ -21,9 +21,9 @@ public class BumClass : MonoBehaviour
     private Traits t1;
     private Traits t2;
     private Traits t3;
+    public int towerLevel;
     private void Awake()
     {
-        //BumInit(3);
         defaultColor = gameObject.GetComponent<Renderer>().material.color;
     }
 
@@ -123,7 +123,16 @@ public class BumClass : MonoBehaviour
     {
         if (hp <= 0)
         {
+            if (TowerManager.tManagerInstance.currentSelectedTower = this.gameObject)
+            {
+                TowerManager.tManagerInstance.currentSelectedTower = null;
+                if (TowerManager.tManagerInstance.towerStats.activeInHierarchy)
+                {
+                    TowerManager.tManagerInstance.towerStats.SetActive(false);
+                }
+            }
             this.gameObject.transform.parent.GetComponent<AttachTower>().hasTowerAttached = false;
+
             Destroy(this.gameObject);
         }
 

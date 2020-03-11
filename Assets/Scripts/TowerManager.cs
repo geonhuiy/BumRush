@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class TowerManager : MonoBehaviour
 {
@@ -9,15 +11,19 @@ public class TowerManager : MonoBehaviour
     public int spawnedTowerCount;
     public int maxTowers = 1;
     public List<GameObject> spawnedTowers;
-    public GameObject hobo, spawnPlaceholder;
+    public GameObject hobo, towerPlaceHolder;
     private int currentTowerCost = 0;
-    public BumClass hoboStats;
+
+    public TextMeshProUGUI hoboDamage, hoboFireRate, hoboHealth, hoboTraits;
     public enum TowerPrices
     {
         lvl1 = 5,
         lvl2 = 10,
         lvl3 = 15
     }
+    public GameObject towerStats = null;
+    public GameObject currentSelectedTower = null;
+    public GameObject confirmSellBtn;
     private void Awake()
     {
         if (tManagerInstance == null)
@@ -48,7 +54,7 @@ public class TowerManager : MonoBehaviour
             GManager.gManagerInstance.money -= 5;
             //hobo.GetComponent<BumClass>().BumInit(1); //LEVEL 1 HOBO
             //GameObject newHobo = Instantiate(hobo, spawnPlaceholder.transform.position, Quaternion.identity);'
-            GameObject newHobo = Instantiate(hobo, spawnPlaceholder.transform.position, Quaternion.identity);
+            GameObject newHobo = Instantiate(hobo, towerPlaceHolder.transform.position, Quaternion.identity);
             newHobo.gameObject.GetComponent<TowerShooting>().enabled = false;
             spawnedTowerCount++;
             spawnedTowers.Add(newHobo);
@@ -61,13 +67,17 @@ public class TowerManager : MonoBehaviour
             if (PlayerHasMoney(level))
             {
                 GManager.gManagerInstance.money -= currentTowerCost;
-                GameObject newHobo = Instantiate(hobo, spawnPlaceholder.transform.position, Quaternion.identity);
+                GameObject newHobo = Instantiate(hobo, new Vector3(0, 0, 0), Quaternion.identity);
+                newHobo.transform.SetParent(towerPlaceHolder.transform, false);
                 newHobo.GetComponent<TowerShooting>().enabled = false;
                 newHobo.GetComponent<BumClass>().BumInit(level);
+                newHobo.GetComponent<BumClass>().towerLevel = level;
+                currentSelectedTower = newHobo;
+                towerStats.SetActive(true);
+                SetHoboStats(currentSelectedTower.GetComponent<BumClass>());
                 spawnedTowerCount++;
                 spawnedTowers.Add(newHobo);
             }
-
         }
     }
 
@@ -119,12 +129,45 @@ public class TowerManager : MonoBehaviour
         return hasMoney;
     }
 
-    public BumClass GetHoboStats(GameObject hobo)
+    public void SetHoboStats(BumClass hoboStats)
     {
-        if (hobo != null)
+        hoboDamage.SetText(hoboStats.damage.ToString());
+        hoboHealth.SetText(hoboStats.hp.ToString());
+        hoboFireRate.SetText(hoboStats.fire_rate.ToString());
+        if (hoboStats.starving_on)
         {
-            hoboStats = hobo.GetComponent<BumClass>();
+            hoboTraits.SetText("Starving");
+
         }
-        return hoboStats;
+        else if (hoboStats.bum_aoe_on)
+        {
+            hoboTraits.SetText("AOE");
+        }
+        else if (hoboStats.hostile_on)
+        {
+            hoboTraits.SetText("Hostile");
+        }
+        else
+        {
+            hoboTraits.SetText("No trait");
+        }
+    }
+
+    public float SellTowerPrice(float towerLevel)
+    {
+        float sellPrice = 0;
+        switch (towerLevel)
+        {
+            case 1:
+                sellPrice = (float)TowerManager.TowerPrices.lvl1;
+                break;
+            case 2:
+                sellPrice = (float)TowerManager.TowerPrices.lvl2;
+                break;
+            case 3:
+                sellPrice = (float)TowerManager.TowerPrices.lvl3;
+                break;
+        }
+        return Mathf.Floor(sellPrice / 2);
     }
 }
