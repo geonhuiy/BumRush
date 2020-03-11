@@ -20,8 +20,6 @@ PauseMenu : MonoBehaviour
     {
         Time.timeScale = 0;
         this.gameObject.SetActive(true);
-
-        Debug.Log("SCHEISSER");
     }
 
 
