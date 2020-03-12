@@ -25,6 +25,7 @@ public class AttachTower : MonoBehaviour
             TowerManager.tManagerInstance.spawnedTowers[0].transform.parent = this.gameObject.transform;
             hasTowerAttached = true;
             TowerManager.tManagerInstance.towerStats.SetActive(false);
+            TowerManager.tManagerInstance.IncreasePrice(TowerManager.tManagerInstance.currentSelectedTower.GetComponent<BumClass>().towerLevel);
             TowerManager.tManagerInstance.towerStats.transform.Find("ConfirmSellBtn").gameObject.SetActive(false);
             TowerManager.tManagerInstance.spawnedTowers[0].GetComponent<TowerShooting>().enabled = true;
             TowerManager.tManagerInstance.spawnedTowerCount--;

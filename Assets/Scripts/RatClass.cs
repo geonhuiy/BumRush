@@ -32,6 +32,7 @@ public class RatClass : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            GManager.gManagerInstance.money += 5;
             PoolObject po = this.gameObject.GetComponent<PoolObject>();
             po.DespawnPoolObject(this.gameObject);
         }
