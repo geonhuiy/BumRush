@@ -5154,6 +5154,9 @@ MonoBehaviour:
   towerStats: {fileID: 978848885}
   currentSelectedTower: {fileID: 0}
   confirmSellBtn: {fileID: 524961295}
+  lvl1price: 5
+  lvl2price: 10
+  lvl3price: 20
 --- !u!4 &767900179
 Transform:
   m_ObjectHideFlags: 0
@@ -17506,7 +17509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyText: {fileID: 1536633894}
-  money: 0
+  money: 10
 --- !u!4 &2141202672 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7716511178616778533, guid: 8517c18ebb7a9784f82441d217250a2d,
