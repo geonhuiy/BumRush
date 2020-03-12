@@ -109,6 +109,7 @@ public class BumClass : MonoBehaviour
         if (wc_tr.AOE_wildcard)
         {
             bum_aoe_on = true;
+            fire_rate = 1.5f;
         }
         else if (wc_tr.HOSTILE_wildcard)
         {
