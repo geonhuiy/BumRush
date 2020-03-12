@@ -42,6 +42,7 @@ public class Traits : MonoBehaviour
             {
                 statMod = Random.Range(6, 9);
             }
+            good = tr;
             
         }
         if (tr == false && wild == false)
@@ -61,11 +62,16 @@ public class Traits : MonoBehaviour
             {
                 statMod = -(Random.Range(6, 9));
             }
+            good = tr;
         }
 
         moddedStat = Random.Range(0, 3);//RANDOMLY DECIDES WHICH STAT TO MOD
-
-        good = tr;//SAVES WHETHER THE STAT IS POSITIVE OR NEGATIVE
+        
+        if(moddedStat == 1) //FLIPS THE VALUES FOR FIRERATE; SINCE LOWER RATE IS BETTER
+        {
+            statMod = -statMod;
+        }
+        //SAVES WHETHER THE STAT IS POSITIVE OR NEGATIVE
 
     }
 
