@@ -11,7 +11,7 @@ public class TowerManager : MonoBehaviour
     public int spawnedTowerCount;
     public int maxTowers = 1;
     public List<GameObject> spawnedTowers;
-    public GameObject hobo, towerPlaceHolder;
+    public GameObject hobo_01, hobo_02, hobo_03, towerPlaceHolder;
     private int currentTowerCost;
 
     public TextMeshProUGUI hoboDamage, hoboFireRate, hoboHealth, hoboTraits;
@@ -51,7 +51,7 @@ public class TowerManager : MonoBehaviour
             GManager.gManagerInstance.money -= 5;
             //hobo.GetComponent<BumClass>().BumInit(1); //LEVEL 1 HOBO
             //GameObject newHobo = Instantiate(hobo, spawnPlaceholder.transform.position, Quaternion.identity);'
-            GameObject newHobo = Instantiate(hobo, towerPlaceHolder.transform.position, Quaternion.identity);
+            GameObject newHobo = Instantiate(hobo_01, towerPlaceHolder.transform.position, Quaternion.identity);
             newHobo.gameObject.GetComponent<TowerShooting>().enabled = false;
             spawnedTowerCount++;
             spawnedTowers.Add(newHobo);
@@ -64,7 +64,7 @@ public class TowerManager : MonoBehaviour
             if (PlayerHasMoney(level))
             {
                 GManager.gManagerInstance.money -= currentTowerCost;
-                GameObject newHobo = Instantiate(hobo, new Vector3(0, 0, 0), Quaternion.identity);
+                GameObject newHobo = Instantiate(hobo_01, new Vector3(0, 0, 0), Quaternion.identity);
                 newHobo.GetComponent<TowerShooting>().enabled = false;
                 newHobo.GetComponent<BumClass>().BumInit(level);
                 newHobo.GetComponent<BumClass>().towerLevel = level;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttachTower : MonoBehaviour
 {
     public bool hasTowerAttached = false;
-    private Vector3 yOffset = new Vector3(0, 2, 0);
+    private Vector3 yOffset = new Vector3(0, 1, 0);
     private Color defaultColor;
     [SerializeField]
     private Material hoboMaterial;
