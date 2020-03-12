@@ -41,7 +41,6 @@ public class TowerShooting : MonoBehaviour
             if (targetHobo != null)
             {
                 towerHoboDistance = Vector3.Distance(targetHobo.transform.position, this.transform.position);
-                Debug.Log("Distance to nearest hobo: " + towerHoboDistance);
                 if (IsInRange(towerHoboDistance, hostility_range))
                 {
                     FindAdjacentHobo(hobo_targets);
@@ -54,7 +53,6 @@ public class TowerShooting : MonoBehaviour
 
         if (starving)
         {
-            Debug.Log("Starving = true");
             if (targetRat != null) {
                 towerRatDistance = Vector3.Distance(targetRat.transform.position, this.transform.position);
                 if (IsInRange(towerRatDistance, eating_range))

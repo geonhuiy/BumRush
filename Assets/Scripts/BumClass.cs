@@ -32,6 +32,7 @@ public class BumClass : MonoBehaviour
 
         if (level == 1) //HOBO AT LEVEL 1 GETS 1 STAT MOD (RANDOMLY EITHER POSITIVE OR NEGATIVE)
         {
+            Debug.Log("Generated lvl 1");
             t1 = new Traits(randBool(), level);
             modify_stat(t1.moddedStat, t1.statMod);
         }
@@ -45,6 +46,7 @@ public class BumClass : MonoBehaviour
             {
                 t2 = new Traits(true, level);
                 modify_stat(t2.moddedStat, t2.statMod);
+                Debug.Log("Stat no. " + t2.moddedStat + " increased by " + t2.statMod);
             }
             else if (t1.good == true) //ASSIGN NEGATIVE TRAIT IF THE FIRST TRAIT WAS POSITIVE
             {

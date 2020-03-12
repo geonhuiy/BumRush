@@ -27,7 +27,7 @@ public class RatClass : MonoBehaviour
     public void applyDMG(float d)
     {
         currentHealth -= d;
-        Debug.Log("Current health : " + currentHealth + " Damage taken : " + damage);
+      //  Debug.Log("Current health : " + currentHealth + " Damage taken : " + damage);
         Healthbar.fillAmount = (currentHealth / maxHealth);
 
         if (currentHealth <= 0)

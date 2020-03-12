@@ -27,9 +27,9 @@ public class Traits : MonoBehaviour
             
         }
 
-        else if (tr == true && wild == false)//GIVES POSITIVE STAT MOD
+        if (tr == true && wild == false)//GIVES POSITIVE STAT MOD
         {
-
+            Debug.Log("Positive stat given");
             if(lvl == 1)
             {
                 statMod = Random.Range(2, 5);
@@ -44,7 +44,7 @@ public class Traits : MonoBehaviour
             }
             
         }
-        else if (tr == false && wild == false)
+        if (tr == false && wild == false)
         {
 
             //GIVES NEGATIVE STAT MOD
@@ -64,7 +64,7 @@ public class Traits : MonoBehaviour
 
         moddedStat = Random.Range(0, 3);//RANDOMLY DECIDES WHICH STAT TO MOD
 
-        good = tr;//SAVES WHETHER THE STAT IS POSITIVE OR NEGATIVE
+        //good = tr;//SAVES WHETHER THE STAT IS POSITIVE OR NEGATIVE
 
     }
 
