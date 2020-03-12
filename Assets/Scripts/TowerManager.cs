@@ -12,18 +12,15 @@ public class TowerManager : MonoBehaviour
     public int maxTowers = 1;
     public List<GameObject> spawnedTowers;
     public GameObject hobo, towerPlaceHolder;
-    private int currentTowerCost = 0;
+    private int currentTowerCost;
 
     public TextMeshProUGUI hoboDamage, hoboFireRate, hoboHealth, hoboTraits;
-    public enum TowerPrices
-    {
-        lvl1 = 5,
-        lvl2 = 10,
-        lvl3 = 15
-    }
     public GameObject towerStats = null;
     public GameObject currentSelectedTower = null;
     public GameObject confirmSellBtn;
+    public int lvl1price = 5;
+    public int lvl2price =10;
+    public int lvl3price = 20;
     private void Awake()
     {
         if (tManagerInstance == null)
@@ -86,10 +83,10 @@ public class TowerManager : MonoBehaviour
         switch (towerLevel)
         {
             case 1:
-                if (GManager.gManagerInstance.money >= (int)(TowerPrices.lvl1))
+                if (GManager.gManagerInstance.money >= lvl1price)
                 {
                     hasMoney = true;
-                    currentTowerCost = (int)(TowerPrices.lvl1);
+                    currentTowerCost = lvl1price;
                     break;
                 }
                 else
@@ -99,10 +96,10 @@ public class TowerManager : MonoBehaviour
                     break;
                 }
             case 2:
-                if (GManager.gManagerInstance.money >= (int)(TowerPrices.lvl2))
+                if (GManager.gManagerInstance.money >= lvl2price)
                 {
                     hasMoney = true;
-                    currentTowerCost = (int)(TowerPrices.lvl2);
+                    currentTowerCost = lvl2price;
                     break;
                 }
                 else
@@ -112,10 +109,10 @@ public class TowerManager : MonoBehaviour
                     break;
                 }
             case 3:
-                if (GManager.gManagerInstance.money >= (int)(TowerPrices.lvl3))
+                if (GManager.gManagerInstance.money >= lvl3price)
                 {
                     hasMoney = true;
-                    currentTowerCost = (int)(TowerPrices.lvl3);
+                    currentTowerCost = lvl3price;
                     break;
                 }
                 else
@@ -159,15 +156,45 @@ public class TowerManager : MonoBehaviour
         switch (towerLevel)
         {
             case 1:
-                sellPrice = (float)TowerManager.TowerPrices.lvl1;
+                sellPrice = 5f;
                 break;
             case 2:
-                sellPrice = (float)TowerManager.TowerPrices.lvl2;
+                sellPrice = 10f;
                 break;
             case 3:
-                sellPrice = (float)TowerManager.TowerPrices.lvl3;
+                sellPrice = 20f;
                 break;
         }
         return Mathf.Floor(sellPrice / 2);
+    }
+
+    public void IncreasePrice(float towerLevel) {
+        switch(towerLevel)
+        {
+            case 1:
+            lvl1price += 2;
+            break;
+            case 2:
+            lvl2price += 2;
+            break;
+            case 3:
+            lvl3price += 2;
+            break;
+        }
+    }
+
+    public void DecreasePrice(float towerLevel) {
+        switch(towerLevel)
+        {
+            case 1:
+            lvl1price -= 2;
+            break;
+            case 2:
+            lvl2price -= 2;
+            break;
+            case 3:
+            lvl3price -= 2;
+            break;
+        }
     }
 }
