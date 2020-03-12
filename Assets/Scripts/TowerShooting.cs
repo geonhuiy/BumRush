@@ -91,7 +91,8 @@ public class TowerShooting : MonoBehaviour
 
     private void AttackRat()
     {
-        transform.LookAt(targetRat.transform);
+        Vector3 targetPos = new Vector3(targetRat.transform.position.x, this.transform.position.y, targetRat.transform.position.z);
+        transform.LookAt(targetPos);
         attackCooldown -= Time.deltaTime;
         if (attackCooldown <= 0)
         {
