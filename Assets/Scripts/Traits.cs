@@ -18,25 +18,60 @@ public class Traits : MonoBehaviour
 
 
     //CONSTRUCTOR/DESTRUCTOR
-    public Traits(bool tr, bool wild = false)
+    public Traits(bool tr,  int lvl, bool wild = false)
     {
         if (wild) //IF WILDCARD CONDITION IS TRUE, RUNS WILDCARD GENERATION FUNCTION
         {
+            
             WildCard(Random.Range(0, 3));
+            
         }
 
-        else if (tr == true && wild == false)//GIVES POSITIVE STAT MOD
+        if (tr == true && wild == false)//GIVES POSITIVE STAT MOD
         {
-            statMod = Random.Range(1, 5);
+            Debug.Log("Positive stat given");
+            if(lvl == 1)
+            {
+                statMod = Random.Range(2, 5);
+            }
+            else if(lvl == 2)
+            {
+                statMod = Random.Range(4, 7);
+            }
+            else if(lvl == 3)
+            {
+                statMod = Random.Range(6, 9);
+            }
+            good = tr;
+            
         }
-        else if (tr == false && wild == false)
+        if (tr == false && wild == false)
         {
-            statMod = -(Random.Range(1, 5));//GIVES NEGATIVE STAT MOD
+
+            Debug.Log("Negative stat given");
+            //GIVES NEGATIVE STAT MOD
+            if(lvl == 1)
+            {
+                statMod = -(Random.Range(2, 5));
+            }
+            else if(lvl == 2)
+            {
+                statMod = -(Random.Range(4, 7));
+            }
+            else if(lvl == 3)
+            {
+                statMod = -(Random.Range(6, 9));
+            }
+            good = tr;
         }
 
         moddedStat = Random.Range(0, 3);//RANDOMLY DECIDES WHICH STAT TO MOD
-
-        good = tr;//SAVES WHETHER THE STAT IS POSITIVE OR NEGATIVE
+        
+        if(moddedStat == 1) //FLIPS THE VALUES FOR FIRERATE; SINCE LOWER RATE IS BETTER
+        {
+            statMod = -statMod;
+        }
+        //SAVES WHETHER THE STAT IS POSITIVE OR NEGATIVE
 
     }
 

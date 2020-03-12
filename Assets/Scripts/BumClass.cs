@@ -32,42 +32,44 @@ public class BumClass : MonoBehaviour
 
         if (level == 1) //HOBO AT LEVEL 1 GETS 1 STAT MOD (RANDOMLY EITHER POSITIVE OR NEGATIVE)
         {
-            t1 = new Traits(randBool());
+            Debug.Log("Generated lvl 1");
+            t1 = new Traits(randBool(), level);
             modify_stat(t1.moddedStat, t1.statMod);
         }
 
         else if (level == 2) //HOBO AT LEVEL 2 GETS 2 STAT MODS (1 POSITIVE, 1 NEGATIVE);
         {
-            t1 = new Traits(randBool());
+            t1 = new Traits(randBool(), level);
             modify_stat(t1.moddedStat, t1.statMod);
 
             if (t1.good == false) //ASSIGNS POSITIVE TRAIT IF THE FIRST TRAIT IS NEGATIVE
             {
-                t2 = new Traits(true);
+                t2 = new Traits(true, level);
                 modify_stat(t2.moddedStat, t2.statMod);
+                Debug.Log("Stat no. " + t2.moddedStat + " increased by " + t2.statMod);
             }
             else if (t1.good == true) //ASSIGN NEGATIVE TRAIT IF THE FIRST TRAIT WAS POSITIVE
             {
-                t2 = new Traits(false);
+                t2 = new Traits(false, level);
                 modify_stat(t2.moddedStat, t2.statMod);
             }
         }
 
         else if (level == 3)//HOBO AT LEVEL 3 GET 3 TRAITS (1 POSITIVE, 1 NEGATIVE, 1 WILDCARD)
         {
-            t1 = new Traits(randBool());
+            t1 = new Traits(randBool(), level);
             modify_stat(t1.moddedStat, t1.statMod);
             if (t1.good == false)
             {
-                t2 = new Traits(true);
+                t2 = new Traits(true, level);
                 modify_stat(t2.moddedStat, t2.statMod);
             }
             else if (t1.good == true)
             {
-                t2 = new Traits(false);
+                t2 = new Traits(false, level);
                 modify_stat(t2.moddedStat, t2.statMod);
             }
-            t3 = new Traits(false, true);
+            t3 = new Traits(false, level, true);
             assign_wildcard(t3);
         }
 
@@ -75,7 +77,7 @@ public class BumClass : MonoBehaviour
 
     public bool randBool() //RETURNS RANDOM BOOLEAN VALUE
     {
-        int bit = Random.Range(0, 1);
+        int bit = Random.Range(0, 2);
 
         if (bit == 1) { return true; }
         else { return false; }

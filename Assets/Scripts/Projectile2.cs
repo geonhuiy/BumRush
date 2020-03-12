@@ -49,12 +49,10 @@ public class Projectile2 : MonoBehaviour
         {
             if (aoe_on)
             {
-                Debug.Log("Goes to AOE");
                 AOEdamage(this.transform.position, aoe_rad);
             }
             else
             {
-                Debug.Log("Doesn't go to AOE");
                 other.gameObject.SendMessage("applyDMG", shotDamage);
             }
             Destroy(this.gameObject);
@@ -79,6 +77,5 @@ public class Projectile2 : MonoBehaviour
                 ++i;
             }
         }
-        Debug.Log("AOE hit: " + i);
     }
 }
