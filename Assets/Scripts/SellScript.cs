@@ -21,9 +21,11 @@ public class SellScript : MonoBehaviour
 
     public void ConfirmSell()
     {
-        if (TowerManager.tManagerInstance.currentSelectedTower.transform.parent.tag == "Node")
-        {
+        if(TowerManager.tManagerInstance.currentSelectedTower.transform.parent != null) {
+            if (TowerManager.tManagerInstance.currentSelectedTower.transform.parent.tag == "Node")
+            {
             TowerManager.tManagerInstance.currentSelectedTower.transform.parent.GetComponent<AttachTower>().hasTowerAttached = false;
+            }
         }
         if (TowerManager.tManagerInstance.hasTowerSpawned())
         {

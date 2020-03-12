@@ -55,14 +55,15 @@ public class TowerShooting : MonoBehaviour
         if (starving)
         {
             Debug.Log("Starving = true");
-            towerRatDistance = Vector3.Distance(targetRat.transform.position, this.transform.position);
-            if (IsInRange(towerRatDistance, eating_range))
-            {
-                Debug.DrawLine(transform.position, targetRat.transform.position, Color.red);
-
-                eatRat();
-
+            if (targetRat != null) {
+                towerRatDistance = Vector3.Distance(targetRat.transform.position, this.transform.position);
+                if (IsInRange(towerRatDistance, eating_range))
+                {
+                    Debug.DrawLine(transform.position, targetRat.transform.position, Color.red);
+                    eatRat();
+                }
             }
+
         }
         //ATTACKING RATS
         if (targetRat != null && !starving && !targetRat.GetComponent<RatClass>().grabbed)

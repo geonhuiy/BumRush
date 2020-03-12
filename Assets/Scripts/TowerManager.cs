@@ -68,7 +68,6 @@ public class TowerManager : MonoBehaviour
             {
                 GManager.gManagerInstance.money -= currentTowerCost;
                 GameObject newHobo = Instantiate(hobo, new Vector3(0, 0, 0), Quaternion.identity);
-                newHobo.transform.SetParent(towerPlaceHolder.transform, false);
                 newHobo.GetComponent<TowerShooting>().enabled = false;
                 newHobo.GetComponent<BumClass>().BumInit(level);
                 newHobo.GetComponent<BumClass>().towerLevel = level;
@@ -145,6 +144,7 @@ public class TowerManager : MonoBehaviour
         }
         else if (hoboStats.hostile_on)
         {
+            hoboStats.gameObject.GetComponent<Renderer>().material.color = Color.red;
             hoboTraits.SetText("Hostile");
         }
         else
