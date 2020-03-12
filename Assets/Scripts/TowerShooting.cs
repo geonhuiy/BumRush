@@ -18,7 +18,7 @@ public class TowerShooting : MonoBehaviour
     public bool starving;
     private bool gotRat = false;
     public float hostility_range = 5.7f;
-    public float eating_range = 7f;
+    public float eating_range = 9f;
     private float flashTimer = 0.2f;
 
     private void Start()

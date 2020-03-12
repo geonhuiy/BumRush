@@ -66,13 +66,11 @@ public class Traits : MonoBehaviour
         }
 
         moddedStat = Random.Range(0, 3);//RANDOMLY DECIDES WHICH STAT TO MOD
-        
+
         if(moddedStat == 1) //FLIPS THE VALUES FOR FIRERATE; SINCE LOWER RATE IS BETTER
         {
             statMod = -statMod;
         }
-        //SAVES WHETHER THE STAT IS POSITIVE OR NEGATIVE
-
     }
 
     void WildCard(int wc) //DECIDE WHICH WILDCARD TO ASSIGN BASED OF VALUE PASSED
