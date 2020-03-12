@@ -77,7 +77,7 @@ public class BumClass : MonoBehaviour
 
     public bool randBool() //RETURNS RANDOM BOOLEAN VALUE
     {
-        int bit = Random.Range(0, 1);
+        int bit = Random.Range(0, 2);
 
         if (bit == 1) { return true; }
         else { return false; }
