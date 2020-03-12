@@ -17,6 +17,8 @@ public class SelectTower : MonoBehaviour
         {
             TowerManager.tManagerInstance.SetHoboStats(TowerManager.tManagerInstance.currentSelectedTower.GetComponent<BumClass>());
         }
-
+        if(this.gameObject.GetComponent<BumClass>().hp <= 0) {
+            this.gameObject.transform.parent.GetComponent<AttachTower>().hasTowerAttached = false;
+        }
     }
 }
