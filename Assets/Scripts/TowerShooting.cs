@@ -31,7 +31,10 @@ public class TowerShooting : MonoBehaviour
     void Update()
     {
         rat_targets = GameObject.FindGameObjectsWithTag("Rat");
+
         targetRat = FindClosestEnemy(rat_targets);
+
+
 
         //ATTACKING OTHER HOBOS
         if (hostile)
@@ -54,19 +57,24 @@ public class TowerShooting : MonoBehaviour
 
         if (starving)
         {
-            if (targetRat != null) {
+            if (targetRat != null)
+            {
+                
                 towerRatDistance = Vector3.Distance(targetRat.transform.position, this.transform.position);
                 if (IsInRange(towerRatDistance, eating_range))
                 {
+
                     Debug.DrawLine(transform.position, targetRat.transform.position, Color.red);
                     eatRat();
                 }
             }
 
         }
+
         //ATTACKING RATS
         if (targetRat != null && !starving && !targetRat.GetComponent<RatClass>().grabbed)
         {
+
             towerRatDistance = Vector3.Distance(targetRat.transform.position, this.transform.position);
             if (IsInRange(towerRatDistance, towerRange))
             {
@@ -121,13 +129,13 @@ public class TowerShooting : MonoBehaviour
 
         targetRat.transform.parent = transform;
         targetRat.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
-        targetRat.GetComponent<RatClass>().grabbed= true;
-        
+        targetRat.GetComponent<RatClass>().grabbed = true;
+
         eatCooldown -= Time.deltaTime;
         if (eatCooldown <= 0)
         {
             targetRat.SendMessage("applyDMG", dmg);
-            if(targetRat.GetComponent<RatClass>().currentHealth <= 0)
+            if (targetRat.GetComponent<RatClass>().currentHealth <= 0)
             {
                 targetRat.GetComponent<RatClass>().grabbed = false;
             }
@@ -165,6 +173,7 @@ public class TowerShooting : MonoBehaviour
         Vector3 currentPos = transform.position;
         foreach (GameObject potentialTarget in enemies)
         {
+
             Vector3 directionToTarget = potentialTarget.gameObject.transform.position - currentPos;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
             if (dSqrToTarget < closestDistSqr)
@@ -172,6 +181,8 @@ public class TowerShooting : MonoBehaviour
                 closestDistSqr = dSqrToTarget;
                 bestTarget = potentialTarget;
             }
+
+
         }
         return bestTarget;
     }
