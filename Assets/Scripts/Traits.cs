@@ -18,20 +18,48 @@ public class Traits : MonoBehaviour
 
 
     //CONSTRUCTOR/DESTRUCTOR
-    public Traits(bool tr, bool wild = false)
+    public Traits(bool tr,  int lvl, bool wild = false)
     {
         if (wild) //IF WILDCARD CONDITION IS TRUE, RUNS WILDCARD GENERATION FUNCTION
         {
+            
             WildCard(Random.Range(0, 3));
+            
         }
 
         else if (tr == true && wild == false)//GIVES POSITIVE STAT MOD
         {
-            statMod = Random.Range(1, 5);
+
+            if(lvl == 1)
+            {
+                statMod = Random.Range(2, 5);
+            }
+            else if(lvl == 2)
+            {
+                statMod = Random.Range(4, 7);
+            }
+            else if(lvl == 3)
+            {
+                statMod = Random.Range(6, 9);
+            }
+            
         }
         else if (tr == false && wild == false)
         {
-            statMod = -(Random.Range(1, 5));//GIVES NEGATIVE STAT MOD
+
+            //GIVES NEGATIVE STAT MOD
+            if(lvl == 1)
+            {
+                statMod = -(Random.Range(2, 5));
+            }
+            else if(lvl == 2)
+            {
+                statMod = -(Random.Range(4, 7));
+            }
+            else if(lvl == 3)
+            {
+                statMod = -(Random.Range(6, 9));
+            }
         }
 
         moddedStat = Random.Range(0, 3);//RANDOMLY DECIDES WHICH STAT TO MOD
