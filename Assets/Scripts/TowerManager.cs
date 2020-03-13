@@ -11,8 +11,10 @@ public class TowerManager : MonoBehaviour
     public int spawnedTowerCount;
     public int maxTowers = 1;
     public List<GameObject> spawnedTowers;
-    public GameObject hobo, towerPlaceHolder;
+    public GameObject hobo_01, hobo_02, hobo_03, towerPlaceHolder;
     private int currentTowerCost;
+
+    public TextMeshProUGUI hobo1, hobo2, hobo3;
 
     public TextMeshProUGUI hoboDamage, hoboFireRate, hoboHealth, hoboTraits;
     public GameObject towerStats = null;
@@ -51,7 +53,7 @@ public class TowerManager : MonoBehaviour
             GManager.gManagerInstance.money -= 5;
             //hobo.GetComponent<BumClass>().BumInit(1); //LEVEL 1 HOBO
             //GameObject newHobo = Instantiate(hobo, spawnPlaceholder.transform.position, Quaternion.identity);'
-            GameObject newHobo = Instantiate(hobo, towerPlaceHolder.transform.position, Quaternion.identity);
+            GameObject newHobo = Instantiate(hobo_01, towerPlaceHolder.transform.position, Quaternion.identity);
             newHobo.gameObject.GetComponent<TowerShooting>().enabled = false;
             spawnedTowerCount++;
             spawnedTowers.Add(newHobo);
@@ -64,7 +66,7 @@ public class TowerManager : MonoBehaviour
             if (PlayerHasMoney(level))
             {
                 GManager.gManagerInstance.money -= currentTowerCost;
-                GameObject newHobo = Instantiate(hobo, new Vector3(0, 0, 0), Quaternion.identity);
+                GameObject newHobo = Instantiate(hobo_01, new Vector3(0, 0, 50), Quaternion.identity);
                 newHobo.GetComponent<TowerShooting>().enabled = false;
                 newHobo.GetComponent<BumClass>().BumInit(level);
                 newHobo.GetComponent<BumClass>().towerLevel = level;
@@ -173,12 +175,15 @@ public class TowerManager : MonoBehaviour
         {
             case 1:
             lvl1price += 2;
+                hobo1.text = lvl1price + "$" + "\nHOBO";
             break;
             case 2:
             lvl2price += 2;
+                hobo2.text = lvl2price + "$" + "\nHOBO";
             break;
             case 3:
             lvl3price += 2;
+                hobo3.text = lvl3price + "$" + "\nHOBO";
             break;
         }
     }
@@ -188,13 +193,16 @@ public class TowerManager : MonoBehaviour
         {
             case 1:
             lvl1price -= 2;
-            break;
+                hobo1.text = lvl1price + "$" + "\nHOBO";
+                break;
             case 2:
             lvl2price -= 2;
-            break;
+                hobo2.text = lvl2price + "$" + "\nHOBO";
+                break;
             case 3:
             lvl3price -= 2;
-            break;
+                hobo3.text = lvl3price + "$" + "\nHOBO";
+                break;
         }
     }
 }

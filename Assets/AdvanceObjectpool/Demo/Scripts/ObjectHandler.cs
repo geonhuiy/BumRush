@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ObjectHandler : MonoBehaviour
 {
+    public GameObject rs = null;
+
     float objectNumber = 1;
     Vector3 pos = new Vector3(0, 1, 10);
     DictionaryObjectPool _objectpool;
@@ -15,12 +18,16 @@ public class ObjectHandler : MonoBehaviour
     public float objectPoolSize = 100f;
     public int waveSize = 2;
     public float waveTimer = 6f;
-    public Text waveCountdown;
+    public TextMeshProUGUI waveCountdown;
+    
     void Start()
     {
         // CREATE THE RAT POOL
         _objectpool = new DictionaryObjectPool();
         _objectpool.AddObjectPool("rats", gos[0], this.transform, (int)objectPoolSize);
+
+
+        
 
 
         // START BY GIVING THE PLAYER X AMOUNT OF TIME BEFORE THE FIRST WAVE
@@ -39,7 +46,7 @@ public class ObjectHandler : MonoBehaviour
     {
         for (int i = 0; i < numbertospawn; i++)
         {
-            _objectpool["rats"].Spawn(pos);
+            _objectpool["rats"].Spawn(pos, Quaternion.Euler(0,180,0));
         }
         //waveStarted = true;
         numbertospawn += 2;
@@ -56,7 +63,9 @@ public class ObjectHandler : MonoBehaviour
             waveTimer = 10f;
         }
         waveTimer -= Time.deltaTime;
+        int x = (int)waveTimer;
         
-        waveCountdown.text = "" + (int)waveTimer;
+        //waveCountdown.text = "" + (int)waveTimer;
+        waveCountdown.SetText(x.ToString());
     }
 }
