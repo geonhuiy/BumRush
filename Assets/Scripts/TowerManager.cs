@@ -66,15 +66,45 @@ public class TowerManager : MonoBehaviour
             if (PlayerHasMoney(level))
             {
                 GManager.gManagerInstance.money -= currentTowerCost;
-                GameObject newHobo = Instantiate(hobo_01, new Vector3(0, 0, 50), Quaternion.identity);
-                newHobo.GetComponent<TowerShooting>().enabled = false;
-                newHobo.GetComponent<BumClass>().BumInit(level);
-                newHobo.GetComponent<BumClass>().towerLevel = level;
-                currentSelectedTower = newHobo;
-                towerStats.SetActive(true);
-                SetHoboStats(currentSelectedTower.GetComponent<BumClass>());
-                spawnedTowerCount++;
-                spawnedTowers.Add(newHobo);
+                GameObject newHobo;
+                if (level == 1)
+                {
+                    newHobo = Instantiate(hobo_01, new Vector3(0, 0, 50), Quaternion.identity);
+                    newHobo.GetComponent<TowerShooting>().enabled = false;
+                    newHobo.GetComponent<BumClass>().BumInit(level);
+                    newHobo.GetComponent<BumClass>().towerLevel = level;
+                    currentSelectedTower = newHobo;
+                    towerStats.SetActive(true);
+                    SetHoboStats(currentSelectedTower.GetComponent<BumClass>());
+                    spawnedTowerCount++;
+                    spawnedTowers.Add(newHobo);
+                }
+                if (level == 2)
+                {
+                    newHobo = Instantiate(hobo_02, new Vector3(0, 0, 50), Quaternion.identity);
+                    newHobo.GetComponent<TowerShooting>().enabled = false;
+                    newHobo.GetComponent<BumClass>().BumInit(level);
+                    newHobo.GetComponent<BumClass>().towerLevel = level;
+                    currentSelectedTower = newHobo;
+                    towerStats.SetActive(true);
+                    SetHoboStats(currentSelectedTower.GetComponent<BumClass>());
+                    spawnedTowerCount++;
+                    spawnedTowers.Add(newHobo);
+                }
+                if (level == 3)
+                {
+                    newHobo = Instantiate(hobo_03, new Vector3(0, 0, 50), Quaternion.identity);
+                    newHobo.GetComponent<TowerShooting>().enabled = false;
+                    newHobo.GetComponent<BumClass>().BumInit(level);
+                    newHobo.GetComponent<BumClass>().towerLevel = level;
+                    currentSelectedTower = newHobo;
+                    towerStats.SetActive(true);
+                    SetHoboStats(currentSelectedTower.GetComponent<BumClass>());
+                    spawnedTowerCount++;
+                    spawnedTowers.Add(newHobo);
+                }
+
+
             }
         }
     }
