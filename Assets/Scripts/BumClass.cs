@@ -14,7 +14,7 @@ public class BumClass : MonoBehaviour
     public float damage = 5;
     Color defaultColor;
     //WILDCARDS VARIABLES
-    public float bum_aoe_radius = 2;
+    public float bum_aoe_radius;
     public bool bum_aoe_on = false;
     public bool hostile_on = false;
     public bool starving_on = false;
@@ -24,7 +24,9 @@ public class BumClass : MonoBehaviour
     public int towerLevel;
     private void Awake()
     {
+        bum_aoe_radius = 3f;
         //defaultColor = gameObject.GetComponent<Renderer>().material.color;
+
     }
 
     public void BumInit(int level)
