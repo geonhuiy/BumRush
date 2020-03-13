@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int tentHealth = 100;
-    public Text healthText;
+    public TextMeshProUGUI healthText;
     PoolObject pool;
 
     private void OnTriggerEnter(Collider other)
@@ -19,9 +20,9 @@ public class PlayerHealth : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {    
+    {
         //Debug.Log(tentHealth);
-        healthText.text = tentHealth.ToString();
+        healthText.SetText(tentHealth.ToString());
 
 
 

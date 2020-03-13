@@ -14,6 +14,8 @@ public class TowerManager : MonoBehaviour
     public GameObject hobo_01, hobo_02, hobo_03, towerPlaceHolder;
     private int currentTowerCost;
 
+    public TextMeshProUGUI hobo1, hobo2, hobo3;
+
     public TextMeshProUGUI hoboDamage, hoboFireRate, hoboHealth, hoboTraits;
     public GameObject towerStats = null;
     public GameObject currentSelectedTower = null;
@@ -64,7 +66,7 @@ public class TowerManager : MonoBehaviour
             if (PlayerHasMoney(level))
             {
                 GManager.gManagerInstance.money -= currentTowerCost;
-                GameObject newHobo = Instantiate(hobo_01, new Vector3(0, 0, 0), Quaternion.identity);
+                GameObject newHobo = Instantiate(hobo_01, new Vector3(0, 0, 50), Quaternion.identity);
                 newHobo.GetComponent<TowerShooting>().enabled = false;
                 newHobo.GetComponent<BumClass>().BumInit(level);
                 newHobo.GetComponent<BumClass>().towerLevel = level;
@@ -173,12 +175,15 @@ public class TowerManager : MonoBehaviour
         {
             case 1:
             lvl1price += 2;
+                hobo1.text = lvl1price + "$" + "\nHOBO";
             break;
             case 2:
             lvl2price += 2;
+                hobo2.text = lvl2price + "$" + "\nHOBO";
             break;
             case 3:
             lvl3price += 2;
+                hobo3.text = lvl3price + "$" + "\nHOBO";
             break;
         }
     }
@@ -188,13 +193,16 @@ public class TowerManager : MonoBehaviour
         {
             case 1:
             lvl1price -= 2;
-            break;
+                hobo1.text = lvl1price + "$" + "\nHOBO";
+                break;
             case 2:
             lvl2price -= 2;
-            break;
+                hobo2.text = lvl2price + "$" + "\nHOBO";
+                break;
             case 3:
             lvl3price -= 2;
-            break;
+                hobo3.text = lvl3price + "$" + "\nHOBO";
+                break;
         }
     }
 }
