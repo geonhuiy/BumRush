@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (tentHealth <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene("GameOverScene");
         }
         
     }
