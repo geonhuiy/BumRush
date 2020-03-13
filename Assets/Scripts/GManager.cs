@@ -21,7 +21,7 @@ public class GManager : MonoBehaviour
     }
     private void Start()
     {
-        money = 10;
+        money = 20;
     }
     private void Update()
     {

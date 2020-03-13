@@ -173,7 +173,8 @@ public class TowerManager : MonoBehaviour
         }
         else if (hoboStats.hostile_on)
         {
-            hoboStats.gameObject.GetComponent<Renderer>().material.color = Color.red;
+            //hoboStats.gameObject.GetComponent<Renderer>().material.color = Color.red;
+            hoboStats.gameObject.transform.Find("Beard").GetComponent<Renderer>().material.color = Color.red;
             hoboTraits.SetText("Hostile");
         }
         else

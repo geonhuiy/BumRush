@@ -24,7 +24,7 @@ public class BumClass : MonoBehaviour
     public int towerLevel;
     private void Awake()
     {
-        defaultColor = gameObject.GetComponent<Renderer>().material.color;
+        //defaultColor = gameObject.GetComponent<Renderer>().material.color;
     }
 
     public void BumInit(int level)
