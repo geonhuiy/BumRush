@@ -206,16 +206,16 @@ public class TowerManager : MonoBehaviour
         {
             case 1:
             lvl1price += 2;
-                hobo1.text = lvl1price + "$" + "\nHOBO";
-            break;
+                hobo1.text = lvl1price + "$ HOBO";
+                break;
             case 2:
             lvl2price += 2;
-                hobo2.text = lvl2price + "$" + "\nHOBO";
-            break;
+                hobo2.text = lvl2price + "$ HOBO";
+                break;
             case 3:
             lvl3price += 2;
-                hobo3.text = lvl3price + "$" + "\nHOBO";
-            break;
+                hobo3.text = lvl3price + "$ HOBO";
+                break;
         }
     }
 
@@ -224,15 +224,15 @@ public class TowerManager : MonoBehaviour
         {
             case 1:
             lvl1price -= 2;
-                hobo1.text = lvl1price + "$" + "\nHOBO";
+                hobo1.text = lvl1price + "$ HOBO";
                 break;
             case 2:
             lvl2price -= 2;
-                hobo2.text = lvl2price + "$" + "\nHOBO";
+                hobo2.text = lvl2price + "$ HOBO";
                 break;
             case 3:
             lvl3price -= 2;
-                hobo3.text = lvl3price + "$" + "\nHOBO";
+                hobo3.text = lvl3price + "$ HOBO";
                 break;
         }
     }
