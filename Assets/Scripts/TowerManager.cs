@@ -233,6 +233,7 @@ public class TowerManager : MonoBehaviour
             case 3:
             lvl3price -= 10;
                 hobo3.text = lvl3price + "$ HOBO";
+                Debug.Log("change");
                 break;
         }
     }
