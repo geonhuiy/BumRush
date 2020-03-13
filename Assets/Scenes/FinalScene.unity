@@ -8705,6 +8705,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 8315729521047846422, guid: 8517c18ebb7a9784f82441d217250a2d,
+        type: 3}
+      propertyPath: m_Name
+      value: GroundCube (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315729521047846422, guid: 8517c18ebb7a9784f82441d217250a2d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8517c18ebb7a9784f82441d217250a2d, type: 3}
 --- !u!1001 &1294647130
@@ -8778,6 +8788,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_Name
+      value: PathCube (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
         type: 3}
@@ -15015,6 +15040,21 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_Name
+      value: PathCube (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 68453363530554717, guid: c1c19db84bbb63e4894077ba3cc5636d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c19db84bbb63e4894077ba3cc5636d, type: 3}
 --- !u!1 &1606588754
@@ -15239,6 +15279,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315729521047846422, guid: 8517c18ebb7a9784f82441d217250a2d,
+        type: 3}
+      propertyPath: m_Name
+      value: GroundCube (72)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315729521047846422, guid: 8517c18ebb7a9784f82441d217250a2d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8315729521047846422, guid: 8517c18ebb7a9784f82441d217250a2d,
         type: 3}
@@ -16720,6 +16770,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315729521047846422, guid: 8517c18ebb7a9784f82441d217250a2d,
+        type: 3}
+      propertyPath: m_Name
+      value: GroundCube (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315729521047846422, guid: 8517c18ebb7a9784f82441d217250a2d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8315729521047846422, guid: 8517c18ebb7a9784f82441d217250a2d,
         type: 3}
