@@ -128,7 +128,6 @@ public class TowerShooting : MonoBehaviour
         //targetRat.transform.parent = transform;
         targetRat.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
         targetRat.GetComponent<RatClass>().grabbed = true;
-        targetRat.gameObject.tag = "Grabbed";
 
         eatCooldown -= Time.deltaTime;
         if (eatCooldown <= 0)
@@ -137,7 +136,6 @@ public class TowerShooting : MonoBehaviour
             if (targetRat.GetComponent<RatClass>().currentHealth <= 0)
             {
                 targetRat.GetComponent<RatClass>().grabbed = false;
-                targetRat.gameObject.tag = "Rat";
             }
             eatCooldown = eatRate;
         }
