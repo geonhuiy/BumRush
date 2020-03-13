@@ -209,11 +209,11 @@ public class TowerManager : MonoBehaviour
                 hobo1.text = lvl1price + "$ HOBO";
                 break;
             case 2:
-            lvl2price += 2;
+            lvl2price += 4;
                 hobo2.text = lvl2price + "$ HOBO";
                 break;
             case 3:
-            lvl3price += 2;
+            lvl3price += 10;
                 hobo3.text = lvl3price + "$ HOBO";
                 break;
         }
