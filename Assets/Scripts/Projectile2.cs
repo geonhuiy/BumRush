@@ -9,7 +9,7 @@ public class Projectile2 : MonoBehaviour
     [SerializeField]
     private float speed = 50;
     [SerializeField]
-    private float aoe_rad;
+    private float aoe_rad = 0.2f;
     private bool aoe_on = false;
 
     private void Start()
@@ -18,9 +18,10 @@ public class Projectile2 : MonoBehaviour
         targetRat = parentObj.GetComponent<TowerShooting>().targetRat;
         shotDamage = parentObj.GetComponent<BumClass>().damage;
         aoe_on = parentObj.GetComponent<BumClass>().bum_aoe_on;
-        if (aoe_on == true)
+        if (aoe_on)
         {
             aoe_rad = parentObj.GetComponent<BumClass>().bum_aoe_radius;
+           // Debug.Log("Got RADIUS: " + parentObj.GetComponent<BumClass>().bum_aoe_radius);
         }
         //shotDamage = 5f;
         StartCoroutine("DestroyProj");
@@ -73,6 +74,7 @@ public class Projectile2 : MonoBehaviour
         {
             if (col.gameObject.tag == "Rat" || col.gameObject.tag == "Hobo")
             {
+                Debug.Log("Radius: "+ rad);
                 col.SendMessage("applyDMG", shotDamage); //ASSIGN DAMAGE TO EACH RAT IN THE RADIUS
                 ++i;
             }
