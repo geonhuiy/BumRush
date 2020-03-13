@@ -32,7 +32,7 @@ public class Traits : MonoBehaviour
             Debug.Log("Positive stat given");
             if(lvl == 1)
             {
-                statMod = Random.Range(2, 5);
+                statMod = Random.Range(1, 5);
             }
             else if(lvl == 2)
             {
@@ -52,15 +52,15 @@ public class Traits : MonoBehaviour
             //GIVES NEGATIVE STAT MOD
             if(lvl == 1)
             {
-                statMod = -(Random.Range(2, 5));
+                statMod = -(Random.Range(1, 4));
             }
             else if(lvl == 2)
             {
-                statMod = -(Random.Range(4, 7));
+                statMod = -(Random.Range(4, 6));
             }
             else if(lvl == 3)
             {
-                statMod = -(Random.Range(6, 9));
+                statMod = -(Random.Range(6, 8));
             }
             good = tr;
         }

@@ -20,8 +20,8 @@ public class PoolObject : MonoBehaviour, ISpawnEvent
 
     public void DespawnPoolObject(GameObject rat)
     {
-        //rat.GetComponent<RatClass>().currentHealth = rat.GetComponent<RatClass>().maxHealth;
-        //rat.GetComponent<RatClass>().Healthbar.fillAmount = 1;
+        rat.GetComponent<RatClass>().currentHealth = rat.GetComponent<RatClass>().maxHealth;
+        rat.GetComponent<RatClass>().Healthbar.fillAmount = 1;
         pool.Despawn(rat);
     }
 

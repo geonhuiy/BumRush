@@ -14,7 +14,7 @@ public class BumClass : MonoBehaviour
     public float damage = 5;
     Color defaultColor;
     //WILDCARDS VARIABLES
-    public float bum_aoe_radius = 5;
+    public float bum_aoe_radius = 2;
     public bool bum_aoe_on = false;
     public bool hostile_on = false;
     public bool starving_on = false;
@@ -109,7 +109,8 @@ public class BumClass : MonoBehaviour
         if (wc_tr.AOE_wildcard)
         {
             bum_aoe_on = true;
-            fire_rate = 1.5f;
+            fire_rate = 2f;
+            damage = Mathf.Floor(damage/2);
         }
         else if (wc_tr.HOSTILE_wildcard)
         {
