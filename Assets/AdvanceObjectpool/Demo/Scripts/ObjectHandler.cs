@@ -19,6 +19,7 @@ public class ObjectHandler : MonoBehaviour
     public int waveSize = 2;
     public float waveTimer = 6f;
     public TextMeshProUGUI waveCountdown;
+    public int waveCount = 0;
     
     void Start()
     {
@@ -50,6 +51,8 @@ public class ObjectHandler : MonoBehaviour
         }
         //waveStarted = true;
         numbertospawn += 2;
+        waveCount++;
+        Debug.Log(waveCount);
     }
 
    
