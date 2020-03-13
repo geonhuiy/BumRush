@@ -59,7 +59,7 @@ public class TowerShooting : MonoBehaviour
         {
             if (targetRat != null)
             {
-                
+
                 towerRatDistance = Vector3.Distance(targetRat.transform.position, this.transform.position);
                 if (IsInRange(towerRatDistance, eating_range))
                 {
@@ -72,7 +72,7 @@ public class TowerShooting : MonoBehaviour
         }
 
         //ATTACKING RATS
-        if (targetRat != null && !starving && !targetRat.GetComponent<RatClass>().grabbed)
+        if (targetRat != null && !starving)
         {
 
             towerRatDistance = Vector3.Distance(targetRat.transform.position, this.transform.position);
@@ -125,11 +125,10 @@ public class TowerShooting : MonoBehaviour
     //FUNCTION FOR "GRABBING" RAT AND EATING IT
     void eatRat()
     {
-
-
-        targetRat.transform.parent = transform;
+        //targetRat.transform.parent = transform;
         targetRat.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
         targetRat.GetComponent<RatClass>().grabbed = true;
+        targetRat.gameObject.tag = "Grabbed";
 
         eatCooldown -= Time.deltaTime;
         if (eatCooldown <= 0)
@@ -138,6 +137,7 @@ public class TowerShooting : MonoBehaviour
             if (targetRat.GetComponent<RatClass>().currentHealth <= 0)
             {
                 targetRat.GetComponent<RatClass>().grabbed = false;
+                targetRat.gameObject.tag = "Rat";
             }
             eatCooldown = eatRate;
         }
@@ -173,7 +173,6 @@ public class TowerShooting : MonoBehaviour
         Vector3 currentPos = transform.position;
         foreach (GameObject potentialTarget in enemies)
         {
-
             Vector3 directionToTarget = potentialTarget.gameObject.transform.position - currentPos;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
             if (dSqrToTarget < closestDistSqr)
@@ -181,8 +180,6 @@ public class TowerShooting : MonoBehaviour
                 closestDistSqr = dSqrToTarget;
                 bestTarget = potentialTarget;
             }
-
-
         }
         return bestTarget;
     }

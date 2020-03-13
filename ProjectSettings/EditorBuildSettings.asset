@@ -9,12 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 42026bd8a03614934a369de51fa43ae7
   - enabled: 1
-    path: Assets/Scenes/Balancing.unity
-    guid: 1477536c4b21e7a4495bcaf434f45bfc
+    path: Assets/Scenes/FinalScene.unity
+    guid: de60c87c756fdb847b41245c7893d28b
   - enabled: 1
     path: Assets/Scenes/GameOverScene.unity
     guid: f0f3caff549501f4ab44fe390af949ec
-  - enabled: 1
-    path: Assets/Scenes/FinalScene.unity
-    guid: de60c87c756fdb847b41245c7893d28b
   m_configObjects: {}
