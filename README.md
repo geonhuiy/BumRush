@@ -9,7 +9,6 @@ This project was designed and developed by students of [Metropolia](https://metr
  * [Getting Started](#getting-started)
    * [Prerequisites](#prerequisites)
    * [Installing](#installing)  
- * [Deployment](#deployment)  
  * [Game Features](#game-features)
  * [Licensing](#licensing)  
  
@@ -25,9 +24,6 @@ This project was designed and developed by students of [Metropolia](https://metr
  ### Installing  
  Clone the repository with `git clone https://github.com/geonhuiy/BumRush.git`.  
  Open/add the project with Unity Hub and set the project to use the correct Unity version.  
- 
- ## Deployment
- This game was designed for both PC and Android mobile devices. 
  ## Game Features  
  Placeholder  
  ## Licensing  
