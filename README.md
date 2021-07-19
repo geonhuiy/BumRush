@@ -11,7 +11,6 @@ This project was designed and developed by students of [Metropolia](https://metr
  * [Getting Started](#getting-started)
    * [Prerequisites](#prerequisites)
    * [Installing](#installing)  
- * [Game Features](#game-features)
  * [Licensing](#licensing)  
  
  ## Getting Started  
@@ -26,7 +25,6 @@ This project was designed and developed by students of [Metropolia](https://metr
  ### Installing  
  Clone the repository with `git clone https://github.com/geonhuiy/BumRush.git`.  
  Open/add the project with Unity Hub and set the project to use the correct Unity version.  
- ## Game Features  
- Placeholder  
+ 
  ## Licensing  
- Placeholder
+ This project is licensed under the MIT license - see [LICENSE.md](LICENSE.md) for more details.
